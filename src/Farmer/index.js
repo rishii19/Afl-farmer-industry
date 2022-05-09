@@ -1,0 +1,12 @@
+export {default as BuyMachines} from './BuyMachines';
+export {default as Dashboard} from './Dashboard';
+export{default as Footer } from './Footer';
+export {default as Forms} from './Forms';
+export {default as Login} from './Login';
+export {default as MachineDetails} from './MachineDetails';
+export{default as Navbar} from './Navbar';
+export {default as Profile} from './Profile';
+export { default as SellResidue} from './SellResidue';
+export { default as SideNavBar} from './SideNavBar';
+export {default as SignUp} from './SignUp';
+export{ default as Homepage} from './Homepage';

@@ -1,0 +1,11 @@
+.info{
+    margin-left: 40px;
+}
+.info > .title{
+    font-family: Bebas Neue;
+    font-size: 64.715px;
+    line-height: 78px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #000000;
+}

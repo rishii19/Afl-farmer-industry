@@ -1,0 +1,49 @@
+/* 
+.navbar{
+    background: black;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 3rem;
+}
+.navbar li{
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.navbar li a{
+    color: rgb(24, 27, 27);
+    text-decoration: none;
+    padding: 7px 7px;
+    font-size: 16px;
+    font-family: ABeeZee;
+    line-height: 39px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #fffefe;
+}
+.navbar li a:hover, .navbar li a.active{
+    text-decoration: underline;
+    color:#965909;
+} */
+
+
+.navbar-brand{
+    font-weight: bolder;
+    margin-left: 2rem;
+    /* font-family: monospace; */
+    /* font-size: 50px; */
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+ }
+ .navbar-dark .navbar-nav .nav-item{
+    margin: 0 15px;
+ }
+
+ #logo{
+     height: 1.5rem;
+ }

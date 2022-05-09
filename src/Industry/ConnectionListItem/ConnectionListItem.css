@@ -1,0 +1,50 @@
+.itemHolder {
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+  }
+  
+  .itemHolder:hover {
+    background: #c4c7d7;
+  }
+  
+  .itemHolder > img {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .itemHolder > div > span {
+    font-family: "Rubik";
+    font-style: normal;
+    text-align: end;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.25px;
+    color: #0a1033;
+  }
+  
+  .itemHolder > div > p {
+    margin-top: 4px;
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.4px;
+    color: #4f4f4f;
+    white-space: nowrap;
+  }
+  
+  .nameStatus {
+    margin-left: 24px;
+    flex: 2;
+  }
+  
+  .locationTime {
+    margin-left: 24px;
+    flex: 0.2;
+  }
+  

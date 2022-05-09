@@ -1,0 +1,89 @@
+.carousel .slick-arrow.slick-prev,
+.carousel .slick-arrow.slick-next {
+  background: #fcfcfc;
+  width: 47px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  box-shadow: 1px 2px 10px -1px rgb(0 0 0 / 30%);
+}
+.carousel .slick-prev {
+  left: 0;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.carousel .slick-next {
+  right: 0;
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+}
+.slick-prev::before,
+.slick-next::before {
+  display: none;
+}
+
+.custom-indicator {
+  bottom: -65px;
+}
+.custom-indicator li {
+  width: 50px;
+  height: 50px;
+  filter: grayscale(100%);
+}
+.custom-indicator li.slick-active {
+  filter: grayscale(0%);
+}
+.multi__image:hover {
+  transform: scale(1.1);
+  transition: 500ms;
+}
+.carousel1>h1{
+  /* margin-top: 10px;
+  margin-left: 20px;
+  font-family: Bebas Neue;
+  font-size: 64.715px;
+  line-height: 78px;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: #000000; */
+
+  margin-top: 50px;
+  margin-left: 20px;
+  font-family: Bebas Neue;
+  font-size: 64.715px;
+  line-height: 78px;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: #000000;
+}
+.carousel1>p{
+  margin-left: 20px;
+  font-family: 'Be Vietnam';
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: #686363;
+}
+
+button {
+  outline: none;
+  border: none;
+  color: #01050f;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #1d20f1;
+  font-size: 8px;
+  font-weight: 500;
+  padding: 7px 14px;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+button:hover {
+  background: #1e4de9;
+  color: white;
+  cursor: pointer;
+}
