@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
+import SideBar from './SideBar';
 
 const Machine = () => {
 
-    const {id} = useParams();
+    const { id } = useParams();
     const [machines, setMachines] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -20,47 +21,50 @@ const Machine = () => {
     }, []);
 
     const Loading = () => {
-        return(
+        return (
+
             <>
                 <div className="col-md-6">
-                    <Skeleton height={400}/>
+                    <Skeleton height={400} />
                 </div>
-                <div className="col-md-6" style={{lineHeight:2}}>
+                <div className="col-md-6" style={{ lineHeight: 2 }}>
                     <Skeleton height={50} width={300} />
                     <Skeleton height={75} />
                     <Skeleton height={25} width={150} />
                     <Skeleton height={50} />
                     <Skeleton height={150} />
                     <Skeleton height={50} width={100} />
-                    <Skeleton height={50} width={100} style={{marginLeft:6}} />
+                    <Skeleton height={50} width={100} style={{ marginLeft: 6 }} />
                 </div>
+
             </>
+
         )
     }
     const ShowProduct = () => {
-        return(
+        return (
             <>
-                <div className="col-md-6">
-                    <img src={machines.image} alt={machines.title} height="400px" width="400px" />
-                </div>
-                <div className="col-md-6">
-                    <h4 className="text-uppercase text-black-50">
+                {/* <div className="col-md-6">
+                    <img src={machines.image} alt={machines.title} className="img-fluid" />
+                </div> */}
+                <div className="col-md-12">
+                    <h1 className="display-5 font-bold mb-2">{machines.name}</h1>
+                    <h5 className="text-uppercase text-black-50">
                         {machines.fetures}
-                    </h4>
-                    <h1 className="display-5">{machines.name}</h1>
-                    <p className="lead fw-bolder">
-                        Rating {machines.details && machines.details.weight} 
+                    </h5>
+                    <p className="lead fw-bold">
+                        Weight : {machines.details && machines.details.weight} mm
                         <i className="fa fa-star"></i>
                     </p>
-                    <p className="lead fw-bolder">
-                        Rating {machines.details && machines.details.length} 
+                    <p className="lead fw-bold">
+                        Length :{machines.details && machines.details.lenght}kg
                         <i className="fa fa-star"></i>
                     </p>
                     <h3 className="display-6 fw-bold my-4">
-                        {machines.price}₹
+                       Price : {machines.price}₹
                     </h3>
                     <h3 className="display-6 fw-bold my-4">
-                        {machines.discount}%
+                       Discount : {machines.discount}%
                     </h3>
                     <p className="card-text">Warrennty:{machines.warrenty}</p>
                     <p className="card-text">Guarantee:{machines.guarantee}</p>
@@ -78,9 +82,15 @@ const Machine = () => {
 
     return (
         <div>
-            <div className="container py-5">
-                <div className="row py-4">
-                    {loading ? <Loading/> : <ShowProduct/>}
+            <div className="container py-5 bg-secondary bg-opacity-10">
+                <div className="row py-4 justify-content-evenly" >
+                    <div className="col-md-3">
+                        <SideBar />
+                    </div>
+                    <div className="col-md-9">
+                        {loading ? <Loading /> : <ShowProduct />}
+                    </div>
+
                 </div>
             </div>
         </div>

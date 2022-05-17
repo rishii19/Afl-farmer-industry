@@ -1,5 +1,6 @@
 import React, {useRef, useCallback, useState } from "react";
 import "./RequestPage.css";
+import SideBar from '../SideBar';
 import RequestListItem from "../RequestListItem/RequestListItem";
 import RequestListHeader from "../RequestListHeader/RequestListHeader";
 import {acceptedItemListArr, pendingItemListArr} from './RequestPageData';
@@ -26,7 +27,9 @@ function RequestPage() {
   const [List , setList] = useState('Pending')
 
   return (
+   
     <div className="homepage">
+       <SideBar/>
       <div className="main_layout">
 
         <div className="blocks">

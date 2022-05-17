@@ -1,5 +1,6 @@
 import React, { useRef, useCallback } from "react";
 import "./Connection.css";
+ import SideBar from '../SideBar';
 import ConnectionListItem from "../ConnectionListItem/ConnectionListItem";
 import ConnectionHeader from "../ConnectionHeader/ConnectionHeader";
 
@@ -22,8 +23,8 @@ function Connection() {
 
   return (
     <div className="homepage">
-      {/*<SideBar />
-  <TopBar /> */}
+      <SideBar />
+  {/* <TopBar /> */}
       <div className="main_layout">
         <div className="table">
           <div className="table_header">

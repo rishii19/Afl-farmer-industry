@@ -1,4 +1,5 @@
 import React from 'react'
+import AFL from '../Industry/Images/AFL.svg'
 import { makeStyles } from '@material-ui/core'
 import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
@@ -17,7 +18,6 @@ import Avatar from '@material-ui/core/Avatar'
 import { Nav, NavDropdown } from 'react-bootstrap'
 
 
-
 const drawerWidth = 250
 
 const useStyles = makeStyles((theme) => {
@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => {
         },
         drawer: {
             width: drawerWidth,
+            background: '#2458AC'
         },
         drawerPaper: {
             width: drawerWidth,
@@ -40,21 +41,31 @@ const useStyles = makeStyles((theme) => {
             background: '#f4f4f4'
         },
         title: {
-            marginLeft: theme.spacing(12),
+            marginLeft:20
 
         },
         bottom: {
-            marginLeft: theme.spacing(7)
+            marginLeft:20
 
         },
         appBar: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
-            background: '#f4f4f4'
+            background: '#f4f4f4',
+            height: 60
         },
-        date: {
-            flexGrow: 1,
+        logo: {
+            width: 70,
+            height: 70
 
+        },
+        navtop: {
+            flexGrow: 1,
+        },
+        user: {
+            font: 20,
+            color: 'black',
+            padding: 10
         },
 
         toolbar: theme.mixins.toolbar,
@@ -75,8 +86,8 @@ export default function Layout({ children }) {
     const navigate = useNavigate()
     const location = useLocation()
     const history = useNavigate();
-    // const state = useSelector((state) => state.handleCart)
-    const user = JSON.parse(localStorage.getItem('user_info'));
+    // const state = useSelector((state) => state.handleCart
+    const user = JSON.parse(localStorage.getItem('user'));
     console.warn(user);
     function logout() {
         localStorage.clear();
@@ -92,22 +103,22 @@ export default function Layout({ children }) {
         {
             text: 'Machine List',
             icon: <CalendarTodayIcon color="primary" />,
-            path: '/homepagei/machinelist'
+            path: '/machinelist'
         },
         {
             text: 'Add Machine',
             icon: <AddCircleOutlineOutlined color="primary" />,
-            path: '/homepagei/addmachine'
+            path: '/addmachine'
         },
         {
             text: 'Connections',
             icon: <AddCircleOutlineOutlined color="primary" />,
-            path: '/homepagei/connections'
+            path: '/connections'
         },
         {
             text: 'Requests',
             icon: <AddCircleOutlineOutlined color="primary" />,
-            path: '/homepagei/request'
+            path: '/request'
         },
 
         {
@@ -120,35 +131,27 @@ export default function Layout({ children }) {
     return (
         <div className={classes.root}>
             {/* app bar */}
-            {/* <AppBar
+            <AppBar
                 position="fixed"
                 className={classes.appBar}
                 elevation={0}
 
             >
                 <Toolbar>
-                    <Typography className={classes.date}
-                        color='primary'
-                        variant='h5'
-                        align='center'>
-                        AFL
+                    <Typography className={classes.navtop}  >
+                        <img className={classes.logo} src={AFL} alt="logo" />
                     </Typography>
-                    <a href='#'
-                    color='primary'
-                    variant='h6'
-                     onClick={logout}>Logout</a>
-                    { localStorage.getItem('user-info') ?
-                    <Nav>
-                        <NavDropdown title={user && user.name}>
-                            <NavDropdown.Item onClick={logout} >Logout</NavDropdown.Item>
-                            <NavDropdown.Item>Profile</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav> 
-                    :null
-                    } 
-                
+                    {localStorage.getItem('user') ?
+                        <Nav>
+                            <NavDropdown className={classes.user} title={user && user.name}>
+                                <NavDropdown.Item onClick={logout} >Logout</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                        : null
+                    }
+
                 </Toolbar>
-            </AppBar > */}
+            </AppBar >
 
             {/* side drawer */}
             < Drawer
@@ -159,14 +162,9 @@ export default function Layout({ children }) {
                 anchor="left"
 
             >
-                <div>
-                    {/* <Typography variant="h5" className={classes.title}>
-            AFL
-          </Typography> */}
-                </div>
                 <Avatar className={classes.avatar} align="center" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                <Typography variant='h6' className={classes.title}>Mario</Typography>
-                <Typography variant="subtitle1" className={classes.bottom} >mario@gmail.com</Typography>
+                <Typography variant='h6' className={classes.title}>{user.name}</Typography>
+                <Typography variant="subtitle1" className={classes.bottom} >{user.email}</Typography>
                 <br></br>
                 {/* links/list section */}
                 <List>
@@ -184,12 +182,6 @@ export default function Layout({ children }) {
                 </List>
 
             </Drawer >
-
-            {/* main content */}
-            {/* <div className={classes.page}>
-        <div className={classes.toolbar}></div>
-        { children }
-      </div> */}
             <Outlet />
         </div >
 

@@ -38,7 +38,7 @@ export default function SignUp() {
         result = await result.json();
         console.warn("result", result)
         localStorage.setItem("user_info", JSON.stringify(result));
-        history("/hoepagei")
+        history("/homepagei")
     }
     return (
 
