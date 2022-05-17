@@ -1,16 +1,10 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './NavBar.css';
 import AFL from './images/AFL.svg';
 
 const NavBar1 = () => {
-    const history = useNavigate();
-    const USER = JSON.parse(localStorage.getItem('user'));
-
-    // function logout() {
-    //     localStorage.clear();
-    //     history('/')
-    // }
+     
 
     return (
         <div>
@@ -29,18 +23,8 @@ const NavBar1 = () => {
                                     Home
                                 </NavLink>
                             </li>
-                            {/* <li className="nav-item">
-                                            <NavLink className="nav-link" to="/product">
-                                                Products
-                                            </NavLink>
-                                        </li>
-                                        <li className="nav-item">
-                                            <NavLink className="nav-link" to="/aboutus">
-                                                About
-                                            </NavLink>
-                                        </li> */}
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/farmer">
+                                <NavLink className="nav-link" to="/loginfarmer">
                                     Farmer
                                 </NavLink>
                             </li>
@@ -55,17 +39,6 @@ const NavBar1 = () => {
                                     Contact us
                                 </NavLink>
                             </li>
-                            {/* <ul className="navbar-nav">
-                                            <li className="nav-item dropdown">
-                                                <a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    CHANGE PROFILE
-                                                </a>
-                                                <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                                    <li><NavLink to="/farmer" className="dropdown-item">Farmer </NavLink></li>
-                                                    <li><NavLink to="/industry" className="dropdown-item">Industry</NavLink></li>
-                                                </ul>
-                                            </li>
-                                        </ul> */}
                         </ul>
                     </div>
                 </div>
