@@ -1,0 +1,496 @@
+.sellResidueWrapper{
+    position: relative;
+
+    .BackBox{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+
+/* cart */
+$navpad: 10px 20px;
+$pad: 40px 70px;
+$padsm: 3%;
+
+$colY: #20ae4c;
+$colO: rgba(255, 102, 0, 1);
+$colG: rgb(99, 99, 99);
+$colB: rgba(51, 51, 51, 1);
+$colP: rgba(255, 237, 237, 1);
+$bgG: rgba(237, 237, 237, 1);
+
+@mixin BtnYellow {
+  background-color: $colY;
+  border: none;
+  padding: 10px 30px;
+  font-size: 20px;
+  border-radius: 11px;
+  color: white;
+  cursor: pointer;
+}
+@mixin smBtn {
+  background-color: $colY;
+  border: none;
+  padding: 10px 15px;
+  font-size: 12px;
+  border-radius: 11px;
+  color: white;
+  cursor: pointer;
+}
+
+.cart1 {
+  display: flex;
+
+  .block1 {
+    width: 60%;
+    padding-left: 70px;
+    padding-top: 100px;
+
+    & .shoppinghead {
+      border-bottom: 2px solid rgba(0, 0, 0, 0.356);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0px;
+      margin-right: 50px;
+      h1 {
+        font-weight: 500;
+      }
+    }
+
+    .productCartDetails {
+      padding: 45px 0px;
+
+      & .listnameblock {
+        color: $colG;
+        height: 60px;
+        text-align: left;
+      }
+
+      & .pDetails {
+        height: 100px;
+        .pimage {
+          display: flex;
+
+          img {
+            height: 70px;
+            width: 60px;
+            background-color: $bgG;
+            margin-right: 10px;
+          }
+
+          .itemDetails {
+            .pname {
+              font-size: 20px;
+              font-weight: 500;
+              margin: 0%;
+            }
+            .pbrand {
+              color: $colY;
+              margin: 0%;
+
+            }
+
+            .remove {
+              color: $colG;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .col1 {
+      width: 450px;
+    }
+
+    .col2,
+    .col3,
+    .col4 {
+      width: 300px;
+      text-align: left;
+    }
+
+    .col2 {
+
+      .pQtyBox{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        button{
+          width: 20px;
+          height: 40px;
+          font-weight: bold;
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
+        }
+
+        .pQty{
+          margin: auto 0;
+          width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid $colG;
+        }
+      }
+      
+      // .pQtyBox {
+      //   display: flex;
+
+      //   button {
+      //     background-color: transparent;
+      //     border: none;
+      //     font-size: 25px;
+      //     margin: 0px 15px;
+      //     cursor: pointer;
+      //     text-align: center;
+      //   }
+
+      //   .pQty {
+      //     color: $colG;
+      //     border: 1px solid $colG;
+      //     padding: 2px 15px;
+      //   }
+      // }
+    }
+  }
+
+  .block2 {
+    width: 40%;
+    padding-right: 70px;
+    padding-top: 100px;
+    background-color: $bgG;
+    padding-left: 45px !important;
+
+
+    & .shoppinghead {
+      border-bottom: 2px solid rgba(0, 0, 0, 0.356);
+      padding: 18px 0px;
+      // margin-left: 50px;
+      h1 {
+        font-weight: 500;
+      }
+    }
+
+    .checkoutTable {
+      // background-color: red;
+
+      .row1 {
+        height: 60px;
+        font-weight: 500;
+        td {
+          width: 300px;
+        }
+      }
+
+      .row2 {
+        height: 50px;
+        font-weight: 500;
+      }
+    }
+
+    .boderTB {
+      // margin: 0px 45px;
+      border-top: 1px solid $colG;
+      border-bottom: 1px solid $colG;
+    }
+    .checkoutTotalPrice {
+      padding: 45px 20px;
+      display: flex;
+      justify-content: space-between;
+      
+      span {
+        font-weight: 500;
+        font-size: 20px;
+      }
+    }
+
+    .promoBlock {
+      padding: 45px 0px;
+
+      input {
+        height: 40px;
+        width: 80%;
+        padding-left: 20px;
+        background-color: transparent;
+        border: 1px solid $colG;
+        border-right: none;
+        outline: none;
+      }
+      .apply {
+        height: 40px;
+        width: 20%;
+        font-weight: bold;
+        background-color: transparent;
+        border: 1px solid $colG;
+        border-left: none;
+        outline: none;
+        color: $colY;
+        cursor: pointer;
+      }
+
+      .checkout{
+        width: 100%;
+        height: 40px;
+        font-weight: bold;
+        background-color: $colY;
+        border: none;
+        outline: none;
+        color: black;
+        letter-spacing: 2px;
+        cursor: pointer;
+        margin-top: 30px;
+
+      }
+    }
+
+    .checkoutpaymentBtn {
+      margin: 0%;
+      padding: 0px 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      img {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1330px) {
+  .cart1 {
+    display: flex;
+    flex-wrap: wrap !important;
+    .block1 {
+      width: 100%;
+    }
+    .block2 {
+      width: 100%;
+
+
+    }
+  }
+}
+@media (max-width: 850px) {
+  .cart1 {
+    .block1 {
+      width: 100%;
+      padding: $padsm;
+
+      & .shoppinghead {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.356);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0px;
+        margin-right: 0px;
+        h1 {
+          font-weight: 500;
+          font-size: 15px;
+        }
+      }
+
+      .productCartDetails {
+        padding: 45px 0px;
+
+        & .listnameblock {
+          color: $colG;
+          height: 60px;
+          text-align: left;
+          font-size: 10px;
+        }
+
+        & .pDetails {
+          height: 100px;
+          font-size: 10px;
+
+          .pimage {
+            display: flex;
+
+            img {
+              height: 60px;
+              width: 50px;
+              background-color: $bgG;
+              margin-right: 10px;
+            }
+
+            .itemDetails {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              .pname {
+                font-size: 10px;
+                font-weight: 500;
+              }
+              .pbrand {
+                color: $colY;
+              }
+
+              .remove {
+                color: $colG;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+
+      .col1 {
+        width: 130px;
+        padding: 20px 0px;
+      }
+
+      .col2,
+      .col3,
+      .col4 {
+        width: 50px !important;
+        text-align: left;
+        padding-left: 10px;
+      }
+
+      .col3{
+        width: 100px !important;
+        padding: 0%;
+      }
+
+      .col2 {
+        padding-left: 0%;
+        
+
+        .pQtyBox{
+          display: flex;
+          justify-content: start;
+          align-items: center;
+  
+          button{
+            width: 20px;
+            height: 40px;
+            font-weight: bold;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+          }
+  
+          .pQty{
+            margin: auto 0;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $colG;    
+          }
+        }
+
+
+        // .pQtyBox {
+        //   display: flex;
+
+        //   button {
+        //     background-color: transparent;
+        //     border: none;
+        //     font-size: 20px;
+        //     margin: 0px 5px;
+        //     cursor: pointer;
+        //   }
+
+        //   .pQty {
+        //     color: $colG;
+        //     border: 1px solid $colG;
+        //     padding: 5px 15px;
+        //   }
+        // }
+      }
+    }
+
+    .block2 {
+      padding: $padsm;
+      width: 100%;
+      background-color: $bgG;
+      padding-left: 10px !important;
+      margin: 0%;
+
+      & .shoppinghead {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.356);
+        padding: 18px 0px;
+        margin-left: 0px;
+        h1 {
+          font-weight: 500;
+        }
+      }
+
+      .checkoutTable {
+        padding: 25px;
+
+        .row1 {
+          height: 60px;
+          font-weight: 500;
+          td {
+            width: 300px;
+          }
+        }
+
+        .row2 {
+          height: 50px;
+          font-weight: 500;
+          font-size: 15px;
+        }
+      }
+
+      .boderTB {
+        margin: 0px 0px;
+        border-top: 1px solid $colG;
+        border-bottom: 1px solid $colG;
+      }
+      .checkoutTotalPrice {
+        padding: 25px 0px;
+        td {
+          font-weight: 500;
+          font-size: 15px;
+        }
+      }
+
+      .promoBlock {
+        padding: 25px 0px;
+
+        input {
+          height: 40px;
+          width: 80%;
+          padding-left: 20px;
+          background-color: transparent;
+          border: 1px solid $colG;
+          border-right: none;
+          outline: none;
+        }
+        button {
+          width: 20%;
+          height: 40px;
+          font-weight: bold;
+          background-color: transparent;
+          border: 1px solid $colG;
+          border-left: none;
+          outline: none;
+          color: $colY;
+          cursor: pointer;
+        }
+      }
+
+      .checkoutpaymentBtn {
+        padding: 0px 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+
+      }
+    }
+  }
+}
+

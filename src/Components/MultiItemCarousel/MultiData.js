@@ -11,7 +11,7 @@ import image10 from "./assets/image10.jpg";
 import image11 from "./assets/image11.jpg";
 import image12 from "./assets/image12.jpg";
 
-import machine1 from "./assets/machine1.jpeg"
+import machine1 from "./assets/machine1.jpg"
 import machine2 from "./assets/machine2.jpg";
 import machine3 from "./assets/machine3.jpg";
 import machine4 from "./assets/machine4.jpg";

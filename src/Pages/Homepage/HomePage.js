@@ -7,8 +7,6 @@ import Card1 from './Card1/Card1';
 import NavBar1 from '../../Components/NavBar/NavBar1';
 
 
-
-
 const HomePage = () => (
     <>
         <NavBar1 />
@@ -16,8 +14,7 @@ const HomePage = () => (
         <br></br>
         <MultiItemCarousel />
         <SpecialOffers />
-        <Card1 />
-        <br></br> <br></br> <br></br>
+        <Card1/>
         <Blogs />
         <Footer1 />
 
