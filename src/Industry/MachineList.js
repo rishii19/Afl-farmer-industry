@@ -41,13 +41,10 @@ const MachineList = () => {
     function handleClick(id) {
         history(`/machine/${id}`)
     }
-
-
     const ShowProducts = () => {
 
         return (
             <>
-
                 {/* <div className="buttons d-flex justify-content-center mb-5 pb-5">
                     <button className="btn btn-outline-dark me-2"  >All</button>
                     <button className="btn btn-outline-dark me-2"  >sell</button>

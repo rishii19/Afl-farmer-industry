@@ -11,8 +11,8 @@ import HomepageI from './Industry/HomepageI';
 import SideBar from './Industry/SideBar';
 import Residue from './Industry/Residue';
 
-import LoginFarmer from './Farmer/LoginFarmer'
-import SignUpFarmer from './Farmer/SignUpFarmer';
+import LoginFarmer from './Farmer/Login/LoginFarmer';
+import SignUpFarmer from './Farmer/SignUp/SignUpFarmer';
 import  HomepageFarmer from './Farmer/HomePageFarmer';
 import BuyMachines from './Farmer/BuyMachines'
 import ResidueDetails from './Farmer/ResidueDetails'
@@ -42,7 +42,7 @@ function App() {
         <Route path="addmachine" element={<AddMachine />} />
         <Route path="connections" element={<Connection />} />
         <Route path="request" element={<RequestPage />} />
-        <Route path="residue/:id" element={<Residue/>} />
+        <Route path="residues" element={<Residue/>} />
       
       {/* Farmer */} 
       <Route path="loginfarmer" element={<LoginFarmer />} />
@@ -53,7 +53,7 @@ function App() {
       <Route path="sellresidue" element={<SellResidue />} />
       {/* <Route path="changepassword" element={<ChangePassword />} /> */}
       <Route path="cart" element={<Cart />} />
-      <Route path="connections" element={<Connections />} />
+      <Route path="connection" element={<Connections/>} />
       <Route path="machine/:id" element={<MachineFarmer />} />
       <Route path="profile" element={<Profile />} />
       <Route path="rent" element={<Rent />} />

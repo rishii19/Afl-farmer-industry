@@ -30,13 +30,13 @@ const SpecialOffers = () => {
     return (
         <div style={{ margin: "10px" }} className="carousel">
             <h1 >Special Offers</h1>
-            <p  >Cars In Which Your Every Moment Will Be Memorable.Open Your Horizon With Our Manufactured Car.
+            {/* <p  >Cars In Which Your Every Moment Will Be Memorable.Open Your Horizon With Our Manufactured Car.
             </p>
             <p >We Deliver What We Promise. Wonderful Experience Provider Four-Wheelers.
-            </p>
+            </p> */}
             <div
                 className="BootstrapMulti"
-                style={{ display: "flex", justifyContent: "center", marginTop: 50 }}
+                style={{ display: "flex", justifyContent: "center", marginTop: 30 }}
             >
                 <div style={{ width: "90%" }}>
                     <Slider

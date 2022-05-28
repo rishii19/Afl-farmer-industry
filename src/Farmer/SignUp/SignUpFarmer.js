@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './SignUp.css';
+import './SignUpFarmer.css';
  
 import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,7 @@ export default function SignUp() {
 
     useEffect(() => {
         if (localStorage.getItem('user_info')) {
-            history('/')
+            history('/signupfarmer')
         }
     }, [])
 
@@ -38,17 +38,17 @@ export default function SignUp() {
         result = await result.json();
         console.warn("result", result)
         localStorage.setItem("user_info", JSON.stringify(result));
-        history("/homepagei")
+        history("/homepagefarmer")
     }
     return (
 
         <div className="container-fluid">
             <div className="row justify-content-around">
-                <div className="col-md-5 d-none d-md-block" id='img' >
+                <div className="col-md-5 d-none d-md-block " id='img' >
                     <div className="header_absolute">
-                        <div className='div1'>Already Have An Account</div>
-                        <Link to="/login">
-                            <button type="button"className="btn btn-outline-primary btn-lg">Login</button>
+                        <div className='div1'>Already Have An Account?</div>
+                        <Link to="/loginfarmer">
+                        <button  type="button"className="btn btn-outline-primary btn-lg">Login</button>
                         </Link>
                     </div>
                     <img src={LoginProto} alt="" id='img' className="img-fluid" />
@@ -95,7 +95,7 @@ export default function SignUp() {
                         </Button>
                         <div className="self" style={{ textAlign: 'center' }}>
                             Already have an account?{" "}
-                            <Link to="/login">
+                            <Link to="/loginfarmer">
                                 <u>Login</u>
                             </Link>
                         </div>

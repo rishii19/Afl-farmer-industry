@@ -7,11 +7,6 @@ import { Button } from 'react-bootstrap';
 const Header = () => {
   return (
 
-    // <div className='hero'>
-    //   <h1>An Initiative of UIET and MEITY</h1>
-    //   <p>Buy and sell your car with us</p>
-    //   <Button>Explore More</Button>
-    // </div>
     <div className="container-fluid" id='hero'>
       <div className="row">
         <div className="col-md-12">

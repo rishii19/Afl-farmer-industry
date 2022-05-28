@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import AFL from '../Industry/Images/AFL.svg'
 import { makeStyles } from '@material-ui/core'
 import Drawer from '@material-ui/core/Drawer'
@@ -119,6 +119,11 @@ export default function Layout({ children }) {
             text: 'Requests',
             icon: <AddCircleOutlineOutlined color="primary" />,
             path: '/request'
+        },
+        {
+            text: 'Residues',
+            icon: <AddCircleOutlineOutlined color="primary" />,
+            path: '/residues'
         },
 
         {

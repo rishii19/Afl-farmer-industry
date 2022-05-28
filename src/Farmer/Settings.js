@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-// import Navbar from './Navbar'
+import setting from '../Farmer/assets/settings-icon.png';
 import SideNavBar from "./SideNavBar";
 import { Link } from "react-router-dom";
-// import NewNavbar from './NewNavbar'
+ 
 
 export class Settings extends Component {
   render() {
@@ -14,14 +14,14 @@ export class Settings extends Component {
           <SideNavBar />
           <div className="text-right" style={{ "margin-right": "50px" }}>
             <img
-              src="assets/img/settings-icon.png"
+              src={setting}
               style={{ width: "200px", "marginRight": "50px" }}
             />
           </div>
 
-          <div className="page-content-wrapper pt-3">
+          <div className="page-content-wrapper pt-2">
             <div
-              class="container-fluid pt-3"
+              class="container-fluid pt-2"
               style={{ "padding-left": "60px" }}
             >
               <div class="row" style={{ "margin-bottom": "5px" }}>
@@ -64,7 +64,7 @@ export class Settings extends Component {
                       height: "120px",
                       backgroundColor: "#172578",
                       marginLeft: "300px",
-                      marginTop: "200px",
+                      marginTop: "100px",
                     }}
                     data-toggle="modal"
                     data-target="#changePassword"
@@ -150,21 +150,12 @@ export class Settings extends Component {
                   </div>
                 </div>
               </div>
-
-              {/* <div class="row mt-4">
-                                <div class="col-4 text-center text-secondary d-flex justify-content-xl-center align-items-xl-center" style={{"width": "334px","max-width": "329px","marginLeft":"300px","marginTop":"50px"}}>
-                                    
-                                    <i class="fas fa-sun d-xl-flex align-items-xl-center mr-2" style={{"font-size": "50px"}}></i>
-                                    <div class="custom-control custom-switch">
-                                        <input class="custom-control-input" onChange={(e)=>{console.log('Dark Mode Theme set to ' + e.target.checked)}} type="checkbox" id="darkSwitch" />
-                                        <label class="custom-control-label" for="darkSwitch"></label></div><i class="fas fa-moon d-xl-flex align-items-xl-center" style={{"font-size": "50px"}}></i></div>
-                            </div> */}
             </div>
           </div>
         </div>
-        <div className="text-right" style={{ "margin-right": "50px" }}>
+        {/* <div className="text-right" style={{ "margin-right": "50px" }}>
           <img src="assets/img/AFL.jpg" style={{ width: "108px" }} />
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import NewNavbar from './NewNavbar';
-// import Navbar from './Navbar'
 import SideNavBar from "./SideNavBar";
+import shoppingcarticon from '../Farmer/assets/shoppingcarticon.png';
 
 export class HomePageFarmer extends Component {
   render() {
@@ -13,7 +12,7 @@ export class HomePageFarmer extends Component {
           <div class="page-content-wrapper pt-3">
             <div class="container-fluid pt-3">
               <div class="row">
-                <div class="col">
+                {/* <div class="col">
                   <div
                     class="btn-group"
                     style={{ width: "141px", marginLeft: "500px" }}
@@ -22,15 +21,14 @@ export class HomePageFarmer extends Component {
                       <button
                         class="btn btn-primary"
                         style={{ backgroundColor: "#172578" }}
-                        type="button"
->
+                        type="button">
                         Sell Residue
                       </button>
                     </Link>
                   </div>
-                </div>
+                </div> */}
                 <div class="col">
-                  <div class="btn-group" style={{ width: "80px" }}>
+                  {/* <div class="btn-group" style={{ width: "80px" }}>
                     <button
                       class="btn btn-primary"
                       style={{ backgroundColor: "#172578" }}
@@ -56,12 +54,12 @@ export class HomePageFarmer extends Component {
                         </a>
                       </Link>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="text-right">
                     <Link to="/cart">
                       {" "}
                       <img
-                        src="assets/img/shopping cart icon.png"
+                        src= {shoppingcarticon}
                         style={{ width: "50px", marginTop: "0px" }}
                       />{" "}
                     </Link>

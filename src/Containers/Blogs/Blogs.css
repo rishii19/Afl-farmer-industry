@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
+
 .gpt3__blog {
     display: flex;
     flex-direction: column;    
@@ -10,10 +12,13 @@
 }
 
 .gpt3__blog-heading h1 {
-    font-size: 62px;
-    line-height: 75px;
-    font-family: var(--font-family);
-    font-weight: 800;
+    font-family: Abhaya Libre;
+    font-size: 64.715px;
+    line-height: 78px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #000000;
+    font-weight: 700;
 }
 
 .gpt3__blog-container {

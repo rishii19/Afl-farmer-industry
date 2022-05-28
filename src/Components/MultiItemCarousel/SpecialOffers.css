@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
+
 .BootstrapMulti .slick-arrow.slick-prev,
 .BootstrapMulti .slick-arrow.slick-next {
     background: #fcfcfc;
@@ -48,7 +50,8 @@ button:hover {
 .carousel>h1{
     margin-top: 50px;
     margin-left: 20px;
-    font-family: Bebas Neue;
+    font-family: Abhaya Libre;
+    font-weight: 700;
     font-size: 64.715px;
     line-height: 78px;
     letter-spacing: 0.02em;

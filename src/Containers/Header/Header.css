@@ -1,17 +1,4 @@
-/* img{
-    height: 600px;
-}
-
-.carousel-caption h1{
-    text-align: center;
-    font-size: large;
-}
-.carousel-item{
-    text-align: center;
-    font-size: large;
-} */
-
- 
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
 #hero {
     background-image: url('../Images/Home.png');
     display: flex;
@@ -25,35 +12,35 @@
     background-repeat: no-repeat;
   }
   #heading{
-      font-family: Abhaya Libre ExtraBold;
+      font-family: Abhaya Libre;
       letter-spacing: 0.02em;
       background: rgba(203, 182, 182, 0.3);
       border-radius: 23px;
       color: azure;
-      font-size: 50px;
+      font-size: 60px;
   }
   #para{
-      font-family: ABeeZee;
+      font-family:Abhaya Libre;
       line-height: 58px;
       letter-spacing: 0.02em;
       text-transform: capitalize;
       color: azure;
       font-size: 40px;
       margin-top: 20px;
-      margin-left: 50px;
+      margin-left: 11rem;
 
       /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
 
   }
   #btn{
-     margin-left: 15rem;
+     margin-left: 20rem;
       margin-top: 15px;
       width: 170px;
       height: 57px;
       position: relative;
       background: #F57009;
       border-radius: 45px;
-      font-family: ABeeZee;
+      font-family: Abhaya Libre;
       font-size: 16px;
       line-height: 17px;
       text-align: center;
