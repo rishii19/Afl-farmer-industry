@@ -38,7 +38,7 @@ function App() {
         <Route path='/homepagei' element={<HomepageI />} />
         <Route path='/sidebar' element={<SideBar />} />
         <Route path="machinelist" element={<MachineList />} />
-        <Route path="machine/:id" element={<Machine />} />
+        <Route path="machines/:id" element={<Machine />} />
         <Route path="addmachine" element={<AddMachine />} />
         <Route path="connections" element={<Connection />} />
         <Route path="request" element={<RequestPage />} />

@@ -10,8 +10,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import AddCircleOutlineOutlined from '@material-ui/icons/AddCircleOutlineOutlined';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Avatar from '@material-ui/core/Avatar'
@@ -32,20 +34,31 @@ const useStyles = makeStyles((theme) => {
         },
         drawer: {
             width: drawerWidth,
-            background: '#2458AC'
+            color: 'white'
         },
-        drawerPaper: {
+        drawerPaper:
+        {
             width: drawerWidth,
+            backgroundColor: '#172578',
+            
+        },
+        hover:{
+            color:'#ffffff',
+            "&:hover,&:focus": {
+                backgroundColor: "#293683",
+                color: "white",
+              },  
         },
         active: {
-            background: '#f4f4f4'
+            background: '#293683',
         },
+        
         title: {
-            marginLeft:20
+            marginLeft: 20
 
         },
         bottom: {
-            marginLeft:20
+            marginLeft: 20
 
         },
         appBar: {
@@ -57,17 +70,15 @@ const useStyles = makeStyles((theme) => {
         logo: {
             width: 70,
             height: 70
-
         },
         navtop: {
             flexGrow: 1,
         },
         user: {
             font: 20,
-            color: 'black',
+            color: '#ffffff',
             padding: 10
         },
-
         toolbar: theme.mixins.toolbar,
         avatar: {
             marginTop: theme.spacing(4),
@@ -97,39 +108,39 @@ export default function Layout({ children }) {
     const menuItems = [
         {
             text: 'Homepage',
-            icon: <HomeOutlinedIcon color="primary" />,
+            icon: <HomeOutlinedIcon />,
             path: '/homepagei'
         },
         {
             text: 'Machine List',
-            icon: <CalendarTodayIcon color="primary" />,
+            icon: <CalendarTodayIcon />,
             path: '/machinelist'
         },
         {
             text: 'Add Machine',
-            icon: <AddCircleOutlineOutlined color="primary" />,
+            icon: <AddCircleOutlineOutlined />,
             path: '/addmachine'
         },
         {
             text: 'Connections',
-            icon: <AddCircleOutlineOutlined color="primary" />,
+            icon: <PeopleAltIcon />,
             path: '/connections'
         },
         {
             text: 'Requests',
-            icon: <AddCircleOutlineOutlined color="primary" />,
+            icon: <FavoriteBorderIcon />,
             path: '/request'
         },
         {
             text: 'Residues',
-            icon: <AddCircleOutlineOutlined color="primary" />,
+            icon: <AddCircleOutlineOutlined />,
             path: '/residues'
         },
 
         {
-            text: 'Exit',
-            icon: <ExitToAppRoundedIcon color="primary" />,
-            path: '/'
+            text: 'Logout',
+            icon: <ExitToAppRoundedIcon />,
+            path:  '/'
         },
     ];
 
@@ -140,7 +151,6 @@ export default function Layout({ children }) {
                 position="fixed"
                 className={classes.appBar}
                 elevation={0}
-
             >
                 <Toolbar>
                     <Typography className={classes.navtop}  >
@@ -148,13 +158,12 @@ export default function Layout({ children }) {
                     </Typography>
                     {localStorage.getItem('user') ?
                         <Nav>
-                            <NavDropdown className={classes.user} title={user && user.name}>
+                            <NavDropdown className={classes.user} title='user'>
                                 <NavDropdown.Item onClick={logout} >Logout</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                         : null
                     }
-
                 </Toolbar>
             </AppBar >
 
@@ -167,26 +176,29 @@ export default function Layout({ children }) {
                 anchor="left"
 
             >
-                <Avatar className={classes.avatar} align="center" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                <Typography variant='h6' className={classes.title}>{user.name}</Typography>
-                <Typography variant="subtitle1" className={classes.bottom} >{user.email}</Typography>
+                <Avatar className={classes.avatar} style={{ backgroundColor: "#ffffff" }} align="center" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                {/* <Typography variant='h6' style={{ color: "#ffffff" }} className={classes.title} >{user.name}</Typography> */}
+                {/* <Typography variant="subtitle1" className={classes.bottom} >{user.email}</Typography> */}
                 <br></br>
                 {/* links/list section */}
-                <List>
+                <List >
                     {menuItems.map((item) => (
-                        <ListItem
+                        <ListItem  
                             button
                             key={item.text}
                             onClick={() => navigate(item.path)}
-                            className={location.pathname == item.path ? classes.active : null}
+                            className={location.pathname === item.path ? classes.active :  classes.hover}
+                           
                         >
-                            <ListItemIcon>{item.icon}</ListItemIcon>
-                            <ListItemText primary={item.text} />
+                            <ListItemIcon  style={{color:'#fff'}} >{item.icon}</ListItemIcon>
+                            <ListItemText  style={{color:'#fff'}} primary={item.text} />
                         </ListItem>
                     ))}
                 </List>
-
             </Drawer >
+            <div className={classes.page}>
+                {children}
+            </div>
             <Outlet />
         </div >
 

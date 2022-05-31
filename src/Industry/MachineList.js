@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton';
 import { useNavigate } from 'react-router-dom'
+import axios from '../api/axios';
 import SideBar from './SideBar';
 const MachineList = () => {
 
@@ -9,13 +10,12 @@ const MachineList = () => {
     const [filter, setFilter] = useState([]);
     const [loading, setLoadiing] = useState(false);
 
-    useEffect(() => {
+    useEffect(async () => {
         setLoadiing(true);
-        fetch("http://localhost:8000/api/machines").then(response => response.json())
-            .then(data => {
-                setFilter(data)
-                setLoadiing(false)
-            });
+        const {data} = await axios.get("machines/")
+        setFilter(data)
+        console.log(data);
+        setLoadiing(false)
 
     }, []);
 
@@ -39,7 +39,7 @@ const MachineList = () => {
     }
 
     function handleClick(id) {
-        history(`/machine/${id}`)
+        history(`/machines/${id}`)
     }
     const ShowProducts = () => {
 

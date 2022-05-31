@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import SideBar from './SideBar';
 import { useNavigate } from 'react-router-dom';
+import axios from '../api/axios';
 
 const Machine = () => {
 
@@ -14,8 +15,9 @@ const Machine = () => {
 
     const getProduct = async () => {
         setLoading(true);
-        const response = await fetch(`http://localhost:8000/api/machine/${id}`);
-        setMachines(await response.json());
+        const {data} = await axios.get(`/machines/${id}`);
+        console.log(data);
+        setMachines(data);
         setLoading(false);
     }
 
@@ -24,8 +26,7 @@ const Machine = () => {
     }, []);
 
     function deleteMachine(id) {
-        fetch(`http://localhost:8000/api/machine/${id}`, {
-            method: 'DELETE'
+        axios.delete(`/machines/${id}`, {
         }).then((result) => {
             result.json().then((response) => {
                 console.warn(response)
@@ -58,28 +59,28 @@ const Machine = () => {
                 <div className="container-fluid">
                     <div className="row justify-content-evenly">
                         <div className="col-md-6 mt-3">
-                            <img src={machines.image} alt={machines.title} className="img-fluid" style={{height:400,width:400}} />
+                            <img src={machines.image} alt={machines.name} className="img-fluid" style={{height:400,width:400}} />
                         </div>
                         <div className="col-md-5">
                             <h1 className="display-5 font-bold mb-2">{machines.name}</h1>
-                            <h5 className="text-uppercase text-black-50">
+                            {/* <h5 className="text-uppercase text-black-50">
                                 {machines.fetures}
-                            </h5>
+                            </h5> */}
                             <p className="lead fw-bold">
                                 Weight : {machines.details && machines.details.weight}kg
                                 {/* <i className="fa fa-star"></i> */}
                             </p>
                             <p className="lead fw-bold">
-                                Length :{machines.details && machines.details.lenght}mm
+                                Length :{machines.details && machines.details.length}mm
                                 {/* <i className="fa fa-star"></i> */}
                             </p>
                             <h3 className="display-6 fw-bold my-4">
-                                Price : {machines.price}₹
+                                Price : {machines.sell_price}₹
                             </h3>
                             <h3 className="display-6 fw-bold my-4">
                                 Discount : {machines.discount}%
                             </h3>
-                            <p className="card-text">Warrennty:{machines.warrenty}</p>
+                            <p className="card-text">Warranty:{machines.warranty}</p>
                             <p className="card-text">Guarantee:{machines.guarantee}</p>
                             <p className="lead">{machines.description}</p>
                             <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteMachine(machines.id)}>
