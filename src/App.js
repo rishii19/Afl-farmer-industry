@@ -10,6 +10,7 @@ import RequestPage from './Industry/RequestPage/RequestPage';
 import HomepageI from './Industry/HomepageI';
 import SideBar from './Industry/SideBar';
 import Residue from './Industry/Residue';
+import Prefillform from './Industry/prefillform';
 
 import LoginFarmer from './Farmer/Login/LoginFarmer';
 import SignUpFarmer from './Farmer/SignUp/SignUpFarmer';
@@ -43,6 +44,8 @@ function App() {
         <Route path="connections" element={<Connection />} />
         <Route path="request" element={<RequestPage />} />
         <Route path="residues" element={<Residue/>} />
+        <Route path='/prefillform' element={<Prefillform/>} />
+        
       
       {/* Farmer */} 
       <Route path="loginfarmer" element={<LoginFarmer />} />

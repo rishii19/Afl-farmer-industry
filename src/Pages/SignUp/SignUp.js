@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './SignUp.css';
- 
 import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'

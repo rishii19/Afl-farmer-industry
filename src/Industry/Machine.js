@@ -27,11 +27,9 @@ const Machine = () => {
 
     function deleteMachine(id) {
         axios.delete(`/machines/${id}`, {
-        }).then((result) => {
-            result.json().then((response) => {
-                console.warn(response)
+        }).then((data) => {
+                console.warn(data)
             })
-        })
         navigate(`/machinelist`);
     }
     const Loading = () => {
@@ -75,19 +73,22 @@ const Machine = () => {
                                 {/* <i className="fa fa-star"></i> */}
                             </p>
                             <h3 className="display-6 fw-bold my-4">
-                                Price : {machines.sell_price}₹
+                                Sell Price : {machines.sell_price}₹
+                            </h3>
+                            <h3 className="display-6 fw-bold my-4">
+                                Rent Price : {machines.rent_price}₹
                             </h3>
                             <h3 className="display-6 fw-bold my-4">
                                 Discount : {machines.discount}%
                             </h3>
-                            <p className="card-text">Warranty:{machines.warranty}</p>
-                            <p className="card-text">Guarantee:{machines.guarantee}</p>
+                            <p className="card-text">Warranty:{machines.warranty}year</p>
+                            <p className="card-text">Guarantee:{machines.guarantee}year</p>
                             <p className="lead">{machines.description}</p>
                             <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteMachine(machines.id)}>
                                 Delete
                             </button>
-                            <NavLink to="/d" className="btn btn-dark ms-2 px-3 py-2">
-                                Edit
+                            <NavLink to="/prefillForm" className="btn btn-dark ms-2 px-3 py-2">
+                                Update
                             </NavLink>
                         </div>
                     </div>

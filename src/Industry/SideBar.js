@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import AFL from '../Industry/Images/AFL.svg'
 import { makeStyles } from '@material-ui/core'
 import Drawer from '@material-ui/core/Drawer'
@@ -18,6 +18,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Avatar from '@material-ui/core/Avatar'
 import { Nav, NavDropdown } from 'react-bootstrap'
+import axios from '../api/axios';
 
 
 const drawerWidth = 250
@@ -40,21 +41,22 @@ const useStyles = makeStyles((theme) => {
         {
             width: drawerWidth,
             backgroundColor: '#172578',
-            
+
         },
-        hover:{
-            color:'#ffffff',
+        hover: {
+            color: '#ffffff',
             "&:hover,&:focus": {
                 backgroundColor: "#293683",
                 color: "white",
-              },  
+            },
         },
         active: {
             background: '#293683',
         },
-        
+
         title: {
-            marginLeft: 20
+            marginTop: theme.spacing(1),
+            marginLeft: theme.spacing(6),
 
         },
         bottom: {
@@ -92,14 +94,27 @@ const useStyles = makeStyles((theme) => {
     }
 })
 
-export default function Layout({ children }) {
+export default function SideBar({ children }) {
     const classes = useStyles()
     const navigate = useNavigate()
     const location = useLocation()
     const history = useNavigate();
-    // const state = useSelector((state) => state.handleCart
-    const user = JSON.parse(localStorage.getItem('user'));
-    console.warn(user);
+    const [user,setUser] =useState([]);
+
+    useEffect (()=>{
+        getuser();
+    },[]);
+     
+        const getuser =() =>{
+            axios.get("profile")
+            .then((response) => {
+                const getdata =response.data;
+                console.log('data', response.data);
+                localStorage.setItem('user', JSON.stringify(response.data))
+                setUser(getdata)
+            }).catch(error=>console.error(error))
+        }
+
     function logout() {
         localStorage.clear();
         history('/')
@@ -140,7 +155,7 @@ export default function Layout({ children }) {
         {
             text: 'Logout',
             icon: <ExitToAppRoundedIcon />,
-            path:  '/'
+            path: '/'
         },
     ];
 
@@ -158,7 +173,7 @@ export default function Layout({ children }) {
                     </Typography>
                     {localStorage.getItem('user') ?
                         <Nav>
-                            <NavDropdown className={classes.user} title='user'>
+                            <NavDropdown className={classes.user} title={user.username}>
                                 <NavDropdown.Item onClick={logout} >Logout</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
@@ -177,21 +192,21 @@ export default function Layout({ children }) {
 
             >
                 <Avatar className={classes.avatar} style={{ backgroundColor: "#ffffff" }} align="center" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                {/* <Typography variant='h6' style={{ color: "#ffffff" }} className={classes.title} >{user.name}</Typography> */}
+                <Typography variant='h6' style={{ color: "#ffffff" }} className={classes.title} >{user.name}</Typography>
                 {/* <Typography variant="subtitle1" className={classes.bottom} >{user.email}</Typography> */}
                 <br></br>
                 {/* links/list section */}
                 <List >
                     {menuItems.map((item) => (
-                        <ListItem  
+                        <ListItem
                             button
                             key={item.text}
                             onClick={() => navigate(item.path)}
-                            className={location.pathname === item.path ? classes.active :  classes.hover}
-                           
+                            className={location.pathname === item.path ? classes.active : classes.hover}
+
                         >
-                            <ListItemIcon  style={{color:'#fff'}} >{item.icon}</ListItemIcon>
-                            <ListItemText  style={{color:'#fff'}} primary={item.text} />
+                            <ListItemIcon style={{ color: '#fff' }} >{item.icon}</ListItemIcon>
+                            <ListItemText style={{ color: '#fff' }} primary={item.text} />
                         </ListItem>
                     ))}
                 </List>
