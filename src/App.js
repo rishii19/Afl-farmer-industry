@@ -11,9 +11,6 @@ import HomepageI from './Industry/HomepageI';
 import SideBar from './Industry/SideBar';
 import Residue from './Industry/Residue';
 import Prefillform from './Industry/prefillform';
-
-import LoginFarmer from './Farmer/Login/LoginFarmer';
-import SignUpFarmer from './Farmer/SignUp/SignUpFarmer';
 import  HomepageFarmer from './Farmer/HomePageFarmer';
 import BuyMachines from './Farmer/BuyMachines'
 import ResidueDetails from './Farmer/ResidueDetails'
@@ -24,6 +21,7 @@ import Connections from './Farmer/Connections'
 import MachineFarmer from './Farmer/MachineFarmer'
 import Profile from './Farmer/Profile'
 import Rent from './Farmer/Rent'
+import Request from './Farmer/Request';
 import Settings from './Farmer/Settings'
 
 
@@ -42,14 +40,11 @@ function App() {
         <Route path="machines/:id" element={<Machine />} />
         <Route path="addmachine" element={<AddMachine />} />
         <Route path="connections" element={<Connection />} />
-        <Route path="request" element={<RequestPage />} />
+        <Route path="requestpage" element={<RequestPage />} />
         <Route path="residues" element={<Residue/>} />
         <Route path='/prefillform' element={<Prefillform/>} />
         
-      
       {/* Farmer */} 
-      <Route path="loginfarmer" element={<LoginFarmer />} />
-      <Route path="signupfarmer" element={<SignUpFarmer />} />
       <Route path="homepagefarmer" element={<HomepageFarmer />} />
       <Route path="buy" element={<BuyMachines />} />
       <Route path="residuedetails" element={<ResidueDetails />} />
@@ -61,6 +56,7 @@ function App() {
       <Route path="profile" element={<Profile />} />
       <Route path="rent" element={<Rent />} />
       <Route path="settings" element={<Settings />} />
+      <Route path="request" element={<Request />} />
 
       </Routes>
     </Router>

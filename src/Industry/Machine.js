@@ -15,8 +15,7 @@ const Machine = () => {
 
     const getProduct = async () => {
         setLoading(true);
-        const {data} = await axios.get(`/machines/${id}`);
-        console.log(data);
+        const { data } = await axios.get(`/machines/${id}`);
         setMachines(data);
         setLoading(false);
     }
@@ -28,10 +27,12 @@ const Machine = () => {
     function deleteMachine(id) {
         axios.delete(`/machines/${id}`, {
         }).then((data) => {
-                console.warn(data)
-            })
+            console.warn(data)
+        })
+        getProduct();
         navigate(`/machinelist`);
     }
+
     const Loading = () => {
         return (
             <>
@@ -57,7 +58,7 @@ const Machine = () => {
                 <div className="container-fluid">
                     <div className="row justify-content-evenly">
                         <div className="col-md-6 mt-3">
-                            <img src={machines.image} alt={machines.name} className="img-fluid" style={{height:400,width:400}} />
+                            <img src={machines.image} alt={machines.name} className="img-fluid" style={{ height: 400, width: 400 }} />
                         </div>
                         <div className="col-md-5">
                             <h1 className="display-5 font-bold mb-2">{machines.name}</h1>
@@ -105,7 +106,7 @@ const Machine = () => {
                     <div className="col-md-3">
                         <SideBar />
                     </div>
-                    <div className="col-md-9" style={{marginLeft:250}}>
+                    <div className="col-md-9" style={{ marginLeft: 250 }}>
                         {loading ? <Loading /> : <ShowProduct />}
                     </div>
                 </div>

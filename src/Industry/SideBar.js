@@ -109,7 +109,6 @@ export default function SideBar({ children }) {
             axios.get("profile")
             .then((response) => {
                 const getdata =response.data;
-                console.log('data', response.data);
                 localStorage.setItem('user', JSON.stringify(response.data))
                 setUser(getdata)
             }).catch(error=>console.error(error))
@@ -144,7 +143,7 @@ export default function SideBar({ children }) {
         {
             text: 'Requests',
             icon: <FavoriteBorderIcon />,
-            path: '/request'
+            path: '/requestpage'
         },
         {
             text: 'Residues',

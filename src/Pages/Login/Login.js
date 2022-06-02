@@ -12,7 +12,23 @@ function Login() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [user,setUser] =useState([]);
      const navigate =useNavigate(); 
+
+     const getuser =() =>{
+        axios.get("profile")
+        .then((response) => {
+            const getdata =response.data;
+            localStorage.setItem('user', JSON.stringify(response.data))
+            setUser(getdata)
+            if(response.data.is_industry){
+                navigate('/homepagei')
+            }
+            else{
+                navigate('/homepagefarmer')
+            }
+        }).catch(error=>console.error(error))
+    }
 
     const submit = async e => {
         e.preventDefault();
@@ -25,7 +41,8 @@ function Login() {
                 axios.defaults.headers['Authorization'] =`Token ${response.data.token}`;              
                 if (response.status === 200) {
                     localStorage.setItem("access_token", response.data.token);
-                    navigate('/homepagei')
+                    // function call to fetch data of user
+                    getuser();
                 }
             })
             .catch((err) => alert("Please enter correct details"));

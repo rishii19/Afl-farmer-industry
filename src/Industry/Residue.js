@@ -1,12 +1,10 @@
 import SideBar from './SideBar';
-import { useParams } from 'react-router';
 import React, { useEffect, useState } from 'react';
-import axios from '../api/axios';
+import axios from '../api/axios'; 
 
 const Residue = () => {
 
     const [residues, setResidues] = useState([]);
-    const [order, setOrder] = useState([]);
 
     const fetchData = () => {
         axios.get("residues")
@@ -22,9 +20,9 @@ const Residue = () => {
             .then(response => {
                 let orders = response.data;
                 console.log("Order", orders);
-                setOrder(orders);
             });
     }
+
     useEffect(() => {
         fetchData();
     }, []);
@@ -46,7 +44,6 @@ const Residue = () => {
                         </div>
                     )
                 }
-
             </>
         )
     }

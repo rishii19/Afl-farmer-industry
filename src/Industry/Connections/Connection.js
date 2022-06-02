@@ -8,7 +8,6 @@ const Connection = () => {
       axios.get("connections")
           .then(response => {
               console.log("Connection list", response.data);
-              // setResidues(response.data);
           });
   }
 
