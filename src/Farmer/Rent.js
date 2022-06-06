@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 // import Navbar from './Navbar'
-import SideNavBar from './SideNavBar'
+import SideBarFarmer from './SideBarFarmer'
 
 export class BuyMachines extends Component {
     render() {
@@ -10,7 +10,7 @@ export class BuyMachines extends Component {
             <div>
                 {/* <Navbar /> */}
                 <div id="wrapper">
-                        <SideNavBar />
+                        <SideBarFarmer />
                    
                     <div className="page-content-wrapper pt-3">
                         <div className="container-fluid">

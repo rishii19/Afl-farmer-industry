@@ -1,6 +1,6 @@
 import SideBar from './SideBar';
 import React, { useEffect, useState } from 'react';
-import axios from '../api/axios'; 
+import axios from '../api/axios';
 
 const Residue = () => {
 
@@ -20,9 +20,11 @@ const Residue = () => {
             .then(response => {
                 let orders = response.data;
                 console.log("Order", orders);
-            });
+            })
+            alert('ordered successfully')
     }
 
+    
     useEffect(() => {
         fetchData();
     }, []);
@@ -34,11 +36,12 @@ const Residue = () => {
                     residues.map((residue, i) =>
                         <div className="col-md-4 mb-4 mt-3 ">
                             <div className="card h-40 text-center py-3" style={{ "width": "18rem" }} key={i}>
-                                <div class="card-body">
-                                    <h5 class="card-title mb-0">{residue.type_of_residue}</h5>
-                                    <h6 class="card-title mb-0"> Quantity: {residue.quantity}</h6>
-                                    <p class="card-text lead fw-bold">{residue.price}₹ </p>
-                                    <div class="btn btn-primary" onClick={() => { createorder(residue.id) }}>Buy</div>
+                                <div className="card-body">
+                                    <h5 className="card-title mb-0">{residue.type_of_residue}</h5>
+                                    <h6 className="card-title mb-0"> Quantity: {residue.quantity}</h6>
+                                    <p className="card-text lead fw-bold mb-0">{residue.price}₹ </p>
+                                    <p className="card-text ">{residue.owner.name} </p>
+                                    <div className="btn btn-primary" onClick={() => { createorder(residue.id) }}>Buy</div>
                                 </div>
                             </div>
                         </div>

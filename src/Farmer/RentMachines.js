@@ -3,7 +3,8 @@ import Skeleton from 'react-loading-skeleton';
 import { useNavigate } from 'react-router-dom'
 import SideBarFarmer from './SideBarFarmer';
 import axios from '../api/axios';
-const BuyMachines = () => {
+const RentMachines = () => {
+
     const history = useNavigate();
 
     const [filter, setFilter] = useState([]);
@@ -11,7 +12,7 @@ const BuyMachines = () => {
 
     useEffect(async () => {
         setLoadiing(true);
-        const {data} = await axios.get("machines/")
+        const {data} = await axios.get("machines/?own=true")
         setFilter(data)
         console.log(data);
         setLoadiing(false)
@@ -41,13 +42,10 @@ const BuyMachines = () => {
         history(`/machines/${id}`)
     }
     const ShowProducts = () => {
+
         return (
             <>
-                {/* <div className="buttons d-flex justify-content-center mb-5 pb-5">
-                    <button className="btn btn-outline-dark me-2"  >All</button>
-                    <button className="btn btn-outline-dark me-2"  >sell</button>
-                    <button className="btn btn-outline-dark me-2" >rent</button>
-                </div> */}
+            
                 {filter.map((machines) => {
                     return (
                         <>
@@ -56,10 +54,8 @@ const BuyMachines = () => {
                                     <img src={machines.image} className="card-img-top" alt={machines.name} height="200px" />
                                     <div class="card-body">
                                         <h5 class="card-title mb-0">{machines.name.substring(0, 12)}</h5>
-                                        <p class="card-text lead fw-bold">{machines.sell_price}₹ {machines.id}</p>
+                                        <p class="card-text lead fw-bold">{machines.price}₹ {machines.id}</p>
                                         <p className="card-text">{machines.description.substring(0, 20)}...</p>
-                                        <div class="btn btn-primary"  > Add to Cart</div>
-                                        <br></br><br></br>
                                         <div class="btn btn-primary" onClick={() => { handleClick(machines.id) }} > more details</div>
                                     </div>
                                 </div>
@@ -74,6 +70,7 @@ const BuyMachines = () => {
 
     return (
         <div>
+
             <div className="container py-5 mt-4">
                 <div className="row">
                     <div className='col-3'>
@@ -84,11 +81,13 @@ const BuyMachines = () => {
                         <hr />
                         <div className="row justify-content-center">{loading ? <Loading /> : <ShowProducts />}</div>
                     </div>
+
                 </div>
+
             </div>
         </div>
     )
+
 }
 
-
-export default BuyMachines;
+export default RentMachines;

@@ -43,7 +43,6 @@ export default function SignUp() {
 
     }
     return (
-
         <div className="container-fluid">
             <div className="row justify-content-around">
                 <div className="col-md-5 d-none d-md-block" id='img' >

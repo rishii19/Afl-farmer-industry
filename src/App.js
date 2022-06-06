@@ -17,12 +17,13 @@ import ResidueDetails from './Farmer/ResidueDetails'
 import SellResidue from './Farmer/SellResidue'
 // import ChangePassword from './Farmer/ChangePassword'
 import Cart from './Farmer/Cart'
+import Request from './Farmer/Request';
 import Connections from './Farmer/Connections'
 import MachineFarmer from './Farmer/MachineFarmer'
 import Profile from './Farmer/Profile'
 import Rent from './Farmer/Rent'
-import Request from './Farmer/Request';
 import Settings from './Farmer/Settings'
+import RentMachines from './Farmer/RentMachines'
 
 
 function App() {
@@ -55,8 +56,9 @@ function App() {
       <Route path="machine/:id" element={<MachineFarmer />} />
       <Route path="profile" element={<Profile />} />
       <Route path="rent" element={<Rent />} />
+      <Route path="rentmachines" element={<RentMachines />} />
       <Route path="settings" element={<Settings />} />
-      <Route path="request" element={<Request />} />
+      <Route path="requestfarmer" element={<Request />} />
 
       </Routes>
     </Router>

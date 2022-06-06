@@ -1,4 +1,4 @@
-#headingrequest1 {
+#heading1 {
     flex: 2;
     font-family: "Rubik";
     font-style: normal;
@@ -6,17 +6,17 @@
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.0125em;
-    color: #282424;
+    color: #4f4f4f;
   }
   
-  .headerrequest {
-    padding: 26px 36px;
+  .header {
+    padding: 24px 32px;
     display: flex;
     flex-direction: row;
     align-items: center;
   }
   
-  #headingrequest2 {
+  #heading2 {
     flex: 0.85;
     font-family: "Rubik";
     font-style: normal;
@@ -24,22 +24,20 @@
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.0125em;
-    color: #282424;
+    color: #4f4f4f;
   }
   
-  #headingrequest3 {
+  #heading3 {
     font-family: "Rubik";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.0125em;
-    color: #282424;
-    margin-right: 35px;
-    margin-left: 40px;
+    color: #4f4f4f;
   }
   
-  #headingrequest4 {
+  #heading4 {
     padding: 0px 50px;
     color: transparent;
   }
