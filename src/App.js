@@ -8,22 +8,23 @@ import Machine from './Industry/Machine';
 import Connection from './Industry/Connections/Connection';
 import RequestPage from './Industry/RequestPage/RequestPage';
 import HomepageI from './Industry/HomepageI';
-import SideBar from './Industry/SideBar';
 import Residue from './Industry/Residue';
 import Prefillform from './Industry/prefillform';
-import  HomepageFarmer from './Farmer/HomePageFarmer';
+import HomepageFarmer from './Farmer/HomePageFarmer';
 import BuyMachines from './Farmer/BuyMachines'
 import ResidueDetails from './Farmer/ResidueDetails'
 import SellResidue from './Farmer/SellResidue'
 // import ChangePassword from './Farmer/ChangePassword'
 import Cart from './Farmer/Cart'
-import Request from './Farmer/Request';
 import Connections from './Farmer/Connections'
 import MachineFarmer from './Farmer/MachineFarmer'
 import Profile from './Farmer/Profile'
-import Rent from './Farmer/Rent'
+import Request from './Farmer/Request';
 import Settings from './Farmer/Settings'
+import AddNewMachine from './Farmer/AddNewMachine'
 import RentMachines from './Farmer/RentMachines'
+// import MoreDetailsIndustryList from './Farmer/MoreDetailsIndustryList';
+import Layout from './Industry/Layout';
 
 
 function App() {
@@ -35,31 +36,30 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/industry" element={<Login />} />
-        <Route path='/homepagei' element={<HomepageI />} />
-        <Route path='/sidebar' element={<SideBar />} />
-        <Route path="machinelist" element={<MachineList />} />
-        <Route path="machines/:id" element={<Machine />} />
-        <Route path="addmachine" element={<AddMachine />} />
-        <Route path="connections" element={<Connection />} />
-        <Route path="requestpage" element={<RequestPage />} />
-        <Route path="residues" element={<Residue/>} />
-        <Route path='/prefillform' element={<Prefillform/>} />
-        
-      {/* Farmer */} 
-      <Route path="homepagefarmer" element={<HomepageFarmer />} />
-      <Route path="buy" element={<BuyMachines />} />
-      <Route path="residuedetails" element={<ResidueDetails />} />
-      <Route path="sellresidue" element={<SellResidue />} />
-      {/* <Route path="changepassword" element={<ChangePassword />} /> */}
-      <Route path="cart" element={<Cart />} />
-      <Route path="connection" element={<Connections/>} />
-      <Route path="machine/:id" element={<MachineFarmer />} />
-      <Route path="profile" element={<Profile />} />
-      <Route path="rent" element={<Rent />} />
-      <Route path="rentmachines" element={<RentMachines />} />
-      <Route path="settings" element={<Settings />} />
-      <Route path="requestfarmer" element={<Request />} />
-
+        <Route path='/homepagei' element={<Layout children={<HomepageI/>}/>} />
+        <Route path="machinelist" element={<Layout children={<MachineList />}/>}  />
+        <Route path="machines/:id" element= {<Layout children={<Machine />}/>} />
+        <Route path="addmachine" element= {<Layout children={<AddMachine />}/>} />
+        <Route path="connections" element= {<Layout children={<Connection/>}/>} />
+        <Route path="requestpage" element={<Layout children = {<RequestPage title="Requests" />}/>} />
+        <Route path="residues" element={<Layout children = {<Residue title="Residue" />}/>}  />
+        <Route path='/prefillform' element={<Layout children = {<Prefillform />} />}/>
+       
+        {/* Farmer */}
+        <Route path="homepagefarmer" element={<HomepageFarmer />} />
+        <Route path="buy" element={<BuyMachines />} />
+        <Route path="residuedetails" element={<ResidueDetails />} />
+        <Route path="sellresidue" element={<SellResidue />} />
+        {/* <Route path="changepassword" element={<ChangePassword />} /> */}
+        <Route path="cart" element={<Cart />} />
+        <Route path="connection" element={<Connections />} />
+        <Route path="machine/:id" element={<MachineFarmer />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="addnewmachine" element={<AddNewMachine />} />
+        <Route path="rentmachines" element={<RentMachines />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="requestfarmer" element={<Request />} />
+        {/* <Route path="moredetails/:id" element={<MoreDetailsIndustryList />} /> */}
       </Routes>
     </Router>
   );
