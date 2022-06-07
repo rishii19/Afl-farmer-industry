@@ -3,7 +3,8 @@ import axios from '../../api/axios'
 import './Login.css'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import LoginProto from './images/LoginProto.svg'
+ 
+import Image from './images/image-overlay.png'
 import Afl from './images/AFL.svg'
  
 
@@ -60,7 +61,7 @@ function Login() {
                         <button  type="button"className="btn btn-outline-primary">Sign Up</button>
                         </Link> 
                     </div>
-                    <img src={LoginProto}></img>
+                    <img src={Image}></img>
                 </div>
                 <div className="right_content">
                     <div className="signuptext mt-3">Login in to your Account</div>

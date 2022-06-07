@@ -1,61 +1,97 @@
-import SideBarFarmer from './SideBarFarmer'
-import React, { useEffect, useState } from 'react';
-import axios from '../api/axios';
+import SideBarFarmer from "./SideBarFarmer";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "../api/axios";
 
 const ResidueDetails = () => {
-
+    const { id } = useParams();
     const [residues, setResidue] = useState([]);
+    const navigate = useNavigate();
 
-    const fetchData = () => {
-        axios.get("residues")
-            .then(response => {
-                console.log("residues list", response.data);
-                setResidue(response.data);
-            });
-    }
+    const fetchData = async () => {
+
+        axios.get("residues").then((response) => {
+            console.log("residues list", response.data);
+            setResidue(response.data);
+        });
+    };
     useEffect(() => {
         fetchData();
-
     }, []);
+    function deleteResidue(id) {
+        axios.delete(`/residues/${id}`, {
+        }).then((response) => {
+            console.log(response.data)
+        })
+        navigate(`/residuedetails`);
+        fetchData();
+    }
+    const ShowResidue = () => {
+        return (
+            <>
+                {residues.map((residue, i) => (
+                    <div className="col-md-4 mb-4 mt-3 ">
+                        <div
+                            className="card h-40 text-center py-3"
+                            style={{ width: "18rem" }}
+                            key={i}
+                        >
+                            <div class="card-body">
+                                <h5 class="card-title mb-0">{residue.type_of_residue}</h5>
+                                <h6 class="card-title mb-0"> Quantity: {residue.quantity}</h6>
+                                <p class="card-text lead fw-bold">{residue.price}₹ </p>
+                                <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteResidue(residue.id)}>
+                                    Delete
+                                </button>
+                                {/* <div class="btn btn-primary" onClick={() => { createorder(residue.id) }}>Buy</div> */}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </>
+        );
+    };
     return (
         <div className="container-fluid">
             <div className="row">
                 <div className="col-md-4">
                     <SideBarFarmer />
                 </div>
-                <div className="col-md-6">
-                    <h1 className='text-center border border-1 p-4  shadow p-3 mb-3 bg-body roundeds' style={{ marginTop: 100, color: "#172578 "}}>Residues</h1>
+                <div className="col-md-9 col-sm-6" style={{ marginLeft: 300 }}>
+                    <h1
+                        className="text-center border border-1 p-4  shadow p-3 mb-3 bg-body roundeds"
+                        style={{ marginTop: 100, color: "#172578" }}
+                    >
+                        Residues
+                    </h1>
                 </div>
                 <div className="row ">
-                    <div className="col-md-9" style={{marginLeft:300}}>
-                        <table className="table table-hover p-3">
-                            <thead>
-                                <tr className="table p-3" style={{"backgroundColor":"#172578","color":"white"}}>
-                                    <th scope="col">id</th>
-                                    <th scope="col">Type Of residue</th>
-                                    <th scope="col">Quantity(kg)</th>
-                                    <th scope="col">Price(₹)</th>
-                                </tr>
-                            </thead>
-                            <tbody className=''>
-                                {
-                                    residues.map((residue, i) =>
-                                        <tr key={i} >
-                                            <td>{residue.id}</td>
-                                            <td>{residue.type_of_residue}</td>
-                                            <td>{residue.quantity}</td>
-                                            <td>{residue.price}</td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                        </table>
+                    <div className="col-md-9 mt-2" style={{ marginLeft: 300 }}>
+                        <div className="row justify-content-center">{<ShowResidue />}</div>
+                        <Link to="/sellresidue">
+                            <button
+                                className="btn btn-info btn-lg mt-5 align-self-center"
+                                style={{
+                                    position: "absolute",
+                                    backgroundColor: "#172578",
+                                    color: "white",
+                                    margintop: "150px",
+                                    left: "50%",
+                                    "-ms-transform": "translate(-50%, -50%)",
+                                    transform: "translate(-50%, -50%)",
+                                }}
+                            >
+                                {" "}
+                                Add Residue
+                            </button>
+                        </Link>
                     </div>
                 </div>
-
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ResidueDetails
+export default ResidueDetails;

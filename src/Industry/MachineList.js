@@ -72,20 +72,24 @@ const MachineList = () => {
     }
 
     return (
-        <div>
-            <div className="container py-5 mt-4">
-                <div className="row">
-                    <div className='col-3'>
+
+        <>
+         <div className="container">
+                <div className="row py-4 justify-content-evenly" >
+                    <div className="col-md-4">
                         <SideBar />
                     </div>
-                    <div className="col-9 mb-5">
-                        <h1 className='display-6 fw-bolder text-center'>Machines List</h1>
-                        <hr />
-                        <div className="row justify-content-center">{loading ? <Loading /> : <ShowProducts />}</div>
+                    <div className="col-md-9 col-sm-6" style={{ marginLeft: 300 }}>
+                        <h1 className='text-center border border-1 p-4  shadow p-3 mt-3 mb-5 bg-body roundeds' style={{ marginTop: 100, color: "#172578 " }}>Machine List</h1>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-9 col-sm-6" style={{ marginLeft: 300 }}>
+                            <div className="row justify-content-center">{loading ? <Loading /> : <ShowProducts />}</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

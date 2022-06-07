@@ -3,7 +3,7 @@ import './SignUp.css';
 import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import LoginProto from '../Login/images/LoginProto.svg'
+import LoginProto from '../Login/images/image-overlay.png'
 
 
 export default function SignUp() {

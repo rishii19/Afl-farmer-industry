@@ -21,10 +21,10 @@ const Residue = () => {
                 let orders = response.data;
                 console.log("Order", orders);
             })
-            alert('ordered successfully')
+        alert('ordered successfully')
     }
 
-    
+
     useEffect(() => {
         fetchData();
     }, []);
@@ -35,7 +35,7 @@ const Residue = () => {
                 {
                     residues.map((residue, i) =>
                         <div className="col-md-4 mb-4 mt-3 ">
-                            <div className="card h-40 text-center py-3" style={{ "width": "18rem" }} key={i}>
+                            <div className="card h-40 text-center py-3" style={{ "width": "16rem" }} key={i}>
                                 <div className="card-body">
                                     <h5 className="card-title mb-0">{residue.type_of_residue}</h5>
                                     <h6 className="card-title mb-0"> Quantity: {residue.quantity}</h6>
@@ -51,21 +51,23 @@ const Residue = () => {
         )
     }
     return (
-        <div className="container-fluid">
-            <div className="row">
-                <div className="col-md-4">
-                    <SideBar />
-                </div>
-                <div className="col-md-9 col-sm-6" style={{ marginLeft: 300 }}>
-                    <h1 className='text-center border border-1 p-4  shadow p-3 mb-3 bg-body roundeds' style={{ marginTop: 100 }}>Residues</h1>
-                </div>
-                <div className="row ">
-                    <div className="col-md-9 mt-2" style={{ marginLeft: 300 }}>
-                        <div className="row justify-content-center">{<ShowResidue />}</div>
+        <>
+            <div className="container">
+                <div className="row py-4 justify-content-evenly" >
+                    <div className="col-md-4">
+                        <SideBar />
+                    </div>
+                    <div className="col-md-9 col-sm-6" style={{ marginLeft: 300 }}>
+                        <h1 className='text-center border border-1 p-4  shadow p-3 mt-3 mb-5 bg-body roundeds' style={{ marginTop: 100, color: "#172578 " }}>Residues</h1>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-9 col-sm-6" style={{ marginLeft: 250 }}>
+                            <div className="row justify-content-center">{<ShowResidue />}</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

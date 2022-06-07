@@ -18,7 +18,7 @@ const Request = () => {
         setRequest(orderList)
       }).catch(e => {
         console.log(e);
-    });
+      });
   }
   useEffect(() => {
     requests();
@@ -44,10 +44,10 @@ const Request = () => {
         {
           filterdata.map((data, i) =>
             <div className="col-md-4 mb-4 mt-2 ">
-              <div className="card h-40 text-center py-3 px-2" style={{ "width": "18rem" }} key={i}>
+              <div className="card h-100 text-center py-3 px-2" style={{ "width": "16rem" }} key={i}>
                 <img src={data.machine.image} className="card-img-top" alt={data.machine.name} height="200px" />
                 <div class="card-body">
-                {/* <img src={data.machine.image} className="card-img-top" alt={data.machine.name} height="200px" /> */}
+                  {/* <img src={data.machine.image} className="card-img-top" alt={data.machine.name} height="200px" /> */}
                   <h5 class="card-title mb-0">{data.machine.name}</h5>
                   <h5 class="card-title mb-0">Price : {data.machine.sell_price}</h5>
                   {/* <h5 class="card-title mb-0"> {data.machine.rent_price}</h5> */}
