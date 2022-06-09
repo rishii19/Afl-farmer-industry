@@ -1,4 +1,3 @@
-import SideBar from './SideBar';
 import React, { useEffect, useState } from 'react';
 import axios from '../api/axios';
 
@@ -9,9 +8,12 @@ const Residue = ({ title }) => {
     const fetchData = () => {
         axios.get("residues")
             .then(response => {
-                console.log("residues list", response.data);
+                // console.log("residues list", response.data);
                 setResidues(response.data);
-            });
+            })
+            .catch(e => {
+                console.log(e);
+              });
     }
     const createorder = (id) => {
         axios.post("residue-orders/", {

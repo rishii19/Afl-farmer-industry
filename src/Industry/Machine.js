@@ -26,9 +26,12 @@ const Machine = () => {
     function deleteMachine(id) {
         axios.delete(`/machines/${id}`, {
         }).then((data) => {
-            console.warn(data)
-        })
-        // getProduct();
+            // console.warn(data)
+            alert("Machine Deleted Successfully")
+        }).catch((err) => {
+            let message = typeof err.response !== "undefined" ? err.response.data.message : err.message;
+            console.warn("error", message);
+          });
         navigate(`/machinelist`);
     }
 

@@ -8,7 +8,7 @@ const MachineResidue = () => {
     const fetchData = () => {
         axios.get("residues")
             .then(response => {
-                console.log("residues list", response.data);
+                // console.log("residues list", response.data);
                 setResidues(response.data);
             });
     }

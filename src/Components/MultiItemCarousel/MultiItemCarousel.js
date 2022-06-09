@@ -5,10 +5,9 @@ import "slick-carousel/slick/slick-theme.css";
 import "./MultiItemCarousel.css";
 import {  MultiData } from "./MultiData";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
-import Button from 'react-bootstrap/Button'
 
 const PreviousBtn = (props) => {
-  console.log(props);
+  // console.log(props);
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>

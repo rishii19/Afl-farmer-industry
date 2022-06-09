@@ -3,13 +3,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./SpecialOffers.css";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { data } from "./MultiData";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import { Rating } from "@material-ui/lab";
 
 const PreviousBtn = (props) => {
-    console.log(props);
+    // console.log(props);
     const { className, onClick } = props;
     return (
         <div className={className} onClick={onClick}>

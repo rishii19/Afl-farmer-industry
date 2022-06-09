@@ -15,7 +15,7 @@ import BuyMachines from './Farmer/BuyMachines'
 import ResidueDetails from './Farmer/ResidueDetails'
 import SellResidue from './Farmer/SellResidue'
 // import ChangePassword from './Farmer/ChangePassword'
-import Cart from './Farmer/Cart'
+import Cart from './Components/Cart'
 import Connections from './Farmer/Connections'
 import MachineFarmer from './Farmer/MachineFarmer'
 import Profile from './Farmer/Profile'
@@ -36,7 +36,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/industry" element={<Login />} />
-        <Route path='/homepagei' element={<Layout children={<HomepageI/>}/>} />
+        <Route path='homepagei' element={<Layout children={<HomepageI/>}/>} />
         <Route path="machinelist" element={<Layout children={<MachineList />}/>}  />
         <Route path="machines/:id" element= {<Layout children={<Machine />}/>} />
         <Route path="addmachine" element= {<Layout children={<AddMachine />}/>} />

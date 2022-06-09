@@ -47,10 +47,6 @@ function Update() {
 
   async function updateProduct(e) {
     e.preventDefault()
-
-
-
-   
     let formdata = {
       "name": name,
       "sell_price": sell_price,
@@ -69,10 +65,9 @@ function Update() {
     }
 
     if(typeof(file)!=="string"){
-      formdata ["image"] = file
+      formdata["image"] = file
       console.log('hello')
     }
-
     for (const [key, value] of Object.entries(formdata)) {
       formData.append(key, value)
       console.log(key, value);
@@ -116,7 +111,7 @@ function Update() {
             <label htmlFor="for_rent" className="col-sm-3 col-form-label mt-1 px-2 fw-bolder" > For Rent</label><br />
             <label htmlFor="formFile" className="form-label col-sm-3 col-form-label fw-bolder mt-2">Uplaod Image: </label>
             <input type="file" onChange={(e) => setFile(e.target.files[0])}></input> <br />
-            <img src={file} style={{ width: 400, height: 300 }} alt=" Current Image" />
+            <img src={file} style={{ width: 400, height: 300 }} alt=" Current Uploaded" />
             <p style={{ marginLeft: 160 }}>Uploaded Image</p>
             <button type='submit' className='btn btn-primary mt-2'>Update Product</button>
           </form>

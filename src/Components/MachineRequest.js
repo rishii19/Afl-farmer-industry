@@ -14,7 +14,7 @@ const MachineRequest = () => {
     axios.get("orders")
       .then(response => {
         const orderList = response.data;
-        console.log('orderlist', orderList)
+        // console.log('orderlist', orderList)
         setRequest(orderList)
       }).catch(e => {
         console.log(e);

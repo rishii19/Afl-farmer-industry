@@ -3,7 +3,6 @@ import axios from '../../api/axios'
 import './Login.css'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
- 
 import Image from './images/image-overlay.png'
 import Afl from './images/AFL.svg'
  
@@ -46,7 +45,11 @@ function Login() {
                     getuser();
                 }
             })
-            .catch((err) => alert("Please enter correct details"));
+            .catch((err) => {
+                alert("Please enter correct details");
+                let message = typeof err.response !== "undefined" ? err.response.data.message : err.message;
+                console.warn("error", message);
+              });
              
     }
 
@@ -61,7 +64,8 @@ function Login() {
                         <button  type="button"className="btn btn-outline-primary">Sign Up</button>
                         </Link> 
                     </div>
-                    <img src={Image}></img>
+                    <img src={Image} alt="Farmer & Tractor"/>
+                     
                 </div>
                 <div className="right_content">
                     <div className="signuptext mt-3">Login in to your Account</div>
@@ -83,7 +87,7 @@ function Login() {
                     </div>
                         <div className="other_opts_opts">
                             <div className="afl" tabIndex={1} style={{ marginLeft: '40%' }}>
-                                <img src={Afl}></img>
+                                <img src={Afl}  alt="AFL Logo"/>
                             </div>
                         </div>
                     </div>

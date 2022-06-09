@@ -1,21 +1,25 @@
 import SideBarFarmer from "./SideBarFarmer";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../api/axios";
 
 const ResidueDetails = () => {
-    const { id } = useParams();
+    // const { id } = useParams();
     const [residues, setResidue] = useState([]);
     const navigate = useNavigate();
 
     const fetchData = async () => {
-
-        axios.get("residues").then((response) => {
+        axios.get("residues")
+        .then((response) => {
             console.log("residues list", response.data);
             setResidue(response.data);
-        });
+        })
+        .catch((err) => {
+            let message = typeof err.response !== "undefined" ? err.response.data.message : err.message;
+            console.warn("error", message);
+          });
     };
     useEffect(() => {
         fetchData();

@@ -1,6 +1,6 @@
 import React from 'react'
 import './Footer.css';
-import { a } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AFL from '../Images/AFL.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
@@ -20,24 +20,24 @@ const Footer1 = () => {
                                     </h3>
                                 </div>
                                 <div className="footer_social_area">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+                                    <Link to="/" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
                                         <FaFacebook />
-                                    </a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
+                                    </Link>
+                                    <Link to="/" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
                                         <FaInstagram />
-                                    </a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+                                    </Link>
+                                    <Link to="/" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
                                         <FaTwitter />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                         <div className="col-12 col-sm-6 col-lg align-center footer">
                                 <h5>About Us</h5>
                                     <ul>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Corporate Sale</a></li>
-                                        <li><a href="#">Terms &amp; Policy</a></li>
+                                        <li><Link to="/">About Us</Link></li>
+                                        <li><Link to="/">Corporate Sale</Link></li>
+                                        <li><Link to="/">Terms &amp; Policy</Link></li>
                                     </ul>
                         </div>
                         <div className="col-12 col-sm-6 col-lg">
@@ -45,9 +45,9 @@ const Footer1 = () => {
                                 <h5 >Services</h5>
                                 <div className="list">
                                     <ul>
-                                        <li><a href="#">Help</a></li>
-                                        <li><a href="#">Support</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><Link to="/">Help</Link></li>
+                                        <li><Link to="/">Support</Link></li>
+                                        <li><Link to="/">Privacy Policy</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -57,8 +57,8 @@ const Footer1 = () => {
                                 <h5 >Helpful Links</h5>
                                 <div className="list">
                                     <ul>
-                                        <li><a href="#">Call Centre</a></li>
-                                        <li><a href="#">Email Us</a></li>
+                                        <li><Link to="/">Call Centre</Link></li>
+                                        <li><Link to="/">Email Us</Link></li>
                                     </ul>
                                 </div>
                             </div>

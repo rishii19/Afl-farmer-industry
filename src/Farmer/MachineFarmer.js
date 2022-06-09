@@ -15,7 +15,7 @@ const MachineFarmer = () => {
     const getProduct = async () => {
         setLoading(true);
         const {data} = await axios.get(`/machines/${id}`);
-        console.log(data);
+        // console.log(data);
         setMachines(data);
         setLoading(false);
     }
@@ -27,7 +27,7 @@ const MachineFarmer = () => {
     function deleteMachine(id) {
         axios.delete(`/machines/${id}`, {
         }).then((response) => {
-            console.log(response.data)
+            // console.log(response.data)
         })
         navigate(`/buy`);
     }

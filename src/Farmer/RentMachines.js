@@ -19,8 +19,6 @@ const RentMachines = () => {
 
     }, []);
 
-    console.log(filter, '----------')
-
     const Loading = () => {
         return (
             <>

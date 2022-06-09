@@ -9,9 +9,7 @@ export class Connections extends Component {
                 <div id="wrapper">
 
                 <SideBarFarmer />
-
                     <div className="page-content-wrapper pt-3">
-                        
                         <div className="container-fluid pt-3">
                         <h2 style={{"textAlign":"center", "color": "#172578"}}> Connections</h2><br></br>
                         

@@ -18,7 +18,14 @@ const BuyMachines = () => {
 
     }, []);
 
-    console.log(filter, '----------')
+    const handleAddToCart = (id) =>{
+        axios.post("cart/",{
+            items:[{
+                machine:id
+            }]
+        })
+        console.log(id);
+    }
 
     const Loading = () => {
         return (
@@ -58,7 +65,7 @@ const BuyMachines = () => {
                                         <h5 class="card-title mb-0">{machines.name.substring(0, 12)}</h5>
                                         <p class="card-text lead fw-bold">{machines.sell_price}₹ {machines.id}</p>
                                         <p className="card-text">{machines.description.substring(0, 20)}...</p>
-                                        <div class="btn btn-primary"  > Add to Cart</div>
+                                        <div class="btn btn-primary" onClick={() => { handleAddToCart(machines.id) }}  > Add to Cart</div>
                                         <br></br><br></br>
                                         <div class="btn btn-primary" onClick={() => { handleClick(machines.id) }} > more details</div>
                                     </div>

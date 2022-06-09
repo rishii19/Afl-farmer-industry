@@ -5,9 +5,6 @@ import Skeleton from "react-loading-skeleton";
 import SideBarFarmer from './SideBarFarmer'
 import sort from "../Industry/Images/sort.png";
 import filter from "../Industry/Images/filter.png";
-import BuyerListItem from "./BuyerListItem/BuyerListItem";
-import BuyerListItemHeader from "./BuyerListItemHeader/BuyerListItemHeader";
-import BuyerListFooter from "./BuyerListFooter/BuyerListFooter";
 import { Link } from 'react-router-dom';
 import axios from "../api/axios";
 
@@ -57,17 +54,17 @@ const HomePageFarmer = () => {
     return (
       <>
         <div className="buttons d-flex justify-content-center mb-5 pb-5">
-          {/* <button type="button" class="btn btn-outline-dark me-2" onClick={() => setFilter("All")}>All</button> */}
+          {/* <button type="button" className="btn btn-outline-dark me-2" onClick={() => setFilter("All")}>All</button> */}
           <button
             type="button"
-            class="btn btn-outline-dark me-2"
+            className="btn btn-outline-dark me-2"
             onClick={() => setFilter("for_sale=true")}
           >
             For sale
           </button>
           <button
             type="button"
-            class="btn btn-outline-dark me-2"
+            className="btn btn-outline-dark me-2"
             onClick={() => setFilter("for_rent=true")}
           >
             For rent
@@ -88,21 +85,21 @@ const HomePageFarmer = () => {
                 alt={machines.name}
                 height="200px"
               />
-              <div class="card-body">
-                <h5 class="card-title mb-0">
+              <div className="card-body">
+                <h5 className="card-title mb-0">
                   {data.name.substring(0, 12)}
                 </h5>
-                <p class="card-text lead fw-bold">
+                <p className="card-text lead fw-bold">
                   {data.sell_price}₹ {machines.id}
                 </p>
                 <p className="card-text">
                   {data.description.substring(0, 20)}...
                 </p>
-                <div class="btn btn-primary"> Add to Cart</div>
+                <div className="btn btn-primary"> Add to Cart</div>
                 <br></br>
                 <br></br>
                 <div
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   onClick={() => {
                     handleClick(machines.id);
                   }}

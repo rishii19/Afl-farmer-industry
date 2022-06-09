@@ -19,8 +19,8 @@ function Homepagei() {
             >Residue</h1>
           </div>
           <div>
-              {active == "Request" && <Request />}
-              {active == "Residue" && <Residue />}
+              {active === "Request" && <Request />}
+              {active === "Residue" && <Residue />}
             </div>
         </div>
       </div>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton';
 import { useNavigate } from 'react-router-dom'
 import axios from '../api/axios';
-import SideBar from './SideBar';
 const MachineList = () => {
 
     const history = useNavigate();
@@ -14,12 +13,9 @@ const MachineList = () => {
         setLoadiing(true);
         const {data} = await axios.get("machines/")
         setFilter(data)
-        console.log(data);
+        // console.log(data);
         setLoadiing(false)
-
     }, []);
-
-    console.log(filter, '----------')
 
     const Loading = () => {
         return (
