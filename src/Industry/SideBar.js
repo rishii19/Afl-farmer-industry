@@ -3,7 +3,7 @@ import AFL from '../Industry/Images/AFL.svg'
 import { makeStyles } from '@material-ui/core'
 import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
-import { useNavigate, useLocation, Outlet } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
@@ -213,7 +213,7 @@ export default function SideBar({ children }) {
             <div className={classes.page}>
                 {children}
             </div>
-            <Outlet />
+            {/* <Outlet /> */}
         </div >
 
     )

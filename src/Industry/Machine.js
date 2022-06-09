@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
-import SideBar from './SideBar';
 import { useNavigate } from 'react-router-dom';
 import axios from '../api/axios';
 
@@ -88,9 +87,9 @@ const Machine = () => {
                             <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteMachine(machines.id)}>
                                 Delete
                             </button>
-                            <NavLink to="/prefillForm" className="btn btn-dark ms-2 px-3 py-2">
+                            <Link to={'/update/'+machines.id} className="btn btn-dark ms-2 px-3 py-2">
                                 Update
-                            </NavLink>
+                            </Link>
                         </div>
                     </div>
                 </div>

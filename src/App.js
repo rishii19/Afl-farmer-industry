@@ -9,7 +9,7 @@ import Connection from './Industry/Connections/Connection';
 import RequestPage from './Industry/RequestPage/RequestPage';
 import HomepageI from './Industry/HomepageI';
 import Residue from './Industry/Residue';
-import Prefillform from './Industry/prefillform';
+import Update from './Industry/Update';
 import HomepageFarmer from './Farmer/HomePageFarmer';
 import BuyMachines from './Farmer/BuyMachines'
 import ResidueDetails from './Farmer/ResidueDetails'
@@ -43,7 +43,7 @@ function App() {
         <Route path="connections" element= {<Layout children={<Connection/>}/>} />
         <Route path="requestpage" element={<Layout children = {<RequestPage title="Requests" />}/>} />
         <Route path="residues" element={<Layout children = {<Residue title="Residue" />}/>}  />
-        <Route path='/prefillform' element={<Layout children = {<Prefillform />} />}/>
+        <Route path="update/:id" element={<Layout children = {<Update />} />}/>
        
         {/* Farmer */}
         <Route path="homepagefarmer" element={<HomepageFarmer />} />

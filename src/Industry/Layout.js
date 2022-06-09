@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import AFL from '../Industry/Images/AFL.svg'
 import { makeStyles } from '@material-ui/core'
 import Drawer from '@material-ui/core/Drawer'
@@ -99,20 +99,20 @@ export default function SideBar({ children }) {
     const navigate = useNavigate()
     const location = useLocation()
     const history = useNavigate();
-    const [user,setUser] =useState([]);
+    const [user, setUser] = useState([]);
 
-    useEffect (()=>{
+    useEffect(() => {
         getuser();
-    },[]);
-     
-        const getuser =() =>{
-            axios.get("profile")
+    }, []);
+
+    const getuser = () => {
+        axios.get("profile")
             .then((response) => {
-                const getdata =response.data;
+                const getdata = response.data;
                 localStorage.setItem('user', JSON.stringify(response.data))
                 setUser(getdata)
-            }).catch(error=>console.error(error))
-        }
+            }).catch(error => console.error(error))
+    }
 
     function logout() {
         localStorage.clear();
@@ -151,11 +151,11 @@ export default function SideBar({ children }) {
             path: '/residues'
         },
 
-        {
-            text: 'Logout',
-            icon: <ExitToAppRoundedIcon />,
-            path: '/'
-        },
+        // {
+        //     text: 'Logout',
+        //     icon: <ExitToAppRoundedIcon />,
+        //     path: '/'
+        // },
     ];
 
     return (
@@ -208,10 +208,17 @@ export default function SideBar({ children }) {
                             <ListItemText style={{ color: '#fff' }} primary={item.text} />
                         </ListItem>
                     ))}
+                    <ListItem
+                        button
+                        onClick={() => logout()}
+                    >
+                        <ListItemIcon style={{ color: '#fff' }} ><ExitToAppRoundedIcon /></ListItemIcon>
+                        <ListItemText style={{ color: '#fff' }} primary="Logout" />
+                    </ListItem>
                 </List>
-            </Drawer >
+            </Drawer > 
             <div className={classes.page}>
-            <div className={classes.toolbar}></div>
+                <div className={classes.toolbar}></div>
                 {children}
             </div>
             <Outlet />

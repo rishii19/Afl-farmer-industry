@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useCallback, useState } from "react";
+import React, { useState } from "react";
 import './HomePagei.css';
-import SideBar from './SideBar'
-import Request from './RequestPage/RequestPage'
-import Residue from './Residue'
+import Request from '../Components/MachineRequest'
+import Residue from '../Components/MachineResidue'
 
 function Homepagei() {
   const [active, setActive] = useState('Request')

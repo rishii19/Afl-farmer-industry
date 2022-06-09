@@ -55,11 +55,11 @@ const MachineList = () => {
                             <div className="col-md-4 mb-4 mt-3 ">
                                 <div className="card h-100 text-center py-4" key={machines.id}>
                                     <img src={machines.image} className="card-img-top" alt={machines.name} height="200px" />
-                                    <div class="card-body">
-                                        <h5 class="card-title mb-0">{machines.name.substring(0, 12)}</h5>
-                                        <p class="card-text lead fw-bold">{machines.sell_price}₹ {machines.id}</p>
+                                    <div className="card-body">
+                                        <h5 className="card-title mb-0">{machines.name.substring(0, 12)}</h5>
+                                        <p className="card-text lead fw-bold">{machines.sell_price}₹ {machines.id}</p>
                                         <p className="card-text">{machines.description.substring(0, 20)}...</p>
-                                        <div class="btn btn-primary" onClick={() => { handleClick(machines.id) }} > more details</div>
+                                        <div className="btn btn-primary" onClick={() => { handleClick(machines.id) }} > more details</div>
                                     </div>
                                 </div>
                             </div>
