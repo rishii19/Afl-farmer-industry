@@ -2,7 +2,7 @@ import './HomePage.css'
 import React from "react";
 import { Blogs, Footer1, Header } from '../../Containers';
 import { MultiItemCarousel, SpecialOffers } from '../../Components';
-import WhyUs from '../../Components/WhyUs/WhyUs';
+// import WhyUs from '../../Components/WhyUs/WhyUs';
 import Card1 from './Card1/Card1';
 import NavBar1 from '../../Components/NavBar/NavBar1';
 

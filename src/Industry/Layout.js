@@ -150,12 +150,6 @@ export default function SideBar({ children }) {
             icon: <AddCircleOutlineOutlined />,
             path: '/residues'
         },
-
-        // {
-        //     text: 'Logout',
-        //     icon: <ExitToAppRoundedIcon />,
-        //     path: '/'
-        // },
     ];
 
     return (

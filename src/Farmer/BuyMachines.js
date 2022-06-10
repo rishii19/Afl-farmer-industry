@@ -45,7 +45,7 @@ const BuyMachines = () => {
     }
 
     function handleClick(id) {
-        history(`/machines/${id}`)
+        history(`/moredetails/${id}`);
     }
     const ShowProducts = () => {
         return (

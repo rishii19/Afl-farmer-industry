@@ -23,8 +23,9 @@ import Request from './Farmer/Request';
 import Settings from './Farmer/Settings'
 import AddNewMachine from './Farmer/AddNewMachine'
 import RentMachines from './Farmer/RentMachines'
-// import MoreDetailsIndustryList from './Farmer/MoreDetailsIndustryList';
+import MoreDetailsIndustryList from './Farmer/MoreDetailsIndustryList';
 import Layout from './Industry/Layout';
+import SideBar from './Farmer/SideBarFarmer';
 
 
 function App() {
@@ -46,20 +47,19 @@ function App() {
         <Route path="update/:id" element={<Layout children = {<Update />} />}/>
        
         {/* Farmer */}
-        <Route path="homepagefarmer" element={<HomepageFarmer />} />
-        <Route path="buy" element={<BuyMachines />} />
-        <Route path="residuedetails" element={<ResidueDetails />} />
-        <Route path="sellresidue" element={<SellResidue />} />
-        {/* <Route path="changepassword" element={<ChangePassword />} /> */}
-        <Route path="cart" element={<Cart />} />
-        <Route path="connection" element={<Connections />} />
-        <Route path="machine/:id" element={<MachineFarmer />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="addnewmachine" element={<AddNewMachine />} />
-        <Route path="rentmachines" element={<RentMachines />} />
-        <Route path="settings" element={<Settings />} />
-        <Route path="requestfarmer" element={<Request />} />
-        {/* <Route path="moredetails/:id" element={<MoreDetailsIndustryList />} /> */}
+        <Route path="homepagefarmer" element={<SideBar children={<HomepageFarmer />} />} />
+          <Route path="buy" element={<BuyMachines />} />
+          <Route path="residuedetails" element={<SideBar children={<ResidueDetails />} />} />    
+          <Route path="sellresidue" element={<SellResidue />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="connection" element={<SideBar children={<Connections />} />} />
+          <Route path="machine/:id" element={<SideBar children={<MachineFarmer />} />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="addnewmachine" element={<SideBar children={<AddNewMachine />} />} />
+          <Route path="rentmachines"  element={<SideBar children={<RentMachines />} />} />
+          <Route path="settings" element={<SideBar children={<Settings />} />}/>
+          <Route path="requestfarmer" element={<SideBar children={<Request />} />} />
+          <Route path="moredetails/:id" element={<MoreDetailsIndustryList />} />
       </Routes>
     </Router>
   );

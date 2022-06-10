@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import SideBarFarmer from './SideBarFarmer'
 import axios from '../api/axios';
 
-const MachineFarmer = () => {
+const MoreDetailsIndustryList = () => {
     const { id } = useParams();
     const [machines, setMachines] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -24,13 +24,13 @@ const MachineFarmer = () => {
         getProduct();
     }, []);
 
-    function deleteMachine(id) {
-        axios.delete(`/machines/${id}`, {
-        }).then((response) => {
-            console.log(response.data)
-        })
-        navigate(`/rentmachines`);
-    }
+    // function deleteMachine(id) {
+    //     axios.delete(`/machines/${id}`, {
+    //     }).then((response) => {
+    //         console.log(response.data)
+    //     })
+    //     navigate(`/rentmachines`);
+    // }
     const Loading = () => {
         return (
             <>
@@ -59,20 +59,29 @@ const MachineFarmer = () => {
                             <img src={machines.image} alt={machines.name} className="img-fluid" style={{height:400,width:400}} />
                         </div>
                         <div className="col-md-5">
-                            <h1 className="display-5 font-bold mb-2">{machines.name}</h1> 
+                            <h1 className="display-5 font-bold mb-2">{machines.name}</h1>
+                            <p className="lead fw-bold">
+                                Weight : {machines.details && machines.details.weight}kg
+                            </p>
+                            <p className="lead fw-bold">
+                                Length :{machines.details && machines.details.length}mm
+                                {/* <i className="fa fa-star"></i> */}
+                            </p>
                             <h3 className="display-6 fw-bold my-4">
-                                Price : {machines.rent_price}₹
+                                Price : {machines.sell_price}₹
                             </h3>
                             <h3 className="display-6 fw-bold my-4">
                                 Discount : {machines.discount}%
                             </h3>
+                            <p className="card-text">Warranty:{machines.warranty}</p>
+                            <p className="card-text">Guarantee:{machines.guarantee}</p>
                             <p className="lead">{machines.description}</p>
-                            <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteMachine(machines.id)}>
+                            {/* <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteMachine(machines.id)}>
                                 Delete
-                            </button>
-                            <NavLink to="/d" className="btn btn-dark ms-2 px-3 py-2">
+                            </button> */}
+                            {/* <NavLink to="/d" className="btn btn-dark ms-2 px-3 py-2">
                                 Edit
-                            </NavLink>
+                            </NavLink> */}
                         </div>
                     </div>
                 </div>
@@ -97,6 +106,6 @@ const MachineFarmer = () => {
     );
 }
 
-export default MachineFarmer;
+export default MoreDetailsIndustryList;
 
 

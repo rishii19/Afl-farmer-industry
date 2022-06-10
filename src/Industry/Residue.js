@@ -35,7 +35,7 @@ const Residue = ({ title }) => {
                 {
                     residues.map((residue, i) =>
                         <div className="col-md-4 mb-4 mt-3 ">
-                            <div className="card h-40 text-center py-3" style={{ "width": "18rem" }} key={i}>
+                            <div className="card h-100 text-center py-3" style={{ "width": "18rem" }} key={i}>
                                 <div class="card-body">
                                     <h5 class="card-title mb-0">{residue.type_of_residue}</h5>
                                     <h6 class="card-title mb-0"> Quantity: {residue.quantity}</h6>

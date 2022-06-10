@@ -46,6 +46,7 @@ function AddMachine() {
 
     await axios.post("machines/", formData)
       // console.log("data", data)
+      alert('Machine Added Successfully')
       history(`/machinelist`)
     
   }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import './HomePageFarmer.css';
 import { useNavigate } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
@@ -54,17 +54,17 @@ const HomePageFarmer = () => {
     return (
       <>
         <div className="buttons d-flex justify-content-center mb-5 pb-5">
-          {/* <button type="button" className="btn btn-outline-dark me-2" onClick={() => setFilter("All")}>All</button> */}
+          {/* <button type="button" class="btn btn-outline-dark me-2" onClick={() => setFilter("All")}>All</button> */}
           <button
             type="button"
-            className="btn btn-outline-dark me-2"
+            class="btn btn-outline-dark me-2"
             onClick={() => setFilter("for_sale=true")}
           >
             For sale
           </button>
           <button
             type="button"
-            className="btn btn-outline-dark me-2"
+            class="btn btn-outline-dark me-2"
             onClick={() => setFilter("for_rent=true")}
           >
             For rent
@@ -85,21 +85,21 @@ const HomePageFarmer = () => {
                 alt={machines.name}
                 height="200px"
               />
-              <div className="card-body">
-                <h5 className="card-title mb-0">
+              <div class="card-body">
+                <h5 class="card-title mb-0">
                   {data.name.substring(0, 12)}
                 </h5>
-                <p className="card-text lead fw-bold">
+                <p class="card-text lead fw-bold">
                   {data.sell_price}₹ {machines.id}
                 </p>
                 <p className="card-text">
                   {data.description.substring(0, 20)}...
                 </p>
-                <div className="btn btn-primary"> Add to Cart</div>
+                <div class="btn btn-primary"> Add to Cart</div>
                 <br></br>
                 <br></br>
                 <div
-                  className="btn btn-primary"
+                  class="btn btn-primary"
                   onClick={() => {
                     handleClick(machines.id);
                   }}
@@ -117,22 +117,16 @@ const HomePageFarmer = () => {
 
 
   return (
-    <div>
-      <div className="container py-5 mt-4">
-        <div className="row">
-          <div className="col-3">
-            <SideBarFarmer />
-          </div>
-          <div className="col-9 mb-5">
-            <h1 className="display-6 fw-bolder text-center" style={{ "color": "#172578" }}>Machines List</h1>
-            <hr />
-            <div className="row justify-content-center">
-              {loading ? <Loading /> : <ShowProducts />}
-            </div>
-          </div>
-        </div>
+
+    <>
+    <div className="container">
+      <div className="row py-4 justify-content-evenly" >
+        <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-5 bg-body roundeds' style={{ marginTop: 100, color: "#172578 " }}>Machines List
+        </h1>
+        <div className="row justify-content-center mt-4">{loading ? <Loading /> : <ShowProducts />}</div>
       </div>
     </div>
+  </>
   );
 }
 

@@ -3,27 +3,23 @@ import AFL from '../Industry/Images/AFL.svg'
 import { makeStyles } from '@material-ui/core'
 import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Outlet } from 'react-router-dom'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import GroupAddOutlinedIcon from '@material-ui/icons/GroupAddOutlined';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
+import GroupAddOutlinedIcon from "@material-ui/icons/GroupAddOutlined";
 import AddCircleOutlineOutlined from '@material-ui/icons/AddCircleOutlineOutlined';
-import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined';
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Avatar from '@material-ui/core/Avatar'
 import { Nav, NavDropdown } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
-import shoppingcarticon from '../Farmer/assets/shoppingcarticon.png';
 import axios from '../api/axios';
-
 
 
 const drawerWidth = 250
@@ -33,7 +29,7 @@ const useStyles = makeStyles((theme) => {
         page: {
             background: '#f9f9f9',
             width: '100%',
-            padding: theme.spacing(3),
+            padding: theme.spacing(2),
         },
         root: {
             display: 'flex',
@@ -71,7 +67,7 @@ const useStyles = makeStyles((theme) => {
         appBar: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
-            background: '#f4f4f4',
+            background: '#dcdcdc',
             height: 60
         },
         logo: {
@@ -89,7 +85,7 @@ const useStyles = makeStyles((theme) => {
         toolbar: theme.mixins.toolbar,
         avatar: {
             marginTop: theme.spacing(4),
-            marginLeft: theme.spacing(8),
+            marginLeft: theme.spacing(10),
             width: theme.spacing(10),
             height: theme.spacing(10),
         },
@@ -125,44 +121,38 @@ export default function SideBar({ children }) {
     }
 
     const menuItems = [
-        {
-            text: 'Homepage',
-            icon: <HomeOutlinedIcon />,
-            path: '/homepagefarmer'
-        },
-        {
-            text: 'My Products',
-            icon: <CalendarTodayIcon />,
-            path: '/rentmachines'
-        },
-        {
-            text: 'Residue',
-            icon: <AddCircleOutlineOutlined />,
-            path: '/residuedetails'
-        },
-
-        {
-            text: 'Connections',
-            icon: <GroupAddOutlinedIcon />,
-            path: '/connection'
-        },
-        {
-            text: 'Requests',
-
-            icon: <FavoriteBorderIcon />,
-            path: '/requestfarmer'
-        },
-        {
-            text: 'Settings',
-            icon: <SettingsOutlinedIcon />,
-            path: '/settings'
-        },
-
-        {
-            text: 'Exit',
-            icon: <ExitToAppRoundedIcon />,
-            path: '/'
-        },
+      {
+        text: "Homepage",
+        icon: <HomeOutlinedIcon />,
+        path: "/homepagefarmer",
+      },
+      {
+        text: "My Products",
+        icon: <CalendarTodayIcon />,
+        path: "/rentmachines",
+      },
+      {
+        text: "Residue",
+        icon: <AddCircleOutlineOutlined />,
+        path: "/residuedetails",
+      },
+  
+      {
+        text: "Connections",
+        icon: <GroupAddOutlinedIcon />,
+        path: "/connection",
+      },
+      {
+        text: "Requests",
+  
+        icon: <FavoriteBorderIcon />,
+        path: "/requestfarmer",
+      },
+      {
+        text: "Settings",
+        icon: <SettingsOutlinedIcon />,
+        path: "/settings",
+      },
     ];
 
     return (
@@ -177,13 +167,6 @@ export default function SideBar({ children }) {
                     <Typography className={classes.navtop}  >
                         <img className={classes.logo} src={AFL} alt="logo" />
                     </Typography>
-                    <Link to="/cart">
-                        {" "}
-                        <img
-                            src={shoppingcarticon}
-                            style={{ width: "30px", textAlign: "right", marginLeft: "500px" }}
-                        />{" "}
-                    </Link>
                     {localStorage.getItem('user') ?
                         <Nav>
                             <NavDropdown className={classes.user} title={user.username}>
@@ -222,12 +205,20 @@ export default function SideBar({ children }) {
                             <ListItemText style={{ color: '#fff' }} primary={item.text} />
                         </ListItem>
                     ))}
+                    <ListItem
+                        button
+                        onClick={() => logout()}
+                    >
+                        <ListItemIcon style={{ color: '#fff' }} ><ExitToAppRoundedIcon /></ListItemIcon>
+                        <ListItemText style={{ color: '#fff' }} primary="Logout" />
+                    </ListItem>
                 </List>
-            </Drawer >
+            </Drawer > 
             <div className={classes.page}>
+                <div className={classes.toolbar}></div>
                 {children}
             </div>
-           
+            <Outlet />
         </div >
 
     )
