@@ -56,8 +56,8 @@ const MachineRequest = () => {
                   <h6 class="card-title"> Quantity:{data.quantity}</h6>
                   {data.status === "pending" &&
                     <>
-                      <div class="btn btn-dark px-3 mt-1" onClick={() => { acceptOrReject(data.id, "accepted") }}>Accept</div>
-                      <div class="btn btn-dark px-3 mt-1" style={{ marginLeft: 10 }} onClick={() => { acceptOrReject(data.id, "rejected") }}>Reject</div>
+                      <div class="btn  btn-outline-dark px-3 mt-1" onClick={() => { acceptOrReject(data.id, "accepted") }}>Accept</div>
+                      <div class="btn  btn-outline-dark px-3 mt-1" style={{ marginLeft: 10 }} onClick={() => { acceptOrReject(data.id, "rejected") }}>Reject</div>
                     </>
                   }
                 </div>

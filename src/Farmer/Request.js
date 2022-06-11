@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import axios from "../api/axios";
-import SideBarFarmer from "./SideBarFarmer";
 const Request = () => {
   const [request, setRequest] = useState([]);
   const [filter, setFilter] = useState("pending");
@@ -31,7 +30,7 @@ const Request = () => {
   const ShowRequests = () => {
     return (
       <>
-        <div className="buttons d-flex justify-content-center mb-5 pb-5">
+        <div className="buttons d-flex justify-content-center mb-2 pb-5">
           {/* <button type="button" class="btn btn-outline-dark me-2" onClick={() => setFilter("All")}>All</button> */}
           <button
             type="button"
@@ -59,8 +58,8 @@ const Request = () => {
         {filterdata.map((data, i) => (
           <div className="col-md-4 mb-4 mt-3 ">
             <div
-              className="card h-40 text-center py-3"
-              style={{ width: "18rem" }}
+              className="card h-100 text-center py-3"
+              style={{ width: "16rem" }}
               key={i}
             >
               <div class="card-body">
@@ -71,7 +70,6 @@ const Request = () => {
                   Quantity: {data.residue.quantity}
                 </h6>
                 <p class="card-text">{data.customer.name}₹ </p>
-                <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
                 <p class="card-text lead fw-bold">{data.residue.price}₹ </p>
                 {data.status === "pending" && (
                   <>
@@ -109,7 +107,7 @@ const Request = () => {
         <div className="row py-4 justify-content-evenly" >
           <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-5 bg-body roundeds' style={{ marginTop: 100, color: "#172578 " }}>Requests
           </h1>
-          <div className="row justify-content-center mt-4">{<ShowRequests />}</div>
+          <div className="row justify-content-center ">{<ShowRequests />}</div>
         </div>
       </div>
     </>

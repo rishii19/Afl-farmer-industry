@@ -113,7 +113,7 @@ function Update() {
             <input type="file" onChange={(e) => setFile(e.target.files[0])}></input> <br />
             <img src={file} style={{ width: 400, height: 300 }} alt=" Current Uploaded" />
             <p style={{ marginLeft: 160 }}>Uploaded Image</p>
-            <button type='submit' className='btn btn-primary mt-2'>Update Product</button>
+            <button type='submit' className='btn  btn-outline-dark mt-2'>Update Product</button>
           </form>
           </div>
         </div>

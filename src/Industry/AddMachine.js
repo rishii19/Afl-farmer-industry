@@ -83,7 +83,7 @@ function AddMachine() {
             <label htmlFor="sell">For Sale</label><br />
             <input type="checkbox" value={for_rent} onChange={(e) => setFor_rent(e.target.checked)} />
             <label htmlFor="for_rent"> For Rent</label><br />
-            <button type='submit' className='btn btn-primary'>Add Product</button>
+            <button type='submit' className='btn btn-primary btn-md'>Add Product</button>
           </form>
           </div>
         </div>

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import SideBarFarmer from "./SideBarFarmer";
-import Tractor from "./Tractor";
 import { useNavigate } from "react-router-dom";
 import axios from "../api/axios";
+import Tractor1 from '../Farmer/assets/Tractor1.png';
 
 function AddNewMachine() {
   const history = useNavigate();
@@ -27,21 +26,19 @@ function AddNewMachine() {
     for (const [key, value] of Object.entries(formdata)) {
       formData.append(key, value);
     }
-    
     let { data } = await axios.post("machines/", formData);
-    console.log("data", data);
-    history(`/rentmachines`);
+    alert('product uploaded successfully')
+    history(`/mymachines`);
   }
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-md-3">
-          {/* <SideBarFarmer /> */}
-          {/* <Tractor /> */}
+      <div className="row justify-content-evenly">
+        <div className="col-md-4 col-sm-12 align-self-center">
+          <img className="img-fluid" src={Tractor1} style={{ width: 400, height: 300 }} />
         </div>
-        <div className="col-md-9 mt-5">
-          <div className="col-sm-8 offset-sm-2" style={{ margintop: 100 }}>
-            <h1 className="py-3">Upload Your Machine Details</h1>
+        <div  className="col-md-8 col-sm-12">
+          {/* <div className="col-sm-8 offset-sm-2" style={{ margintop: 100 }}> */}
+            <h1 className="py-2 text-align-center">Upload Your Machine Details</h1>
             <form onSubmit={addmachine}>
               <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">
                 Name:
@@ -88,7 +85,7 @@ function AddNewMachine() {
               </label>
               <input
                 type="number"
-                className="form-control"
+                className="form-control mb-2"
                 value={discount}
                 placeholder="discount"
                 onChange={(e) => setDiscount(e.target.value)}
@@ -111,7 +108,7 @@ function AddNewMachine() {
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 }
 

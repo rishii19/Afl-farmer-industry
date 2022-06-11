@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import axios from '../api/axios';
 const MachineList = () => {
 
@@ -11,7 +11,7 @@ const MachineList = () => {
 
     useEffect(async () => {
         setLoadiing(true);
-        const {data} = await axios.get("machines/")
+        const { data } = await axios.get("machines/")
         setFilter(data)
         // console.log(data);
         setLoadiing(false)
@@ -29,7 +29,7 @@ const MachineList = () => {
                 <div className="col-md-4">
                     <Skeleton height={350} />
                 </div>
-                 
+
             </>
         )
     }
@@ -50,12 +50,15 @@ const MachineList = () => {
                         <>
                             <div className="col-md-4 mb-4 mt-3 ">
                                 <div className="card h-100 text-center py-4" key={machines.id}>
-                                    <img src={machines.image} className="card-img-top" alt={machines.name} height="200px" />
+                                    <Link to={`/machines/${machines.id}`}>
+                                        <img src={machines.image} className="card-img-top" alt={machines.name} height="200px" />
+                                    </Link>
                                     <div className="card-body">
-                                        <h5 className="card-title mb-0">{machines.name.substring(0, 12)}</h5>
-                                        <p className="card-text lead fw-bold">{machines.sell_price}₹ {machines.id}</p>
-                                        <p className="card-text">{machines.description.substring(0, 20)}...</p>
-                                        <div className="btn btn-primary" onClick={() => { handleClick(machines.id) }} > more details</div>
+                                        <Link to={`/machines/${machines.id}`} style={{ textDecoration: "none", color: "black" }}> <h5 class="card-title mb-0">{machines.name.substring(0, 12)}</h5>
+                                            <p className="card-text lead fw-bold mb-0">{machines.sell_price}₹</p>
+                                            <p className="card-text">{machines.description.substring(0,30)}...</p>
+                                        </Link>
+                                        <div className="btn btn-outline-dark mt-3" onClick={() => { handleClick(machines.id) }} > more details</div>
                                     </div>
                                 </div>
                             </div>

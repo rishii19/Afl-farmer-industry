@@ -1,0 +1,133 @@
+.navbarWrapper .navbar {
+  background-color: white !important;
+}
+
+.navbarWrapper .navbar .navbar-brand {
+  cursor: pointer;
+}
+
+.navbarWrapper .navbar .navbar-brand img {
+  height: 40px;
+  width: auto;
+}
+
+.navbarWrapper .navbar .navbar-nav li {
+  margin: 0px 20px;
+}
+
+.navbarWrapper .navbar .navbar-nav li button {
+  background-color: #172578;
+  border: none;
+}
+
+.navbarWrapper .navbar .navbar-nav li .btn1 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: none;
+}
+
+.navbarWrapper .navbar .navbar-nav li .btn2 {
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.navbarWrapper .navbar .profileBox img {
+  height: 40px;
+  width: auto;
+}
+
+/*  side nav bar */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #172578;
+  overflow-x: hidden;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  padding-top: 60px;
+}
+
+.sidenav .slideMenuContainerBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidenav .slideMenuContainerBox .imgBox {
+  height: 150px;
+  width: 150px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.sidenav .slideMenuContainerBox .imgBox img {
+  height: 100%;
+  width: 100%;
+}
+
+.sidenav .slideMenuContainerBox .profileNameTag {
+  color: white;
+  font-size: 25px;
+}
+
+.sidenav .slideMenuContainerBox .sideMenuBox ul li {
+  list-style: none;
+  color: white;
+  font-size: 18px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.OpneBtn {
+  position: relative;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=newnavbar.css.map */

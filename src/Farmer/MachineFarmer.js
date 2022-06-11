@@ -3,7 +3,6 @@ import { useParams } from 'react-router';
 import Skeleton from 'react-loading-skeleton';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import SideBarFarmer from './SideBarFarmer'
 import axios from '../api/axios';
 
 const MachineFarmer = () => {
@@ -60,19 +59,20 @@ const MachineFarmer = () => {
                         </div>
                         <div className="col-md-5">
                             <h1 className="display-5 font-bold mb-2">{machines.name}</h1> 
-                            <h3 className="display-6 fw-bold my-4">
-                                Price : {machines.rent_price}₹
-                            </h3>
-                            <h3 className="display-6 fw-bold my-4">
-                                Discount : {machines.discount}%
-                            </h3>
                             <p className="lead">{machines.description}</p>
+                            <h2 className="display-6 my-4">
+                                Discount : {machines.discount}%
+                            </h2>
+                            <h1 className="display-6 fw-bold my-4">
+                                Price : {machines.rent_price}₹
+                            </h1>
+                            
                             <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteMachine(machines.id)}>
                                 Delete
                             </button>
-                            <NavLink to="/d" className="btn btn-dark ms-2 px-3 py-2">
+                            {/* <NavLink to="/d" className="btn btn-dark ms-2 px-3 py-2">
                                 Edit
-                            </NavLink>
+                            </NavLink> */}
                         </div>
                     </div>
                 </div>
@@ -85,10 +85,7 @@ const MachineFarmer = () => {
         <div>
             <div className="container py-5 ">
                 <div className="row py-4 justify-content-evenly" >
-                    <div className="col-md-3">
-                        <SideBarFarmer />
-                    </div>
-                    <div className="col-md-9" style={{marginLeft:250}}>
+                    <div className="col-12">
                         {loading ? <Loading /> : <ShowProduct />}
                     </div>
                 </div>

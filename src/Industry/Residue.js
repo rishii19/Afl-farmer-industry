@@ -40,7 +40,7 @@ const Residue = ({ title }) => {
                                     <h5 class="card-title mb-0">{residue.type_of_residue}</h5>
                                     <h6 class="card-title mb-0"> Quantity: {residue.quantity}</h6>
                                     <p class="card-text lead fw-bold">{residue.price}₹ </p>
-                                    <div class="btn btn-primary" onClick={() => { createorder(residue.id) }}>Buy</div>
+                                    <div class="btn btn-outline-dark" onClick={() => { createorder(residue.id) }}>Buy</div>
                                 </div>
                             </div>
                         </div>

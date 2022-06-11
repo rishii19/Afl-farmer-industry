@@ -127,9 +127,9 @@ export default function SideBar({ children }) {
         path: "/homepagefarmer",
       },
       {
-        text: "My Products",
+        text: "My Machines",
         icon: <CalendarTodayIcon />,
-        path: "/rentmachines",
+        path: "/mymachines",
       },
       {
         text: "Residue",
