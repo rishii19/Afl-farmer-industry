@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import Skeleton from 'react-loading-skeleton';
-import { useNavigate } from 'react-router-dom';
-import SideBarFarmer from './SideBarFarmer'
 import axios from '../api/axios';
 
 const MoreDetailsIndustryList = () => {
     const { id } = useParams();
     const [machines, setMachines] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false)
 
     const getProduct = async () => {
         setLoading(true);
@@ -70,23 +67,26 @@ const MoreDetailsIndustryList = () => {
                         </div>
                         <div className="col-md-5">
                             <h1 className="display-5 font-bold mb-2">{machines.name}</h1>
+                            <hr />
                             <p className="lead fw-bold">
                                 Weight : {machines.details && machines.details.weight}kg
                             </p>
                             <p className="lead fw-bold">
                                 Length :{machines.details && machines.details.length}mm
-                                {/* <i className="fa fa-star"></i> */}
                             </p>
-                            <h3 className="display-6 fw-bold my-4">
-                                Price : {machines.sell_price}₹
-                            </h3>
-                            <h3 className="display-6 fw-bold my-4">
+                            <hr />
+                            <p className="lead">{machines.description}</p>
+                            <hr />
+                            <p className="card-text">Warranty:{machines.warranty} year</p>
+                            <p className="card-text">Guarantee:{machines.guarantee} year</p>
+                            <hr />
+                            <h3 className="display-10 fw-bold my-2 mb-0">
                                 Discount : {machines.discount}%
                             </h3>
-                            <p className="card-text">Warranty:{machines.warranty}</p>
-                            <p className="card-text">Guarantee:{machines.guarantee}</p>
-                            <p className="lead">{machines.description}</p>
-                            <div class="btn btn-primary" onClick={() => { handleAddToCart(machines.id) }} > Add to Cart</div>
+                            <h3 className="display-6 fw-bold my-2" style={{color:"#172578"}}>
+                                Price : {machines.sell_price}₹
+                            </h3>
+                            <div class="btn btn-primary" style={{width:170}} onClick={() => { handleAddToCart(machines.id) }}> Add to Cart</div>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ function SellResidue() {
   const [type_of_residue, setTypeofresidue] = useState([]);
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
+
   const formData = new FormData();
 
   async function residues(e) {
@@ -46,7 +47,8 @@ function SellResidue() {
               SELL RESIDUE
             </h2>
             <form onSubmit={residues} style={{ padding: "30" }}>
-              <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">
+              <label htmlFor="colFormLabel" className="col-3 mt-1 fw-bolder">
+              Residue Type
               </label>
               <input
                 type="text"
@@ -56,6 +58,7 @@ function SellResidue() {
                 onChange={(e) => setTypeofresidue(e.target.value)}
               />
               <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">
+              Quantity
               </label>
               <input
                 type="number"
@@ -65,6 +68,7 @@ function SellResidue() {
                 onChange={(e) => setQuantity(e.target.value)}
               />
               <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">
+                Price
               </label>
               <input
                 type="number"

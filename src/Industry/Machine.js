@@ -61,30 +61,30 @@ const Machine = () => {
                             <img src={machines.image} alt={machines.name} className="img-fluid" style={{ height: 400, width: 400 }} />
                         </div>
                         <div className="col-md-5">
-                            <h1 className="display-5 font-bold mb-2">{machines.name}</h1>
-                            {/* <h5 className="text-uppercase text-black-50">
-                                {machines.fetures}
-                            </h5> */}
+                        <h1 className="display-5 font-bold mb-2">{machines.name}</h1>
+                            <hr />
                             <p className="lead fw-bold">
                                 Weight : {machines.details && machines.details.weight}kg
-                                {/* <i className="fa fa-star"></i> */}
                             </p>
                             <p className="lead fw-bold">
                                 Length :{machines.details && machines.details.length}mm
-                                {/* <i className="fa fa-star"></i> */}
                             </p>
-                            <h3 className="display-6 fw-bold my-4">
-                                Sell Price : {machines.sell_price}₹
-                            </h3>
-                            <h3 className="display-6 fw-bold my-4">
-                                Rent Price : {machines.rent_price}₹
-                            </h3>
-                            <h3 className="display-6 fw-bold my-4">
+                            <hr />
+                            <p className="lead">{machines.description}</p>
+                            <hr />
+                            <p className="card-text">Warranty:{machines.warranty} year</p>
+                            <p className="card-text">Guarantee:{machines.guarantee} year</p>
+                            <hr />
+                            <h3 className="display-10 fw-bold my-2 mb-0">
                                 Discount : {machines.discount}%
                             </h3>
-                            <p className="card-text">Warranty:{machines.warranty}year</p>
-                            <p className="card-text">Guarantee:{machines.guarantee}year</p>
-                            <p className="lead">{machines.description}</p>
+                            <hr />
+                            <h3 className="display-6 fw-bold my-2" style={{color:"#172578"}}>
+                                Sell Price : {machines.sell_price}₹
+                            </h3>
+                            <h3 className="display-6 fw-bold my-2" style={{color:"#172578"}}>
+                                Rent Price : {machines.rent_price}₹
+                            </h3>
                             <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteMachine(machines.id)}>
                                 Delete
                             </button>

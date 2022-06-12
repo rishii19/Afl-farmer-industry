@@ -3,11 +3,12 @@ import AFL from '../Industry/Images/AFL.svg'
 import { makeStyles } from '@material-ui/core'
 import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
-import { useNavigate, useLocation, Outlet } from 'react-router-dom'
+import { useNavigate, useLocation, Outlet,Link } from 'react-router-dom'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
@@ -167,9 +168,14 @@ export default function SideBar({ children }) {
                     <Typography className={classes.navtop}  >
                         <img className={classes.logo} src={AFL} alt="logo" />
                     </Typography>
+                    <Link to="/cart" style={{ width: "30px", textAlign: "right",marginLeft:"500px",color:"black"}}>
+                      {" "}
+                      <i
+                      > <ShoppingCartIcon/></i>
+                    </Link>
                     {localStorage.getItem('user') ?
-                        <Nav>
-                            <NavDropdown className={classes.user} title={user.username}>
+                        <Nav >
+                            <NavDropdown className={classes.user} style={{color:"black"}} title={user.username}>
                                 <NavDropdown.Item onClick={logout} >Logout</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>

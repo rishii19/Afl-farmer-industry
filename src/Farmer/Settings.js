@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import setting from "../Farmer/assets/settings-icon.png";
+// import setting from "../Farmer/assets/settings-icon.png";
 import SideBarFarmer from "./SideBarFarmer";
 import { Link } from "react-router-dom";
 import axios from "../api/axios";

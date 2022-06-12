@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton';
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from '../api/axios';
 const BuyMachines = () => {
-    const history = useNavigate();
 
+    
+    const [cart ,setCart] =useState([]);
     const [filter, setFilter] = useState([]);
     const [loading, setLoadiing] = useState(false);
 
@@ -24,7 +25,8 @@ const BuyMachines = () => {
                 quantity
             }]
         })
-        console.log(id);
+        cart.push(id)
+        console.log(cart)
     }
 
     const Loading = () => {
@@ -74,7 +76,6 @@ const BuyMachines = () => {
             </>
         )
     }
-
     return (
         <>
             <div className="container">

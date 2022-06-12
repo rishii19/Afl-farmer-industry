@@ -33,9 +33,8 @@ const NavBar1 = () => {
                                     Industry
                                 </NavLink>
                             </li>
-
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/contact">
+                                <NavLink className="nav-link" to="/contactus">
                                     Contact us
                                 </NavLink>
                             </li>
