@@ -13,11 +13,9 @@ const RentMachines = () => {
     setLoadiing(true);
     const { data } = await axios.get("machines/?own=true");
     setFilter(data);
-    console.log(data);
     setLoadiing(false);
   }, []);
 
-  console.log(filter, "----------");
 
   const Loading = () => {
     return (
@@ -53,18 +51,18 @@ const RentMachines = () => {
                     alt={machines.name}
                     height="200px"
                   />
-                  <div class="card-body">
-                    <h5 class="card-title mb-0">
+                  <div  className="card-body">
+                    <h5  className="card-title mb-0">
                       {machines.name.substring(0, 12)}
                     </h5>
-                    <p class="card-text lead fw-bold mb-0">
+                    <p  className="card-text lead fw-bold mb-0">
                       {machines.rent_price}₹ 
                     </p>
                     <p className="card-text">
                       {machines.description.substring(0, 20)}...
                     </p>
                     <div
-                      class="btn btn-primary"
+                       className="btn btn-primary"
                       onClick={() => {
                         handleClick(machines.id);
                       }}
@@ -91,20 +89,6 @@ const RentMachines = () => {
         </h1>
         <div>
         <Link to="/addnewmachine" style={{ textDecoration: 'none' }}>
-            {/* <button
-              className="btn btn-info btn-dark btn-lg"
-              style={{
-                position: "absolute",
-                color: "white",
-                marginBottom: "500px",
-                left: "90%",
-                "-ms-transform": "translate(-50%, -50%)",
-                transform: "translate(-50%, -50%)",
-              }}
-            >
-              {" "}
-              Add Residue
-            </button> */}
             <button className="btn btn-outline-dark px-4 py-2 d-flex ms-auto p-2">
             Add Machine
             </button>
@@ -118,24 +102,5 @@ const RentMachines = () => {
   );
 };
 
-{
-  /* <Link to="/addnewmachine">
-                <button
-                  className="btn btn-info btn-lg"
-                  style={{
-                    position: "absolute",
-                    backgroundColor: "#172578",
-                    color: "white",
-                    margintop: "150px",
-                    left: "50%",
-                    "-ms-transform": "translate(-50%, -50%)",
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
-                  {" "}
-                  Add New Machine
-                </button>
-              </Link> */
-}
 
 export default RentMachines;

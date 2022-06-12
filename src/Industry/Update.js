@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams,Link } from 'react-router-dom'
 import axios from '../api/axios'
+import { BiArrowBack } from "react-icons/bi"
 
 
 function Update() {
@@ -82,9 +83,14 @@ function Update() {
 
   return (
     <>
+      <div>
+        <Link to="/machinelist" style={{ textDecoration: "none", color: "black" }}>
+          <p><BiArrowBack />Machine List</p>
+        </Link>
+      </div>
       <div className="container">
         <div className="row py-4 justify-content-evenly" >
-          <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-5 bg-body roundeds' style={{ marginTop: 100, color: "#172578 " }}>Update Your Machine Details</h1>
+          <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-5 bg-body roundeds' style={{  color: "#172578 " }}>Update Your Machine Details</h1>
           <div className="row justify-content-center">
             <form onSubmit={updateProduct}>
               <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">Name:</label>

@@ -31,24 +31,24 @@ const Request = () => {
     return (
       <>
         <div className="buttons d-flex justify-content-center mb-2 pb-5">
-          {/* <button type="button" class="btn btn-outline-dark me-2" onClick={() => setFilter("All")}>All</button> */}
+          {/* <button type="button"  className="btn btn-outline-dark me-2" onClick={() => setFilter("All")}>All</button> */}
           <button
             type="button"
-            class="btn btn-outline-dark me-2"
+             className="btn btn-outline-dark me-2"
             onClick={() => setFilter("pending")}
           >
             Pending
           </button>
           <button
             type="button"
-            class="btn btn-outline-dark me-2"
+             className="btn btn-outline-dark me-2"
             onClick={() => setFilter("accepted")}
           >
             Accepted
           </button>
           <button
             type="button"
-            class="btn btn-outline-dark me-2"
+             className="btn btn-outline-dark me-2"
             onClick={() => setFilter("rejected")}
           >
             {" "}
@@ -62,19 +62,19 @@ const Request = () => {
               style={{ width: "16rem" }}
               key={i}
             >
-              <div class="card-body">
-                <h5 class="card-title mb-0">{data.id}</h5>
-                <h5 class="card-title mb-0">{data.residue.type_of_residue}</h5>
-                <h6 class="card-title mb-0">
+              <div  className="card-body">
+                <h5  className="card-title mb-0">{data.id}</h5>
+                <h5  className="card-title mb-0">{data.residue.type_of_residue}</h5>
+                <h6  className="card-title mb-0">
                   {" "}
                   Quantity: {data.residue.quantity}
                 </h6>
-                <p class="card-text">{data.customer.name}₹ </p>
-                <p class="card-text lead fw-bold">{data.residue.price}₹ </p>
+                <p  className="card-text mb-0">{data.customer.name}</p>
+                <p  className="card-text lead fw-bold">{data.residue.price}₹ </p>
                 {data.status === "pending" && (
                   <>
                     <div
-                      class="btn btn-dark px-3"
+                       className="btn btn-dark px-3"
                       onClick={() => {
                         acceptOrReject(data.id, "accepted");
                       }}
@@ -82,7 +82,7 @@ const Request = () => {
                       Accept
                     </div>
                     <div
-                      class="btn btn-dark px-3"
+                       className="btn btn-dark px-3"
                       style={{ marginLeft: 10 }}
                       onClick={() => {
                         acceptOrReject(data.id, "rejected");

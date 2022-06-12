@@ -1,5 +1,4 @@
 import React, { useState, } from "react";
-// import "./HomePageFarmer.css";
 import ForSale from "./ForSale";
 import ForRent from "./ForRent";
 import BuyMachines from "./BuyMachines";
@@ -19,24 +18,23 @@ const HomePageFarmer = () => {
             Machines
           </h1>
           <div className="buttons d-flex justify-content-center">
-            {/* <button type="button" class="btn btn-outline-dark me-2" onClick={() => setFilter("All")}>All</button> */}
             <button
               type="button"
-              class="btn btn-outline-dark me-2"
+               className="btn btn-outline-dark me-2"
               onClick={() => setActive("buymachines")}
             >
               All
             </button>
             <button
               type="button"
-              class="btn btn-outline-dark me-2"
+               className="btn btn-outline-dark me-2"
               onClick={() => setActive("forsale")}
             >
               For sale
             </button>
             <button
               type="button"
-              class="btn btn-outline-dark me-2"
+               className="btn btn-outline-dark me-2"
               onClick={() => setActive("forrent")}
             >
               For rent

@@ -3,8 +3,7 @@ import { NavLink } from "react-router-dom";
 import './NavBar.css';
 import AFL from './images/AFL.svg';
 
-const NavBar1 = () => {
-     
+const NavBar1 = () => {    
 
     return (
         <div>

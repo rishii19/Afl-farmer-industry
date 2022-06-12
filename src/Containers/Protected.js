@@ -4,16 +4,14 @@ import { useNavigate } from "react-router-dom";
  
 
 const Protected = (props) => {
-  let Cmp = props.Cmp;
   const history = useNavigate();
   useEffect(() => {
-    if (!localStorage.getItem('user_info')) {
+    if (!localStorage.getItem('access_token')) {
       history('/login')
     }
   }, [])
   return (
     <div>
-      <Cmp />
     </div>
   )
 }

@@ -19,18 +19,6 @@ const OrderSuccessful = () => {
         </div>
       </div>
     </div>
-    // <div className="container"
-    // style={{marginTop:"30%"}}>
-    //   <div className="row h-100 d-flex align-items-center justify-content-center">
-    //     <div className='col text-center'>
-    //       <h2>Order Successfull</h2>
-    //       <Link to="/homepagefarmer" style={{ textDecoration: "none", color: "black" }}>
-    //         <p><BiArrowBack />Continue Shopping</p>
-    //       </Link>
-    //     </div>
-    //   </div>
-    // </div>
-
   )
 }
 

@@ -1,5 +1,4 @@
 import React, { useEffect,useState } from "react";
-import "./Connection.css";
 import axios from "../../api/axios";
 import { FaWhatsapp } from 'react-icons/fa';
  

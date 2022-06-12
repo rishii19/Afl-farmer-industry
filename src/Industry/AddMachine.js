@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,Link} from 'react-router-dom';
 import axios from '../api/axios';
+import { BiArrowBack } from "react-icons/bi"
 
 
 function AddMachine() {
@@ -45,16 +46,21 @@ function AddMachine() {
     }
 
     await axios.post("machines/", formData)
-      // console.log("data", data)
-      alert('Machine Added Successfully')
-      history(`/machinelist`)
-    
+    // console.log("data", data)
+    alert('Machine Added Successfully')
+    history(`/machinelist`)
+
   }
   return (
     <>
+      <div>
+        <Link to="/machinelist" style={{ textDecoration: "none", color: "black" }}>
+          <p><BiArrowBack />Machine List</p>
+        </Link>
+      </div>
       <div className="container">
         <div className="row py-4 justify-content-evenly" >
-          <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-5 bg-body roundeds' style={{ marginTop: 100, color: "#172578 " }}>Upload Your Machine Details</h1>
+          <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-5 bg-body roundeds' style={{ marginTop: 100, color: "#172578 " }}>Add New Machine Details</h1>
           <div className="row justify-content-center"><form onSubmit={addmachine}>
             <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">Name:</label>
             <input type="text" className='form-control' value={name} placeholder='name' onChange={(e) => setName(e.target.value)} />
@@ -77,9 +83,9 @@ function AddMachine() {
             <input type="number" className='form-control' value={warranty} placeholder='warranty' onChange={(e) => setWarrenty(e.target.value)} />
             <label htmlFor="colFormLabel" className="col-sm-3 col-form-label mt-2 fw-bolder">Guarentee:</label>
             <input type="number" className='form-control' value={guarantee} placeholder='guarentee' onChange={(e) => setGuarantee(e.target.value)} />
-             <label htmlFor="formFile" className="form-label col-sm-3 col-form-label fw-bolder mt-2">Uplaod Image: </label>
+            <label htmlFor="formFile" className="form-label col-sm-3 col-form-label fw-bolder mt-2">Uplaod Image: </label>
             <input type="file" onChange={(e) => setFile(e.target.files[0])}></input> <br />
-             <input type="checkbox" value={for_sale} onChange={(e) => setFor_sale(e.target.checked)} />
+            <input type="checkbox" value={for_sale} onChange={(e) => setFor_sale(e.target.checked)} />
             <label htmlFor="sell">For Sale</label><br />
             <input type="checkbox" value={for_rent} onChange={(e) => setFor_rent(e.target.checked)} />
             <label htmlFor="for_rent"> For Rent</label><br />

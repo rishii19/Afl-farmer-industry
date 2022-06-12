@@ -145,7 +145,6 @@ export default function SideBar({ children }) {
       },
       {
         text: "Requests",
-  
         icon: <FavoriteBorderIcon />,
         path: "/requestfarmer",
       },

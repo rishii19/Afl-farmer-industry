@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import Skeleton from 'react-loading-skeleton';
 import { useNavigate } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 import axios from '../api/axios';
 
 const MachineFarmer = () => {
@@ -28,7 +27,8 @@ const MachineFarmer = () => {
         }).then((response) => {
             console.log(response.data)
         })
-        navigate(`/rentmachines`);
+        getProduct();
+        navigate(`/mymachines`);
     }
     const Loading = () => {
         return (

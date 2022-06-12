@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,Link} from 'react-router-dom';
 import axios from '../api/axios';
+import { BiArrowBack } from "react-icons/bi"
 
 const Machine = () => {
 
@@ -29,7 +29,7 @@ const Machine = () => {
             // console.warn(data)
             alert("Machine Deleted Successfully")
             getProduct();
-        }) 
+        })
         navigate(`/machinelist`);
     }
 
@@ -55,13 +55,18 @@ const Machine = () => {
     const ShowProduct = () => {
         return (
             <>
+                <div>
+                    <Link to="/machinelist" style={{ textDecoration: "none", color: "black" }}>
+                        <p><BiArrowBack />Machine List</p>
+                    </Link>
+                </div>
                 <div className="container-fluid">
                     <div className="row justify-content-evenly">
-                        <div className="col-md-6 mt-3">
+                        <div className="col-md-5 col-sm-12 mt-3">
                             <img src={machines.image} alt={machines.name} className="img-fluid" style={{ height: 400, width: 400 }} />
                         </div>
-                        <div className="col-md-5">
-                        <h1 className="display-5 font-bold mb-2">{machines.name}</h1>
+                        <div className="col-md-6 col-sm-12">
+                            <h1 className="display-5 font-bold mb-2">{machines.name}</h1>
                             <hr />
                             <p className="lead fw-bold">
                                 Weight : {machines.details && machines.details.weight}kg
@@ -79,16 +84,16 @@ const Machine = () => {
                                 Discount : {machines.discount}%
                             </h3>
                             <hr />
-                            <h3 className="display-6 fw-bold my-2" style={{color:"#172578"}}>
+                            <h3 className="display-6 fw-bold my-2" style={{ color: "#172578" }}>
                                 Sell Price : {machines.sell_price}₹
                             </h3>
-                            <h3 className="display-6 fw-bold my-2" style={{color:"#172578"}}>
+                            {/* <h3 className="display-6 fw-bold my-2" style={{color:"#172578"}}>
                                 Rent Price : {machines.rent_price}₹
-                            </h3>
+                            </h3> */}
                             <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteMachine(machines.id)}>
                                 Delete
                             </button>
-                            <Link to={'/update/'+machines.id} className="btn btn-dark ms-2 px-3 py-2">
+                            <Link to={'/update/' + machines.id} className="btn btn-dark ms-2 px-3 py-2">
                                 Update
                             </Link>
                         </div>

@@ -12,7 +12,6 @@ const ForRent = () => {
         setLoadiing(true);
         const {data} = await axios.get("machines/?for_rent=true");
         setFilter(data)
-        console.log(data);
         setLoadiing(false)
 
     }, []);
@@ -23,6 +22,7 @@ const ForRent = () => {
                 machine:id
             }]
         })
+        alert('Item Added To the Cart')
         console.log(id);
     }
 
@@ -43,9 +43,6 @@ const ForRent = () => {
         )
     }
 
-    function handleClick(id) {
-        history(`/moredetails/${id}`);
-    }
     const ShowProducts = () => {
         return (
             <>
@@ -57,12 +54,11 @@ const ForRent = () => {
                                 <div className="card h-100 text-center py-4" key={machines.id}>
                                     <Link to={`/moredetails/${machines.id}`}>
                                         <img src={machines.image} className="card-img-top" alt={machines.name} height="200px" /></Link>
-                                    <div class="card-body">
-                                        <Link to={`/moredetails/${machines.id}`} style={{ textDecoration: "none", color: "black" }}> <h5 class="card-title mb-0">{machines.name.substring(0, 12)}</h5></Link>
-                                        <p class="card-text lead fw-bold mb-0">{machines.sell_price}₹</p>
+                                    <div  className="card-body">
+                                        <Link to={`/moredetails/${machines.id}`} style={{ textDecoration: "none", color: "black" }}> <h5  className="card-title mb-0">{machines.name.substring(0, 12)}</h5></Link>
+                                        <p  className="card-text lead fw-bold mb-0">{machines.sell_price}₹</p>
                                         <p className="card-text ">{machines.description.substring(0, 20)}...</p>
-                                        <div class="btn btn-primary" onClick={() => { handleAddToCart(machines.id) }} > Add to Cart</div>
-                                        {/* <div class="btn btn-primary" onClick={() => { handleClick(machines.id) }} > more details</div> */}
+                                        <div  className="btn btn-primary" onClick={() => { handleAddToCart(machines.id) }} > Add to Cart</div>
                                     </div>
                                 </div>
                             </div>

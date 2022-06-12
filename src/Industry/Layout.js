@@ -8,12 +8,14 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import ShopIcon from '@material-ui/icons/Shop'
+import InventoryIcon from '@mui/icons-material/Inventory';
+import HomeIcon from '@material-ui/icons/Home';
+import {GoRequestChanges} from 'react-icons/go'
+import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import AddCircleOutlineOutlined from '@material-ui/icons/AddCircleOutlineOutlined';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Avatar from '@material-ui/core/Avatar'
@@ -122,12 +124,12 @@ export default function SideBar({ children }) {
     const menuItems = [
         {
             text: 'Homepage',
-            icon: <HomeOutlinedIcon />,
+            icon: <HomeIcon/>,
             path: '/homepagei'
         },
         {
             text: 'Machine List',
-            icon: <CalendarTodayIcon />,
+            icon: <InventoryIcon />,
             path: '/machinelist'
         },
         {
@@ -136,20 +138,25 @@ export default function SideBar({ children }) {
             path: '/addmachine'
         },
         {
+            text: 'Residues',
+            icon: <ShopIcon/>,
+            path: '/residues'
+        },
+        {
             text: 'Connections',
             icon: <PeopleAltIcon />,
             path: '/connections'
         },
         {
             text: 'Requests',
-            icon: <FavoriteBorderIcon />,
+            icon: <GoRequestChanges/>,
             path: '/requestpage'
         },
         {
-            text: 'Residues',
-            icon: <AddCircleOutlineOutlined />,
-            path: '/residues'
-        },
+            text: "Settings",
+            icon: <SettingsOutlinedIcon />,
+            path: "/settings",
+          },
     ];
 
     return (
@@ -185,9 +192,8 @@ export default function SideBar({ children }) {
 
             >
                 <Avatar className={classes.avatar} style={{ backgroundColor: "#ffffff" }} align="center" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                <Typography variant='h6' style={{ color: "#ffffff" }} className={classes.title} >{user.name}</Typography>
-                {/* <Typography variant="subtitle1" className={classes.bottom} >{user.email}</Typography> */}
-                <br></br>
+                <Typography variant='h6' style={{ color: "#ffffff",marginBottom:"5px"}} className={classes.title} >{user.name}</Typography>
+                
                 {/* links/list section */}
                 <List >
                     {menuItems.map((item) => (

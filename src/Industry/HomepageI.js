@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import './HomePagei.css';
 import Request from '../Components/MachineRequest'
 import Residue from '../Components/MachineResidue'
 

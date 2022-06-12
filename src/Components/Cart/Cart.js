@@ -1,56 +1,56 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
-import { Button, Col, Form, Image, ListGroup, Row } from "react-bootstrap";
-import { AiFillDelete } from "react-icons/ai";
+import { Link, useNavigate } from 'react-router-dom'
 import { BiArrowBack } from "react-icons/bi"
 import axios from '../../api/axios'
+import CartItem from './CartItem';
 
 
 const Cart = () => {
 
   const history = useNavigate();
   const [cartlist, setCartlist] = useState([]);
-  const [quantity, setQuantity] = useState("");
 
 
   const products = () => axios.get("cart")
     .then(res => {
-      console.log("Cart list", res.data)
       setCartlist(res.data);
     }).then(
-  )
-    .catch(e => {
-      console.log(e);
-    });
+  ).catch(e => {
+    console.log(e);
+  });
 
   useEffect(() => {
     products();
   }, []);
 
 
+
   const checkout = () => {
     axios.get(`/cart/checkout`)
       .then(res => {
         console.log("orderplaced")
+      }).catch(e => {
+        console.log(e);
       })
-    history('/ordersuccessful')
+       history('/ordersuccessful')
   }
 
 
-  const handleAddToCart = (id, quantity) => {
+  const handleAddToCart = (e, id, quantity) => {
+    e.preventDefault()
     axios.put(`/cart-items/${id}`, {
-      items: [{
-        quantity: quantity
-      }]
+      quantity
     })
-    console.log(id);
+    products();
   }
 
   function removeItem(id) {
     axios.delete(`/cart-items/${id}`, {
     }).then(() => {
-      // alert("Machine Deleted Successfully")
       products();
+    })
+    .catch(e => {
+      console.log(e);
     })
 
   }
@@ -60,40 +60,8 @@ const Cart = () => {
       <>
         {
           cartlist.map((data) => (
-            <ListGroup >
-              <ListGroup.Item key={data.id}
-              >
-                <Row
-                  className="d-flex align-items-center justify-content-center"
-                >
-                  <Col md={3} >
-                    <Image src={data.machine.image} alt={data.machine.name} fluid rounded />
-                  </Col>
-                  <Col md={3} >
-                    <span >{data.machine.name}</span>
-                  </Col>
-                  <Col md={1}>₹ {data.machine.sell_price}</Col>
-                  <Col md={3}>
-                    <form onSubmit={handleAddToCart}>
-                      <label>
-                        Quantity:
-                        <input type="number" className="form-control" value={quantity}
-                        placeholder="Quantity"
-                        onChange={(e) => setQuantity(e.target.value)}
-                      />
-                      </label>
-                      <input type="submit" value="Add More" />
-                    </form>
-                    {/* <span> Quantity: {data.quantity}</span> */}
-                  </Col>
-                  <Col md={1}>
-                    <Button type="button " variant="outline-danger" onClick={() => { removeItem(data.id) }}>
-                      <AiFillDelete fontSize="25px" />
-                    </Button>
-                  </Col>
-                </Row>
-              </ListGroup.Item>
-            </ListGroup>
+            <CartItem item={data} onSubmit={handleAddToCart}
+              onDelete={removeItem} />
           )
           )
         }
@@ -122,7 +90,7 @@ const Cart = () => {
         </div>
         <hr />
         <div className="d-grid d-md-flex justify-content-md-end">
-          <button class="btn btn-outline-dark btn-lg fw-bold" onClick={() => { checkout() }}>Checkout</button>
+          <button className="btn btn-outline-dark btn-lg fw-bold" onClick={() => { checkout() }}>Checkout</button>
         </div>
       </div>
     </>

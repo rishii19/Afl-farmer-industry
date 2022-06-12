@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
+
 #hero {
     background-image: url('../Images/Home.png');
     display: flex;
@@ -10,53 +11,58 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-  }
-  #heading{
-      font-family: Abhaya Libre;
-      letter-spacing: 0.02em;
-      background: rgba(203, 182, 182, 0.3);
-      border-radius: 23px;
-      color: azure;
-      font-size: 4rem;
-      text-align: center;
-  }
-  #para{
-      font-family:Abhaya Libre;
-      letter-spacing: 0.02em;
-      text-transform: capitalize;
-      color: azure;
-      font-size: 2.5rem;
-      text-align: center;
-      margin: 0%;
+}
 
-  }
-  #p2{
-      margin: 0%;
+#heading {
+    font-family: Abhaya Libre;
+    letter-spacing: 0.02em;
+    background: rgba(203, 182, 182, 0.3);
+    border-radius: 23px;
+    color: azure;
+    font-size: 4rem;
+    text-align: center;
+}
+
+#para {
+    font-family: Abhaya Libre;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
     color: azure;
     font-size: 2.5rem;
     text-align: center;
-  }
-  #btn{
-     margin-left: 20rem;
-      margin-top: 15px;
-      width: 170px;
-      height: 57px;
-      position: relative;
-      background: #F57009;
-      border-radius: 45px;
-      font-family: Abhaya Libre;
-      font-size: 16px;
-      line-height: 17px;
-      text-align: center;
-      letter-spacing: 0.02em;
-      text-transform: capitalize;
-      color: #FFFFFF;
-       
-  }
+    margin: 0%;
 
-  @media screen and (max-width:500px) {
+}
 
-    #heading{
+#p2 {
+    margin: 0%;
+    color: azure;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+#btn {
+    margin-left: 38%;
+    margin-right: auto;
+    margin-top: 3%;
+    width: 170px;
+    height: 57px;
+    position: relative;
+    background: #F57009;
+    border-radius: 45px;
+    font-family: Abhaya Libre;
+    font-size: 16px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #FFFFFF;
+
+}
+
+@media screen and (max-width:500px) {
+
+    #heading {
         font-family: Abhaya Libre ExtraBold;
         letter-spacing: 0.02em;
         background: rgba(203, 182, 182, 0.3);
@@ -65,7 +71,8 @@
         font-size: 2rem;
         margin-top: 0;
     }
-    #para{
+
+    #para {
         font-family: ABeeZee;
         /* line-height: 58px; */
         letter-spacing: 0.02em;
@@ -73,10 +80,11 @@
         color: azure;
         font-size: 1rem;
         /* margin-top: 20px; */
-  
-  
+
+
     }
-    #btn{
+
+    #btn {
         margin-top: 10px;
         width: 100px;
         height: 57px;

@@ -1,10 +1,14 @@
 import React from 'react';
 import './Header.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
+import { Link } from 'react-scroll'
+import { MdExpandMore } from 'react-icons/md'
+// import { Button } from 'react-bootstrap';
+
+
 
 
 const Header = () => {
+
   return (
     <>
       <div className="container-fluid" id='hero'>
@@ -13,7 +17,9 @@ const Header = () => {
             <h1 id='heading'>An Initiative of UIET and MeitY</h1>
             <p id='para'>Buy and Rent </p>
             <p id='p2'>your Farming Machines with us</p>
-            <Button id='btn'>Explore More</Button>
+            <Link to='ficard' smooth={true} offset={-80} duration={1000}>
+                <button id='btn'> Explore More</button>   
+            </Link>
           </div>
         </div>
       </div>
