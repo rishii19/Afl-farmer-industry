@@ -25,7 +25,7 @@ function Settings() {
                     width:"300px",
                     height: "120px",
                     backgroundColor: "#172578",
-                    // marginLeft: "350px",
+                    marginLeft: "60%",
                   }}
                 >
                   <i className="fa fa-edit"></i> Edit Profile
@@ -47,7 +47,7 @@ function Settings() {
                   width:"300px",
                   height: "120px",
                   backgroundColor: "#172578",
-                  // marginLeft: "350px",
+                  marginLeft: "60%",
                   marginTop: "100px",
                 }}
                 data-toggle="modal"

@@ -17,10 +17,11 @@ const HomePageFarmer = () => {
           >
             Machines
           </h1>
-          <div className="buttons d-flex justify-content-center">
+          <div className="buttons d-flex justify-content-center"
+          >
             <button
               type="button"
-               className="btn btn-outline-dark me-2"
+              className="btn btn-outline-dark me-2"
               onClick={() => setActive("buymachines")}
             >
               All

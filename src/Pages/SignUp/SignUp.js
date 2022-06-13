@@ -9,7 +9,7 @@ import LoginProto from '../Login/images/image-overlay.png'
 export default function SignUp() {
 
     useEffect(() => {
-        if (localStorage.getItem('user_info')) {
+        if (localStorage.getItem('user')) {
             history('/')
         }
     }, [])
@@ -36,7 +36,7 @@ export default function SignUp() {
         });
         result = await result.json();
         console.warn("result", result)
-        localStorage.setItem("user_info", JSON.stringify(result));
+        localStorage.setItem("user", JSON.stringify(result));
         localStorage.clear();
         history("/login")
 

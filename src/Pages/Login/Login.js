@@ -89,7 +89,7 @@ function Login() {
                     <div className="other_opts">
                         <div className="small_screen_signup">
                             Don’t have an account?{" "}
-                            <Link to="/signup/1">
+                            <Link to="/signup">
                                 <u>Sign Up</u>
                             </Link>
                         </div>
