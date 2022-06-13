@@ -83,7 +83,7 @@ function AddMachine() {
             <input type="number" className='form-control' value={warranty} placeholder='warranty' onChange={(e) => setWarrenty(e.target.value)} />
             <label htmlFor="colFormLabel" className="col-sm-3 col-form-label mt-2 fw-bolder">Guarentee:</label>
             <input type="number" className='form-control' value={guarantee} placeholder='guarentee' onChange={(e) => setGuarantee(e.target.value)} />
-            <label htmlFor="formFile" className="form-label col-sm-3 col-form-label fw-bolder mt-2">Uplaod Image: </label>
+            <label htmlFor="formFile" className="form-label col-sm-3 col-form-label fw-bolder mt-2">Upload Image: </label>
             <input type="file" onChange={(e) => setFile(e.target.files[0])}></input> <br />
             <input type="checkbox" value={for_sale} onChange={(e) => setFor_sale(e.target.checked)} />
             <label htmlFor="sell">For Sale</label><br />

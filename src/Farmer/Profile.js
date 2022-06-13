@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { BiArrowBack } from 'react-icons/bi'
 import axios from '../api/axios';
 import { useNavigate, Link } from 'react-router-dom';
@@ -9,8 +9,28 @@ function Profile() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
-  const [is_industry, setIs_industry] = useState(false);
+  const [is_industry, setIs_industry] = useState("false");
+  const[user,setUser] =useState();
   const formData = new FormData();
+
+
+  useEffect(() => {
+    getuser();
+  }, []);
+
+  const getuser = () => {
+    axios.get("profile")
+      .then((response) => {
+        const getdata = response.data;
+        setName(getdata.name)
+        setUsername(getdata.username)
+        setLocation(getdata.location)
+        setPhone(getdata.phone)
+        setUser(getdata)
+        setIs_industry(getdata.setIs_industry)
+         
+      }).catch(error => console.error(error))
+  }
 
   async function profile(e) {
     e.preventDefault();
@@ -19,18 +39,18 @@ function Profile() {
       name: name,
       phone: phone,
       location: location,
-      is_industry: false,
+      is_industry: is_industry,
     };
 
     for (const [key, value] of Object.entries(formdata)) {
       formData.append(key, value);
-      console.log(key, value);
+      // console.log(key, value);
     }
 
     let { data } = await axios.patch("profile/", formData);
-    console.log("data", data);
-    alert('profile Updated Successfully')
-    // localStorage.setItem("machine_info", JSON.stringify(data));
+    // console.log("data", data);
+    alert('Profile Updated Successfully')
+    localStorage.setItem("user", JSON.stringify(data));
     history(`/homepagefarmer`);
   }
   return (
@@ -105,7 +125,8 @@ function Profile() {
                   <input
                     className="form-check-input mt-4" style={{ "width": "1.2rem", "height": "1.2rem" }}
                     type="checkbox"
-                    value={is_industry}
+                    // checked={is_industry}
+                    disabled
                     onChange={(e) => setIs_industry(e.target.checked)}
                     id="flexCheckDefault"
                   />
