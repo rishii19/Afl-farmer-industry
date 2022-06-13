@@ -9,6 +9,9 @@ import RequestPage from './Industry/RequestPage/RequestPage';
 import HomepageI from './Industry/HomepageI';
 import Residue from './Industry/Residue';
 import Update from './Industry/Update';
+import SettingsI from './Industry/SettingsI';
+import ProfileI from './Industry/ProfileI';
+import ChangePasswordI from './Industry/ChangePasswordI';
 import HomepageFarmer from './Farmer/HomePageFarmer';
 import ResidueDetails from './Farmer/ResidueDetails'
 import SellResidue from './Farmer/SellResidue'
@@ -17,7 +20,7 @@ import Cart from './Components//Cart/Cart'
 import OrderSuccessful from './Components/Cart/OrderSuccessful';
 import Connections from './Farmer/Connections'
 import MachineFarmer from './Farmer/MachineFarmer'
-import Profile from './Farmer/Profile'
+import Profile from  './Farmer/Profile'
 import Request from './Farmer/Request';
 import Settings from './Farmer/Settings'
 import AddNewMachine from './Farmer/AddNewMachine'
@@ -25,6 +28,7 @@ import MyMachines from './Farmer/MyMachines'
 import MoreDetails from './Farmer/MoreDetails';
 import Layout from './Industry/Layout';
 import SideBar from './Farmer/SideBarFarmer';
+import ResidueOrderSuccess from './Industry/ResidueOrderSuccess';
 import PageNotFound from './Pages/PageNotFound';
 
 function App() {
@@ -42,10 +46,14 @@ function App() {
         <Route path="machines/:id" element= {<Layout children={<Machine />}/>} />
         <Route path="addmachine" element= {<Layout children={<AddMachine />}/>} />
         <Route path="connections" element= {<Layout children={<Connection/>}/>} />
+        <Route path="settingsI" element= {<Layout children={<SettingsI/>}/>} />
+        <Route path="profileI" element= {<Layout children={<ProfileI/>}/>} />
+        <Route path="changepasswordi" element= {<Layout children={<ChangePasswordI/>}/>} />
         <Route path="requestpage" element={<Layout children = {<RequestPage title="Requests" />}/>} />
         <Route path="residues" element={<Layout children = {<Residue title="Residue" />}/>}  />
         <Route path="update/:id" element={<Layout children = {<Update />} />}/>
         <Route path="ordersuccessful" element={<Layout children = {<OrderSuccessful/>} />}/>
+        <Route path="residueordersuccess" element={<Layout children = {<ResidueOrderSuccess/>} />}/>
 
        
         {/* Farmer */}

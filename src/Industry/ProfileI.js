@@ -29,14 +29,14 @@ function Profile() {
 
     let { data } = await axios.patch("profile/", formData);
     console.log("data", data);
-    alert('profile Updated Successfully')
+    alert('Profile Updated Successfully')
     // localStorage.setItem("machine_info", JSON.stringify(data));
-    history(`/homepagefarmer`);
+    history(`/homepagei`);
   }
   return (
     <>
       <div style={{ textAlign: "start" }}>
-        <Link to="/settings" style={{ textDecoration: "none", color: "black" }}>
+        <Link to="/settingsi" style={{ textDecoration: "none", color: "black" }}>
           <p style={{ fontSize: 20 }}><BiArrowBack />Settings</p>
         </Link>
       </div>

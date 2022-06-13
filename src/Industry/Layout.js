@@ -155,7 +155,7 @@ export default function SideBar({ children }) {
         {
             text: "Settings",
             icon: <SettingsOutlinedIcon />,
-            path: "/settings",
+            path: "/settingsi",
           },
     ];
 

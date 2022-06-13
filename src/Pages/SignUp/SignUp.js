@@ -7,13 +7,7 @@ import LoginProto from '../Login/images/image-overlay.png'
 
 
 export default function SignUp() {
-
-    useEffect(() => {
-        if (localStorage.getItem('user')) {
-            history('/')
-        }
-    }, [])
-
+    
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");

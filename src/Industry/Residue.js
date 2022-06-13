@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../api/axios';
+import { useNavigate } from 'react-router-dom';
 
 const Residue = ({ title }) => {
 
     const [residues, setResidues] = useState([]);
+    const history = useNavigate();
 
     const fetchData = () => {
         axios.get("residues")
@@ -13,7 +15,8 @@ const Residue = ({ title }) => {
             })
             .catch(e => {
                 console.log(e);
-              });
+              })
+              
     }
     const createorder = (id) => {
         axios.post("residue-orders/", {
@@ -23,6 +26,7 @@ const Residue = ({ title }) => {
         }).catch(e => {
             alert("order fail")
         })
+        history('/residueordersuccess')
     }
 
     useEffect(() => {

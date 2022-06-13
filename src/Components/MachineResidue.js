@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from '../api/axios';
 
 const MachineResidue = () => {
 
     const [residues, setResidues] = useState([]);
+    const history = useNavigate();
 
     const fetchData = () => {
         axios.get("residues")
@@ -16,10 +18,10 @@ const MachineResidue = () => {
         axios.post("residue-orders/", {
             residue: id
         }).then(res => {
-            alert('ordered successfully')
         }).catch(e => {
             alert("order fail")
         })
+        history('/residueordersuccess')
     }
 
     useEffect(() => {

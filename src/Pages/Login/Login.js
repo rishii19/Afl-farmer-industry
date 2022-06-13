@@ -29,15 +29,7 @@ function Login() {
                 }
             }).catch(error => console.error(error))
     }
-    // useEffect(() => {
-    //     if (localStorage.getItem('access-token') && user.data.is_industry) {
-    //         navigate('/homepagei')
-    //     }
-    //     else if (localStorage.getItem('access-token')) {
-    //         navigate('/homepagefarmer')
-    //     }
-    // }, [])
-
+   
     const submit = async e => {
         e.preventDefault();
         axios.post("token/", {

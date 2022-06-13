@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import axios from "../api/axios";
 import { BiArrowBack } from 'react-icons/bi'
 import { useNavigate,Link } from "react-router-dom";
-import ChangePassworditem from  '../Industry/ChangePassworditem'
+import ChangePassworditem from "./ChangePassworditem";
 
 function changePassword() {
-    
+
   const history = useNavigate();
   const formData = new FormData();
 
@@ -19,12 +19,12 @@ function changePassword() {
 
     for (const [key, value] of Object.entries(formdata)) {
       formData.append(key, value);
-      // console.log(key, value);
+    //   console.log(key, value);
     }
 
     let { data } = await axios.patch("/users/change-password", formData);
-    alert("password Changed Succesfully");
     // console.log("data", data);
+    alert("password Changed Succesfully");
     history(`/login`);
   }
   const ShowChangePassword = () => {
@@ -36,7 +36,7 @@ function changePassword() {
   return (
     <>
       <div style={{ textAlign: "start" }}>
-        <Link to="/settings" style={{ textDecoration: "none", color: "black" }}>
+        <Link to="/settingsi" style={{ textDecoration: "none", color: "black" }}>
           <p style={{ fontSize: 20 }}><BiArrowBack />Settings</p>
         </Link>
       </div>
