@@ -11,7 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import ShopIcon from '@material-ui/icons/Shop'
 import InventoryIcon from '@mui/icons-material/Inventory';
 import HomeIcon from '@material-ui/icons/Home';
-import {GoRequestChanges} from 'react-icons/go'
+import { GoRequestChanges } from 'react-icons/go'
 import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import AddCircleOutlineOutlined from '@material-ui/icons/AddCircleOutlineOutlined';
@@ -120,11 +120,17 @@ export default function SideBar({ children }) {
         localStorage.clear();
         history('/')
     }
+    function updateProfile() {
+        history('/profilei')
+    }
+    function changePassword() {
+        history('/changepasswordi')
+    }
 
     const menuItems = [
         {
             text: 'Homepage',
-            icon: <HomeIcon/>,
+            icon: <HomeIcon />,
             path: '/homepagei'
         },
         {
@@ -139,7 +145,7 @@ export default function SideBar({ children }) {
         },
         {
             text: 'Residues',
-            icon: <ShopIcon/>,
+            icon: <ShopIcon />,
             path: '/residues'
         },
         {
@@ -149,14 +155,14 @@ export default function SideBar({ children }) {
         },
         {
             text: 'Requests',
-            icon: <GoRequestChanges/>,
+            icon: <GoRequestChanges />,
             path: '/requestpage'
         },
-        {
-            text: "Settings",
-            icon: <SettingsOutlinedIcon />,
-            path: "/settingsi",
-          },
+        // {
+        //     text: "Settings",
+        //     icon: <SettingsOutlinedIcon />,
+        //     path: "/settingsi",
+        // },
     ];
 
     return (
@@ -174,6 +180,8 @@ export default function SideBar({ children }) {
                     {localStorage.getItem('user') ?
                         <Nav>
                             <NavDropdown className={classes.user} title={user.username}>
+                                <NavDropdown.Item onClick={updateProfile} >Update Profile</NavDropdown.Item>
+                                <NavDropdown.Item onClick={changePassword} >Change Password</NavDropdown.Item>
                                 <NavDropdown.Item onClick={logout} >Logout</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
@@ -192,8 +200,8 @@ export default function SideBar({ children }) {
 
             >
                 <Avatar className={classes.avatar} style={{ backgroundColor: "#ffffff" }} align="center" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                <Typography variant='h6' style={{ color: "#ffffff",marginBottom:"5px"}} className={classes.title} >{user.name}</Typography>
-                
+                <Typography variant='h6' style={{ color: "#ffffff", marginBottom: "5px" }} className={classes.title} >{user.name}</Typography>
+
                 {/* links/list section */}
                 <List >
                     {menuItems.map((item) => (
@@ -209,6 +217,7 @@ export default function SideBar({ children }) {
                         </ListItem>
                     ))}
                     <ListItem
+                        className={classes.active ? classes.hover : null}
                         button
                         onClick={() => logout()}
                     >
@@ -216,7 +225,7 @@ export default function SideBar({ children }) {
                         <ListItemText style={{ color: '#fff' }} primary="Logout" />
                     </ListItem>
                 </List>
-            </Drawer > 
+            </Drawer >
             <div className={classes.page}>
                 <div className={classes.toolbar}></div>
                 {children}

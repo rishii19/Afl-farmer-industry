@@ -3,7 +3,7 @@ import AFL from '../Industry/Images/AFL.svg'
 import { makeStyles } from '@material-ui/core'
 import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
-import { useNavigate, useLocation, Outlet,Link } from 'react-router-dom'
+import { useNavigate, useLocation, Outlet, Link } from 'react-router-dom'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => {
         appBar: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
-            background: '#dcdcdc',
+            background: '#8792ae',
             height: 60
         },
         logo: {
@@ -120,39 +120,48 @@ export default function SideBar({ children }) {
         localStorage.clear();
         history('/')
     }
+    function updateProfile(){
+     history('/profile')
+    }
+    function changePassword(){
+        history('/changepassword')
+       }
+       function orderHistory(){
+        history('/orderhistory')
+       }
 
     const menuItems = [
-      {
-        text: "Homepage",
-        icon: <HomeOutlinedIcon />,
-        path: "/homepagefarmer",
-      },
-      {
-        text: "My Machines",
-        icon: <CalendarTodayIcon />,
-        path: "/mymachines",
-      },
-      {
-        text: "Residue",
-        icon: <AddCircleOutlineOutlined />,
-        path: "/residuedetails",
-      },
-  
-      {
-        text: "Connections",
-        icon: <GroupAddOutlinedIcon />,
-        path: "/connection",
-      },
-      {
-        text: "Requests",
-        icon: <FavoriteBorderIcon />,
-        path: "/requestfarmer",
-      },
-      {
-        text: "Settings",
-        icon: <SettingsOutlinedIcon />,
-        path: "/settings",
-      },
+        {
+            text: "Homepage",
+            icon: <HomeOutlinedIcon />,
+            path: "/homepagefarmer",
+        },
+        {
+            text: "My Machines",
+            icon: <CalendarTodayIcon />,
+            path: "/mymachines",
+        },
+        {
+            text: "Residue",
+            icon: <AddCircleOutlineOutlined />,
+            path: "/residuedetails",
+        },
+
+        {
+            text: "Connections",
+            icon: <GroupAddOutlinedIcon />,
+            path: "/connection",
+        },
+        {
+            text: "Requests",
+            icon: <FavoriteBorderIcon />,
+            path: "/requestfarmer",
+        },
+        // {
+        //     text: "Settings",
+        //     icon: <SettingsOutlinedIcon />,
+        //     path: "/settings",
+        // },
     ];
 
     return (
@@ -167,14 +176,17 @@ export default function SideBar({ children }) {
                     <Typography className={classes.navtop}  >
                         <img className={classes.logo} src={AFL} alt="logo" />
                     </Typography>
-                    <Link to="/cart" style={{ width: "30px", textAlign: "right",marginLeft:"500px",color:"black"}}>
-                      {" "}
-                      <i
-                      > <ShoppingCartIcon/></i>
+                    <Link to="/cart" style={{ width: "30px", textAlign: "right", marginLeft: "500px", color: "black" }}>
+                        {" "}
+                        <i
+                        > <ShoppingCartIcon /></i>
                     </Link>
                     {localStorage.getItem('user') ?
                         <Nav >
-                            <NavDropdown className={classes.user} style={{color:"black"}} title={user.username}>
+                            <NavDropdown className={classes.user} style={{ color: "black" }} title={user.username}>
+                            <NavDropdown.Item onClick={orderHistory} >Order History</NavDropdown.Item>
+                                <NavDropdown.Item onClick={updateProfile} >Update Profile</NavDropdown.Item>
+                                <NavDropdown.Item onClick={changePassword} >Change Password</NavDropdown.Item>
                                 <NavDropdown.Item onClick={logout} >Logout</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
@@ -211,6 +223,7 @@ export default function SideBar({ children }) {
                         </ListItem>
                     ))}
                     <ListItem
+                        className={classes.active ? classes.hover:null}
                         button
                         onClick={() => logout()}
                     >
@@ -218,7 +231,7 @@ export default function SideBar({ children }) {
                         <ListItemText style={{ color: '#fff' }} primary="Logout" />
                     </ListItem>
                 </List>
-            </Drawer > 
+            </Drawer >
             <div className={classes.page}>
                 <div className={classes.toolbar}></div>
                 {children}

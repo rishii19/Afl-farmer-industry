@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "../api/axios";
-import { BiArrowBack } from 'react-icons/bi'
+// import { BiArrowBack } from 'react-icons/bi'
 import { useNavigate,Link } from "react-router-dom";
 import ChangePassworditem from "./ChangePassworditem";
 
@@ -22,11 +22,13 @@ function changePassword() {
     //   console.log(key, value);
     }
 
-    let { data } = await axios.patch("/users/change-password", formData);
-    // console.log("data", data);
-    alert("password Changed Succesfully");
+   await axios.patch("/users/change-password", formData)
+   .then(()=>{
+    alert("Password Changed Succesfully");
+   }).catch((err)=>alert("Plese Fill Correct Details"))
     history(`/login`);
   }
+  
   const ShowChangePassword = () => {
     return (
       <>
@@ -35,11 +37,11 @@ function changePassword() {
   };
   return (
     <>
-      <div style={{ textAlign: "start" }}>
+      {/* <div style={{ textAlign: "start" }}>
         <Link to="/settingsi" style={{ textDecoration: "none", color: "black" }}>
           <p style={{ fontSize: 20 }}><BiArrowBack />Settings</p>
         </Link>
-      </div>
+      </div> */}
       <div className="container">
         <div className="row py-4 justify-content-evenly" >
           <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-5 bg-body roundeds' style={{ color: "#172578 " }}>Change Password

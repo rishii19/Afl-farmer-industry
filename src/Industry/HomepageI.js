@@ -7,14 +7,14 @@ function Homepagei() {
 
   return (
     <>
-      <div className="container">
-        <div className="row py-4 justify-content-evenly" >
+      <div className="container-fluid">
+        <div className="row justify-content-evenly" >
           <div className="col-md-6 col-sm-12">
-            <h1 className='text-center border border-1 p-4  shadow p-3 mt-3 mb-5 bg-body roundeds' onClick={() => setActive("Request")} style={{ marginTop: 100, color: "#172578 " }}
+            <h1 className='text-center border border-2 p-2  shadow p-2 mt-0 mb-2 bg-body rounded-2' onClick={() => setActive("Request")} style={{ marginTop: 100, color: "#172578 " }}
             >Requests</h1>
           </div>
           <div className="col-md-6 col-sm-12">
-            <h1 className='text-center border border-1 p-4  shadow p-3 mt-3 mb-5 bg-body roundeds' onClick={() => setActive("Residue")} style={{ marginTop: 100, color: "#172578 " }}
+            <h1 className='text-center border border-2 p-2  shadow p-2 mt-0 mb-2 bg-body rounded-2' onClick={() => setActive("Residue")} style={{ marginTop: 100, color: "#172578 " }}
             >Residue</h1>
           </div>
           <div>

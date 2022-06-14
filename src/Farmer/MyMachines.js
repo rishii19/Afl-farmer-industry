@@ -85,7 +85,7 @@ const RentMachines = () => {
     <>
     <div className="container">
       <div className="row py-4 justify-content-evenly" >
-        <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-3 bg-body roundeds' style={{ marginTop: 100, color: "#172578 " }}>My Products
+        <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-3 bg-body roundeds' style={{ marginTop: 100, color: "#172578 " }}>My Machines
         </h1>
         <div>
         <Link to="/addnewmachine" style={{ textDecoration: 'none' }}>

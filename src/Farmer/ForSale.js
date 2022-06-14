@@ -49,13 +49,15 @@ const ForSale = () => {
           return (
             <>
               <div className="col-md-4 mb-4 mt-3 ">
-                <div className="card h-100 text-center py-4" key={machines.id}>
+                <div className="card h-100 text-center py-3" key={machines.id}>
                   <Link to={`/moredetails/${machines.id}`}>
                     <img src={machines.image} className="card-img-top" alt={machines.name} height="200px" /></Link>
                   <div  className="card-body">
-                    <Link to={`/moredetails/${machines.id}`} style={{ textDecoration: "none", color: "black" }}> <h5  className="card-title mb-0">{machines.name.substring(0, 12)}</h5></Link>
+                    <Link to={`/moredetails/${machines.id}`} style={{ textDecoration: "none", color: "black" }}> 
+                    <h5  className="card-title mb-0">{machines.name.substring(0, 12)}</h5>
                     <p  className="card-text lead fw-bold mb-0">{machines.sell_price}₹</p>
                     <p className="card-text ">{machines.description.substring(0, 20)}...</p>
+                    </Link>
                     <div  className="btn btn-primary" onClick={() => { handleAddToCart(machines.id) }} > Add to Cart</div>
                   </div>
                 </div>

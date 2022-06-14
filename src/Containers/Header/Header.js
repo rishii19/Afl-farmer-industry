@@ -16,8 +16,8 @@ const Header = () => {
           <div className="col-md-12">
             <h1 id='heading'>An Initiative of UIET and MeitY</h1>
             <p id='para'>Buy and Rent </p>
-            <p id='p2'>your Farming Machines with us</p>
-            <Link to='ficard' smooth={true} offset={-80} duration={1000}>
+            <p id='p2'>Farming Machines and Residue with us</p>
+            <Link to='ficard' smooth={true} offset={-50} duration={1000}>
                 <button id='btn'> Explore More</button>   
             </Link>
           </div>

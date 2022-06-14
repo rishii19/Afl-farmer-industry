@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { BiArrowBack } from 'react-icons/bi'
+// import { BiArrowBack } from 'react-icons/bi'
 import axios from '../api/axios';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -27,8 +27,7 @@ function Profile() {
         setLocation(getdata.location)
         setPhone(getdata.phone)
         setUser(getdata)
-        setIs_industry(getdata.setIs_industry)
-         
+        setIs_industry(getdata.setIs_industry)  
       }).catch(error => console.error(error))
   }
 
@@ -53,13 +52,15 @@ function Profile() {
     localStorage.setItem("user", JSON.stringify(data));
     history(`/homepagei`);
   }
+
+
   return (
     <>
-      <div style={{ textAlign: "start" }}>
+      {/* <div style={{ textAlign: "start" }}>
         <Link to="/settingsi" style={{ textDecoration: "none", color: "black" }}>
           <p style={{ fontSize: 20 }}><BiArrowBack />Settings</p>
         </Link>
-      </div>
+      </div> */}
       <div className="container">
         <div className="row">
           <div className="col mt-0">

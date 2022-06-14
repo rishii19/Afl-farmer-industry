@@ -24,10 +24,10 @@ function SellResidue() {
       console.log(key, value);
     }
 
-    let { data } = await axios.post("residues/", formData);
-    console.log("data", data);
-    localStorage.setItem("machine_info", JSON.stringify(data));
-    history(`/residuedetails`);
+    await axios.post("residues/", formData);
+    // console.log("data", data)
+    history(`/residuedetails`)
+    
   }
 
   return (
@@ -52,16 +52,18 @@ function SellResidue() {
               </label>
               <input
                 type="text"
+                required
                 className="form-control"
                 value={type_of_residue}
                 placeholder="Type of Residue"
                 onChange={(e) => setTypeofresidue(e.target.value)}
               />
               <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">
-              Quantity
+              Quantity:(Kg)
               </label>
               <input
                 type="number"
+                required
                 className="form-control"
                 value={quantity}
                 placeholder="Quantity"
@@ -72,6 +74,7 @@ function SellResidue() {
               </label>
               <input
                 type="number"
+                required
                 className="form-control"
                 value={price}
                 placeholder="Price"

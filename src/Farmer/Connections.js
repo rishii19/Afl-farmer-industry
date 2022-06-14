@@ -10,7 +10,7 @@ const Connections = () => {
     const fetchData = () => {
         axios.get("connections")
             .then(response => {
-                // console.log("Connection list", response.data);
+                console.log("Connection list", response.data);
                 setConnections(response.data);
             })
             .catch(e => {

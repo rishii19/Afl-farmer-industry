@@ -1,4 +1,3 @@
-import './HomePage.css'
 import React from "react";
 import { Blogs, Footer1, Header } from '../../Containers';
 import { MultiItemCarousel, SpecialOffers } from '../../Components';

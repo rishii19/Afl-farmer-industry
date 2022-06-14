@@ -30,6 +30,7 @@ import Layout from './Industry/Layout';
 import SideBar from './Farmer/SideBarFarmer';
 import ResidueOrderSuccess from './Industry/ResidueOrderSuccess';
 import PageNotFound from './Pages/PageNotFound';
+import OrderHistory from './Components/Cart/OrderHistory';
 
 function App() {
   return (
@@ -51,8 +52,7 @@ function App() {
         <Route path="changepasswordi" element= {<Layout children={<ChangePasswordI/>}/>} />
         <Route path="requestpage" element={<Layout children = {<RequestPage title="Requests" />}/>} />
         <Route path="residues" element={<Layout children = {<Residue title="Residue" />}/>}  />
-        <Route path="update/:id" element={<Layout children = {<Update />} />}/>
-        <Route path="ordersuccessful" element={<Layout children = {<OrderSuccessful/>} />}/>
+        <Route path="update/:id" element={<Layout children = {<Update />} />}/> 
         <Route path="residueordersuccess" element={<Layout children = {<ResidueOrderSuccess/>} />}/>
 
        
@@ -67,6 +67,8 @@ function App() {
           <Route path="addnewmachine" element={<SideBar children={<AddNewMachine />} />} />
           <Route path="mymachines"  element={<SideBar children={<MyMachines/>} />} />
           <Route path="settings" element={<SideBar children={<Settings />} />}/>
+          <Route path="Orderhistory" element={<SideBar children={<OrderHistory />} />}/>
+          <Route path="ordersuccessful" element={<SideBar children = {<OrderSuccessful/>} />}/>
           <Route path="changepassword" element={<SideBar children={<ChangePassword />} />}/>
           <Route path="requestfarmer" element={<SideBar children={<Request />} />} />
           <Route path="moredetails/:id"  element={<SideBar children={<MoreDetails />} />} />
