@@ -18,18 +18,17 @@ const Machine = () => {
         setMachines(data);
         setLoading(false);
     }
-
     useEffect(() => {
         getProduct();
     }, []);
 
     function deleteMachine(id) {
-        axios.delete(`/machines/${id}`, {
+        axios.delete(`/machines/${id}`,{
         }).then((data) => {
             // console.warn(data)
-            alert("Machine Deleted Successfully")
-            getProduct();
+            alert("Machine Deleted Successfully")      
         })
+        getProduct();
         navigate(`/machinelist`);
     }
 
@@ -82,6 +81,9 @@ const Machine = () => {
                             <hr />
                             <h3 className="display-10 fw-bold my-2 mb-0">
                                 Discount : {machines.discount}%
+                            </h3>
+                            <h3 className="display-10 fw-bold my-2 mb-0">
+                                Quantity: {machines.quantity}
                             </h3>
                             <hr />
                             <h3 className="display-6 fw-bold my-2" style={{ color: "#172578" }}>

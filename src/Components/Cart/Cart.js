@@ -9,6 +9,10 @@ const Cart = () => {
 
   const history = useNavigate();
   const [cartlist, setCartlist] = useState([]);
+  // const [btn ,setBtn] = useState('disable')
+  
+  const totalPrice = cartlist.reduce((total, item) => total + (item.machine.sell_price * item.quantity), 0);
+ 
 
 
   const products = () => axios.get("cart")
@@ -24,7 +28,6 @@ const Cart = () => {
   }, []);
 
 
-
   const checkout = () => {
     axios.get(`/cart/checkout`)
       .then(res => {
@@ -32,8 +35,9 @@ const Cart = () => {
       }).catch(e => {
         console.log(e);
       })
-       history('/ordersuccessful')
+    history('/ordersuccessful')
   }
+
 
 
   const handleAddToCart = (e, id, quantity) => {
@@ -49,9 +53,9 @@ const Cart = () => {
     }).then(() => {
       products();
     })
-    .catch(e => {
-      console.log(e);
-    })
+      .catch(e => {
+        console.log(e);
+      })
 
   }
 
@@ -86,12 +90,14 @@ const Cart = () => {
           </div>
         </div>
         <div className="d-grid d-md-flex justify-content-md-end">
-          <span className="fs-1 fw-semibold text-right" style={{ fontWeight: 700, fontSize: 20 }}>Total Price: {cartlist.reduce((total, item) => total + (item.machine.sell_price * item.quantity), 0)}.00₹</span>
+          <span className="fs-1 fw-semibold text-right" style={{ fontWeight: 700, fontSize: 20 }}>Total Price: {totalPrice}.00₹</span>
         </div>
         <hr />
         <div className="d-grid d-md-flex justify-content-md-end">
-          <button className="btn btn-outline-dark btn-lg fw-bold" onClick={() => { checkout() }}>Checkout</button>
+          <button className="btn btn-outline-dark btn-lg fw-bold" id='btnsubmit' 
+            onClick={() => { checkout()}}>Checkout</button>
         </div>
+
       </div>
     </>
   )

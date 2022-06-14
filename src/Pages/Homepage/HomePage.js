@@ -12,8 +12,8 @@ const HomePage = () => (
         <Header />
         <br></br>
         <MultiItemCarousel />
-        <SpecialOffers />
         <Card1/>
+        <SpecialOffers />
         <Blogs />
         <Footer1 />
 

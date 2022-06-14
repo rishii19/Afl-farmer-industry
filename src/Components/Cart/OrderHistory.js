@@ -7,7 +7,7 @@ const OrderHistory = () => {
     const fetchData = () => {
         axios.get("orders")
             .then(response => {
-                console.log("residues list", response.data);
+                console.log("order history list", response.data);
                 // setResidues(response.data);
             });
     }

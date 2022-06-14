@@ -13,112 +13,110 @@ function AddNewMachine() {
 
   const formData = new FormData();
 
-  async function addmachine(e) {
+   function addmachine(e) {
     e.preventDefault();
     let formdata = {
-      name: name,
-      description: description,
-      discount: discount,
-      rent_price: rent_price,
-      image: file,
+      "name": name,
+      "description": description,
+      "discount": discount,
+      "rent_price": rent_price,
+      "image": file,
     };
 
     for (const [key, value] of Object.entries(formdata)) {
       formData.append(key, value);
     }
 
-    const { data } = await axios.post("machines/", { formData })
+    const { data } = axios.post("machines/",formData )
     alert('product uploaded successfully')
     history(`/mymachines`)
 
 
   }
   return (
-    <div className="container">
-      <div className="row justify-content-evenly">
-        <div className="col-md-4 col-sm-12 align-self-center">
-          <img className="img-fluid" src={Tractor1} style={{ width: 400, height: 300 }} />
-        </div>
-        <div className="col-md-8 col-sm-12">
-          {/* <div className="col-sm-8 offset-sm-2" style={{ margintop: 100 }}> */}
-          <h1 className="py-2 text-align-center">Upload Your Machine Details</h1>
-          <form onSubmit={addmachine}>
-            <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">
-              Name:
-            </label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              value={name}
-              placeholder="name"
-              onChange={(e) => setName(e.target.value)}
-            />
-            <label
-              htmlFor="colFormLabel"
-              className="col-sm-3 col-form-label mt-2 fw-bolder"
-            >
-              Description:
-            </label>
-            <textarea
-              type="text"
-              required
-              className="form-control"
-              value={description}
-              placeholder="description"
-              onChange={(e) => setDescription(e.target.value)}
-            />
+    <>
+      <div className="container">
+        <div className="row justify-content-evenly">
+          <div className="col-md-4 col-sm-12 align-self-center">
+            <img className="img-fluid" src={Tractor1} style={{ width: 400, height: 300 }} />
+          </div>
+          <div className="col-md-8 col-sm-12">
+            {/* <div className="col-sm-8 offset-sm-2" style={{ margintop: 100 }}> */}
+            <h1 className="py-2 text-align-center">Upload Your Machine Details</h1>
+            <form onSubmit={addmachine}>
+              <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">
+                Name:
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                value={name}
+                placeholder="name"
+                onChange={(e) => setName(e.target.value)}
+              />
+              <label
+                htmlFor="colFormLabel"
+                className="col-sm-3 col-form-label mt-2 fw-bolder"
+              >
+                Description:
+              </label>
+              <textarea
+                type="text"
+                className="form-control"
+                value={description}
+                placeholder="description"
+                onChange={(e) => setDescription(e.target.value)}
+              />
 
-            <label
-              htmlFor="colFormLabel"
-              className="col-sm-3 col-form-label mt-2 fw-bolder"
-            >
-              Rent_price:
-            </label>
-            <input
-              type="number"
-              required
-              className="form-control"
-              value={rent_price}
-              placeholder="rent_price"
-              onChange={(e) => setRent_price(e.target.value)}
-            />
-            <label
-              htmlFor="colFormLabel"
-              className="col-sm-3 col-form-label mt-2 fw-bolder"
-            >
-              Discount:(%)
-            </label>
-            <input
-              type="number"
-              required
-              className="form-control mb-2"
-              value={discount}
-              placeholder="discount"
-              onChange={(e) => setDiscount(e.target.value)}
-            />
-            <label
-              htmlFor="formFile"
-              className="form-label col-sm-3 col-form-label fw-bolder"
-            >
-              Upload Image
-            </label>
-            <input
-              type="file"
-              required
-              onChange={(e) => setFile(e.target.files[0])}
-            ></input>
-            <br />
-            {"File Format must be an image file. Only JPG, PNG "}
-            <br />
-            <button type="submit" className="btn btn-primary">
-              Add Product
-            </button>
-          </form>
+              <label
+                htmlFor="colFormLabel"
+                className="col-sm-3 col-form-label mt-2 fw-bolder"
+              >
+                Rent_price:
+              </label>
+              <input
+                type="number"
+                required
+                className="form-control"
+                value={rent_price}
+                placeholder="rent_price"
+                onChange={(e) => setRent_price(e.target.value)}
+              />
+              <label
+                htmlFor="colFormLabel"
+                className="col-sm-3 col-form-label mt-2 fw-bolder"
+              >
+                Discount:(%)
+              </label>
+              <input
+                type="number"
+                required
+                className="form-control mb-2"
+                value={discount}
+                placeholder="discount"
+                onChange={(e) => setDiscount(e.target.value)}
+              />
+              <label
+                htmlFor="formFile"
+                className="form-label col-sm-3 col-form-label fw-bolder"
+              >
+                Upload Image
+              </label>
+              <input
+                type="file"
+                // required
+                onChange={(e) => setFile(e.target.files[0])}
+              ></input>
+              {/* <br />
+            <br /> */}
+              <button type="submit" className="btn btn-primary">
+                Add Product
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-    // </div>
+    </>
   );
 }
 

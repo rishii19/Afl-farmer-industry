@@ -15,7 +15,6 @@ const BuyMachines = () => {
         console.log(data)
         setFilter(data)
         setLoadiing(false)
-
     }, []);
 
     const handleAddToCart = (id, quantity = 1) => {

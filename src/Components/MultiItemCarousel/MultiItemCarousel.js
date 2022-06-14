@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./MultiItemCarousel.css";
-import {  MultiData } from "./MultiData";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
+import axios from "../../api/axios";
+import { useNavigate,Link } from "react-router-dom";
 
 const PreviousBtn = (props) => {
-  // console.log(props);
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
@@ -63,43 +63,60 @@ const carouselProperties = {
 };
 
 const MultiItemCarousel = () => {
-  return (
-    <div style={{ margin: 10}} className="carousel1">
-      <h1>Agriculture Machines</h1>
-      {/* <p>From More Powerfull To Less, Choose The Best With Us.</p> */}
-      <Slider {...carouselProperties}>
-        { MultiData.map((item) => (
-          <Card item={item} />
-        ))}
-      </Slider>
-    </div>
-  );
-};
 
-const Card = ({ item }) => {
+  const history = useNavigate();
+  const [multiData, setMultiData] = useState([]);
+
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
+    axios.get("/machines")
+      .then(response => {
+        console.log("Machines list", response.data);
+        setMultiData(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+  const handleAddToCart = () => {
+   history("/login")
+}
+
+
+
   return (
-    <div style={{ textAlign: "center" }}>
-      <img
-        className="multi__image"
-        src={item}
-        alt=""
-        style={{
-          width: "90%",
-          height: "300px",
-          objectFit: "contain",
-          marginBottom: "00px",
-        }}
-      />
-      {/* <p style={{ fontSize: "14px", padding: "5px 0" }}>TOP TRNDING TVs</p> */}
-      <p style={{ fontSize: "16px", padding: "2px 0", color: "green" }}>
-        From ₹ 705,000
-      </p>
-      <p style={{ fontSize: "14px", padding: "2px 0", color: "gray" }}>
-        Up To ₹ 5,000 Off on HDFC
-      </p>
-      <button>
-         More Details
-      </button>
+    <div className="carousel1">
+      <h1>Agriculture Machines</h1>
+      <Slider {...carouselProperties}>
+        {
+          multiData.map((item) => (
+            <div className="col-md-4 mb-4 mt-0" key={item.id}>
+              <div className="card h-50 text-center " 
+               style={{
+                textAlign: "center",
+                margin: 10,
+                // padding: "0 10px",
+                width: "90%",
+                boxShadow: "0 1px 6px 0 rgb(32 33 36 / 28%)",
+                borderRadius: 7,
+            }}>
+                <Link to={`/login`}>
+                  <img src={item.image} className="card-img-top" alt={item.name} height="200px" /></Link>
+                <div className="card-body">
+                  <Link to={"/login"} style={{ textDecoration: "none", color: "black" }}>
+                    <h5 className="card-title mb-0">{item.name.substring(0, 12)}</h5>
+                    <p className="card-text lead fw-bold mb-0">{item.sell_price}₹</p>
+                  </Link>
+                  <div className="btn btn-primary" onClick={() => { handleAddToCart() }} > Add to Cart</div>
+                </div>
+              </div>
+            </div>
+          ))}
+      </Slider>
     </div>
   );
 };

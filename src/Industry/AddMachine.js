@@ -14,6 +14,7 @@ function AddMachine() {
   const [length, setLength] = useState("");
   const [weight, setWeight] = useState("");
   const [discount, setDiscount] = useState("");
+  const [quantity, setQuantity] = useState(1);
   const [warranty, setWarrenty] = useState("");
   const [guarantee, setGuarantee] = useState("");
   const [for_sale, setFor_sale] = useState("false");
@@ -32,6 +33,7 @@ function AddMachine() {
         "length": length,
         "weight": weight
       }),
+      "quantity":quantity,
       "discount": discount,
       "warranty": warranty,
       "guarantee": guarantee,
@@ -77,6 +79,8 @@ function AddMachine() {
             }} />
             <label htmlFor="colFormLabel" className="col-sm-3 col-form-label mt-2 fw-bolder">Weight:</label>
             <input type="number" className='form-control' value={weight} placeholder='weight' onChange={(e) => setWeight(parseInt(e.target.value))} />
+            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label mt-2 fw-bolder">Quantity:</label>
+            <input type="number" className='form-control' value={quantity} placeholder='discount' onChange={(e) => setQuantity(e.target.value)} />
             <label htmlFor="colFormLabel" className="col-sm-3 col-form-label mt-2 fw-bolder">Discount:</label>
             <input type="number" className='form-control' value={discount} placeholder='discount' onChange={(e) => setDiscount(e.target.value)} />
             <label htmlFor="colFormLabel" className="col-sm-3 col-form-label mt-2 fw-bolder">Warranty:</label>
