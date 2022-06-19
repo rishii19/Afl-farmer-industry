@@ -44,7 +44,7 @@ const MachineRequest = () => {
         {
           filterdata.map((data, i) =>
             <div className="col-md-4 mb-4 mt-2 ">
-              <div className="card h-40 text-center py-3 px-2" style={{ "width": "18rem" }} key={i}>
+              <div className="card h-100 text-center" style={{ "width": "17rem" }} key={i}>
                 <img src={data.machine.image} className="card-img-top" alt={data.machine.name} height="200px" />
                 <div  className="card-body">
                   {/* <img src={data.machine.image} className="card-img-top" alt={data.machine.name} height="200px" /> */}

@@ -49,7 +49,7 @@ const ForSale = () => {
           return (
             <>
               <div className="col-md-4 mb-4 mt-3 ">
-                <div className="card h-100 text-center py-3" key={machines.id}>
+                <div className="card h-100 text-center " style={{ "width": "17rem" }} key={machines.id}>
                   <Link to={`/moredetails/${machines.id}`}>
                     <img src={machines.image} className="card-img-top" alt={machines.name} height="200px" /></Link>
                   <div  className="card-body">

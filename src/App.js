@@ -25,6 +25,8 @@ import Request from './Farmer/Request';
 import Settings from './Farmer/Settings'
 import AddNewMachine from './Farmer/AddNewMachine'
 import MyMachines from './Farmer/MyMachines'
+import EditMachine from './Farmer/EditMachine'
+import EditResidue from './Farmer/EditResidue'
 import MoreDetails from './Farmer/MoreDetails';
 import Layout from './Industry/Layout';
 import SideBar from './Farmer/SideBarFarmer';
@@ -71,6 +73,8 @@ function App() {
           <Route path="ordersuccessful" element={<SideBar children = {<OrderSuccessful/>} />}/>
           <Route path="changepassword" element={<SideBar children={<ChangePassword />} />}/>
           <Route path="requestfarmer" element={<SideBar children={<Request />} />} />
+          <Route path="updatemachine/:id" element={<SideBar children = {<EditMachine />} />}/> 
+          <Route path="editresidue/:id" element={<SideBar children = {<EditResidue />} />}/> 
           <Route path="moredetails/:id"  element={<SideBar children={<MoreDetails />} />} />
       </Routes>
     </Router>

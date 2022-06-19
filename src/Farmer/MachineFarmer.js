@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import Skeleton from 'react-loading-skeleton';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import axios from '../api/axios';
 
 const MachineFarmer = () => {
@@ -54,25 +54,26 @@ const MachineFarmer = () => {
             <>
                 <div className="container-fluid">
                     <div className="row justify-content-evenly">
-                        <div className="col-md-6 mt-3">
-                            <img src={machines.image} alt={machines.name} className="img-fluid" style={{height:400,width:400}} />
+                        <div className="col-md-4 mt-3">
+                            <img src={machines.image} alt={machines.name} className="img-fluid" style={{height:300,width:400}} />
                         </div>
-                        <div className="col-md-5">
+                        <div className="col-md-6">
                             <h1 className="display-5 font-bold mb-2">{machines.name}</h1> 
+                            <hr />
                             <p className="lead">{machines.description}</p>
                             <h2 className="display-6 my-4">
                                 Discount : {machines.discount}%
                             </h2>
+                            <hr />
                             <h1 className="display-6 fw-bold my-4">
                                 Price : {machines.rent_price}₹
-                            </h1>
-                            
+                            </h1>  
                             <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteMachine(machines.id)}>
                                 Delete
                             </button>
-                            {/* <NavLink to="/d" className="btn btn-dark ms-2 px-3 py-2">
-                                Edit
-                            </NavLink> */}
+                            <Link to={'/updatemachine/' + machines.id} className="btn btn-dark ms-2 px-3 py-2">
+                                Update
+                            </Link>
                         </div>
                     </div>
                 </div>

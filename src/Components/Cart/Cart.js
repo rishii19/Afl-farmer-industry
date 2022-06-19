@@ -10,10 +10,9 @@ const Cart = () => {
   const history = useNavigate();
   const [cartlist, setCartlist] = useState([]);
   // const [btn ,setBtn] = useState('disable')
-  
-  const totalPrice = cartlist.reduce((total, item) => total + (item.machine.sell_price * item.quantity), 0);
- 
 
+  const totalPrice = cartlist.reduce((total, item) => total + (item.machine.sell_price * item.quantity), 0);
+  const totalQuantity =cartlist.reduce((total,item)=> total + (item.quantity),0);
 
   const products = () => axios.get("cart")
     .then(res => {
@@ -37,7 +36,6 @@ const Cart = () => {
       })
     history('/ordersuccessful')
   }
-
 
 
   const handleAddToCart = (e, id, quantity) => {
@@ -90,14 +88,14 @@ const Cart = () => {
           </div>
         </div>
         <div className="d-grid d-md-flex justify-content-md-end">
+          {/* <span className="fs-1 fw-semibold text-right" style={{ fontWeight: 700, fontSize: 20 }}>Total Quantity: {totalQuantity}</span> */}
           <span className="fs-1 fw-semibold text-right" style={{ fontWeight: 700, fontSize: 20 }}>Total Price: {totalPrice}.00₹</span>
         </div>
         <hr />
         <div className="d-grid d-md-flex justify-content-md-end">
-          <button className="btn btn-outline-dark btn-lg fw-bold" id='btnsubmit' 
-            onClick={() => { checkout()}}>Checkout</button>
+          <button className="btn btn-outline-dark btn-lg fw-bold" id='btnsubmit' disabled={totalQuantity===0}
+            onClick={() => { checkout() }}>Checkout</button>
         </div>
-
       </div>
     </>
   )

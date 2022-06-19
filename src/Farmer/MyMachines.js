@@ -43,7 +43,7 @@ const RentMachines = () => {
           return (
             <>
               <div className="col-md-4 mb-4 mt-3 ">
-                <div className="card h-100 text-center py-4" key={machines.id}>
+                <div className="card h-100 text-center " style={{ "width": "17rem" }} key={machines.id}>
                   <Link to={`/machine/${machines.id}`} style={{textDecoration:"none",color:"black"}}>
                   <img
                     src={machines.image}

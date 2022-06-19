@@ -9,7 +9,7 @@ const ResidueDetails = () => {
 
   const fetchData = async () => {
 
-    axios.get("residues").then((response) => {
+    axios.get("residues/").then((response) => {
       // console.log("residues list", response.data);
       setResidue(response.data);
     });
@@ -25,7 +25,7 @@ const ResidueDetails = () => {
       fetchData();
     })
     navigate(`/residuedetails`);
-    
+
   }
   const ShowResidue = () => {
     return (
@@ -37,14 +37,16 @@ const ResidueDetails = () => {
               style={{ width: "18rem" }}
               key={i}
             >
-              <div  className="card-body">
-                <h5  className="card-title mb-0">{residue.type_of_residue}</h5>
-                <h6  className="card-title mb-0"> Quantity: {residue.quantity}</h6>
-                <p  className="card-text lead fw-bold">{residue.price}₹ </p>
+              <div className="card-body">
+                <h5 className="card-title mb-0">{residue.type_of_residue}</h5>
+                <h6 className="card-title mb-0"> Quantity: {residue.quantity}</h6>
+                <p className="card-text lead fw-bold">{residue.price}₹ </p>
                 <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteResidue(residue.id)}>
                   Delete
                 </button>
-                {/* <div  className="btn btn-primary" onClick={() => { createorder(residue.id) }}>Buy</div> */}
+                <Link to={'/editresidue/' + residues.id} className="btn btn-dark ms-2 px-3 py-2">
+                  Update
+                </Link>
               </div>
             </div>
           </div>
@@ -61,7 +63,7 @@ const ResidueDetails = () => {
           <div>
             <Link to="/sellresidue" style={{ textDecoration: 'none' }}>
               <button className="btn btn-outline-dark px-4 py-2 d-flex ms-auto p-1">
-              Add Residue
+                Add Residue
               </button>
             </Link>
           </div>

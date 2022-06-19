@@ -1,10 +1,6 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-scroll'
-import { MdExpandMore } from 'react-icons/md'
-// import { Button } from 'react-bootstrap';
-
-
 
 
 const Header = () => {

@@ -101,10 +101,14 @@ export default function SideBar({ children }) {
     const navigate = useNavigate()
     const location = useLocation()
     const history = useNavigate();
+    // const [cart, setCart] = useState([]);
     const [user, setUser] = useState([]);
+
+    // const totalQuantity =cart.reduce((total,item)=> total + (item.quantity),0);
 
     useEffect(() => {
         getuser();
+        // products();
     }, []);
 
     const getuser = () => {
@@ -116,19 +120,27 @@ export default function SideBar({ children }) {
             }).catch(error => console.error(error))
     }
 
+    // const products = () => axios.get("cart")
+    //     .then(res => {
+    //         setCart(res.data);
+    //     }).then(
+    // ).catch(e => {
+    //     console.log(e);
+    // });
+
     function logout() {
         localStorage.clear();
         history('/')
     }
-    function updateProfile(){
-     history('/profile')
+    function updateProfile() {
+        history('/profile')
     }
-    function changePassword(){
+    function changePassword() {
         history('/changepassword')
-       }
-       function orderHistory(){
+    }
+    function orderHistory() {
         history('/orderhistory')
-       }
+    }
 
     const menuItems = [
         {
@@ -176,15 +188,19 @@ export default function SideBar({ children }) {
                     <Typography className={classes.navtop}  >
                         <img className={classes.logo} src={AFL} alt="logo" />
                     </Typography>
-                    <Link to="/cart" style={{ width: "30px", textAlign: "right", marginLeft: "500px", color: "black" }}>
-                        {" "}
-                        <i
-                        > <ShoppingCartIcon /></i>
-                    </Link>
+                    <span>
+                        <Link to="/cart" style={{ width: "30px", textAlign: "right", marginLeft: "10%", color: "black" }}>
+                            <ShoppingCartIcon />
+                        </Link>
+                    </span>
+                    <span >
+                        <h4 style={{ color: "#172578" }}>1</h4>
+                    </span>
+
                     {localStorage.getItem('user') ?
                         <Nav >
                             <NavDropdown className={classes.user} style={{ color: "black" }} title={user.username}>
-                            <NavDropdown.Item onClick={orderHistory} >Order History</NavDropdown.Item>
+                                <NavDropdown.Item onClick={orderHistory} >Order History</NavDropdown.Item>
                                 <NavDropdown.Item onClick={updateProfile} >Update Profile</NavDropdown.Item>
                                 <NavDropdown.Item onClick={changePassword} >Change Password</NavDropdown.Item>
                                 <NavDropdown.Item onClick={logout} >Logout</NavDropdown.Item>
@@ -223,7 +239,7 @@ export default function SideBar({ children }) {
                         </ListItem>
                     ))}
                     <ListItem
-                        className={classes.active ? classes.hover:null}
+                        className={classes.active ? classes.hover : null}
                         button
                         onClick={() => logout()}
                     >
