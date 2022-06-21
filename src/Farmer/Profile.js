@@ -64,7 +64,7 @@ function Profile() {
         <div className="row">
           <div className="col mt-0">
             <div className="col-sm-8 offset-sm-2">
-              <h1 className='text-center border border-1   shadow p-4  mb-5 bg-body roundeds'
+              <h1 className='text-center border-bottom shadow-sm mb-4 p-1 bg-body rounded'
                 style={{ color: "#172578 " }}>Edit Profile
               </h1>
               <form onSubmit={profile}>

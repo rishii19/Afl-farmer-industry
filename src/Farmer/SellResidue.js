@@ -1,20 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import residueimg from '../Farmer/assets/residueimg.jpeg';
 import axios from '../api/axios';
 
 function SellResidue() {
   const history = useNavigate();
+  const [items, setItems] = useState([]);
   const [type_of_residue, setTypeofresidue] = useState([]);
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
 
   const formData = new FormData();
 
+  const fetchTypeOfResidues = () => {
+    axios.get("residues/type")
+      .then(response => {
+        console.log("residues type", response.data);
+        setItems(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      })
+
+  }
+
+
+  useEffect(() => {
+    fetchTypeOfResidues();
+  }, []);
+
+
   async function residues(e) {
     e.preventDefault();
     let formdata = {
-      type_of_residue: type_of_residue,
+      type_of_residue: items,
       price: price,
       quantity: quantity,
     };
@@ -27,7 +46,7 @@ function SellResidue() {
     await axios.post("residues/", formData);
     // console.log("data", data)
     history(`/residuedetails`)
-    
+
   }
 
   return (
@@ -42,24 +61,37 @@ function SellResidue() {
           >
             <h2
               className="text-center fw-bolder"
-              style={{letterSpacing:2}}
+              style={{ letterSpacing: 2 }}
             >
               SELL RESIDUE
             </h2>
             <form onSubmit={residues} style={{ padding: "30" }}>
               <label htmlFor="colFormLabel" className="col-3 mt-1 fw-bolder">
-              Residue Type
+                Residue Type
               </label>
-              <input
+              <select class="form-select" aria-label="Default select example" onChange={(e) => setTypeofresidue(e.target.value)}>
+                <option selected disabled>Select Residue Type</option>
+                {
+                  items.map((data) =>
+                  (
+                    <option
+                      key={data.id}
+                      value={type_of_residue}
+                    >{data}
+                    </option>
+                  ))
+                }
+              </select>
+              {/* <input
                 type="text"
                 required
                 className="form-control"
                 value={type_of_residue}
                 placeholder="Type of Residue"
                 onChange={(e) => setTypeofresidue(e.target.value)}
-              />
+              /> */}
               <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">
-              Quantity:(Kg)
+                Quantity:(Kg)
               </label>
               <input
                 type="number"

@@ -33,6 +33,7 @@ import SideBar from './Farmer/SideBarFarmer';
 import ResidueOrderSuccess from './Industry/ResidueOrderSuccess';
 import PageNotFound from './Pages/PageNotFound';
 import OrderHistory from './Components/Cart/OrderHistory';
+import Protected from './Containers/Protected';
 
 function App() {
   return (
@@ -44,38 +45,38 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/industry" element={<Login />} />
-        <Route path='homepagei' element={<Layout children={<HomepageI/>}/>} />
-        <Route path="machinelist" element={<Layout children={<MachineList />}/>}  />
-        <Route path="machines/:id" element= {<Layout children={<Machine />}/>} />
-        <Route path="addmachine" element= {<Layout children={<AddMachine />}/>} />
-        <Route path="connections" element= {<Layout children={<Connection/>}/>} />
-        <Route path="settingsI" element= {<Layout children={<SettingsI/>}/>} />
-        <Route path="profileI" element= {<Layout children={<ProfileI/>}/>} />
-        <Route path="changepasswordi" element= {<Layout children={<ChangePasswordI/>}/>} />
-        <Route path="requestpage" element={<Layout children = {<RequestPage title="Requests" />}/>} />
-        <Route path="residues" element={<Layout children = {<Residue title="Residue" />}/>}  />
-        <Route path="update/:id" element={<Layout children = {<Update />} />}/> 
-        <Route path="residueordersuccess" element={<Layout children = {<ResidueOrderSuccess/>} />}/>
+        <Route path='homepagei' element={<Layout children={<Protected Cmp ={HomepageI}/>}/>} />
+        <Route path="machinelist" element={<Layout children={<Protected Cmp ={MachineList}/>}/>}  />
+        <Route path="machines/:id" element= {<Layout children={<Protected Cmp ={Machine}/>}/>} />
+        <Route path="addmachine" element= {<Layout children={<Protected Cmp ={AddMachine}/>}/>} />
+        <Route path="connections" element= {<Layout children={<Protected Cmp ={Connection}/>}/>} />
+        <Route path="settingsI" element= {<Layout children={<Protected Cmp ={Settings}/>}/>} />
+        <Route path="profileI" element= {<Layout children={<Protected Cmp ={ProfileI}/>}/>} />
+        <Route path="changepasswordi" element= {<Layout children={<Protected Cmp ={ChangePasswordI}/>}/>} />
+        <Route path="requestpage" element={<Layout children = {<Protected Cmp={RequestPage}/>}/>} />
+        <Route path="residues" element={<Layout children = {<Protected Cmp={Residue}/>}/>}  />
+        <Route path="update/:id" element={<Layout children = {<Protected Cmp={Update}/>} />}/> 
+        <Route path="residueordersuccess" element={<Layout children = {<Protected Cmp={ResidueOrderSuccess}/>} />}/>
 
        
         {/* Farmer */}
-        <Route path="homepagefarmer" element={<SideBar children={<HomepageFarmer />} />} />
-          <Route path="residuedetails" element={<SideBar children={<ResidueDetails />} />} />    
-          <Route path="sellresidue" element={<SideBar children={<SellResidue/>} />} />
-          <Route path="cart" element={<SideBar children={<Cart />} />} />
-          <Route path="connection" element={<SideBar children={<Connections />} />} />
-          <Route path="machine/:id" element={<SideBar children={<MachineFarmer />} />} />
-          <Route path="profile"element={<SideBar children={<Profile/>} />} />
-          <Route path="addnewmachine" element={<SideBar children={<AddNewMachine />} />} />
-          <Route path="mymachines"  element={<SideBar children={<MyMachines/>} />} />
-          <Route path="settings" element={<SideBar children={<Settings />} />}/>
-          <Route path="Orderhistory" element={<SideBar children={<OrderHistory />} />}/>
-          <Route path="ordersuccessful" element={<SideBar children = {<OrderSuccessful/>} />}/>
-          <Route path="changepassword" element={<SideBar children={<ChangePassword />} />}/>
-          <Route path="requestfarmer" element={<SideBar children={<Request />} />} />
-          <Route path="updatemachine/:id" element={<SideBar children = {<EditMachine />} />}/> 
-          <Route path="editresidue/:id" element={<SideBar children = {<EditResidue />} />}/> 
-          <Route path="moredetails/:id"  element={<SideBar children={<MoreDetails />} />} />
+        <Route path="homepagefarmer" element={<SideBar children={<Protected Cmp={HomepageFarmer}/>} />} />
+          <Route path="residuedetails" element={<SideBar children={<Protected Cmp={ResidueDetails}/>} />} />    
+          <Route path="sellresidue" element={<SideBar children={<Protected Cmp={SellResidue}/>} />} />
+          <Route path="cart" element={<SideBar children={<Protected Cmp={Cart}/>} />} />
+          <Route path="connection" element={<SideBar children={<Protected Cmp={Connections}/>} />} />
+          <Route path="machine/:id" element={<SideBar children={<Protected Cmp={ MachineFarmer}/>} />} />
+          <Route path="profile"element={<SideBar children={<Protected Cmp={Profile}/>} />} />
+          <Route path="addnewmachine" element={<SideBar children={<Protected Cmp={AddNewMachine}/>} />} />
+          <Route path="mymachines"  element={<SideBar children={<Protected Cmp={MyMachines}/>} />} />
+          <Route path="settings" element={<SideBar children={<Protected Cmp={Settings}/>} />}/>
+          <Route path="Orderhistory" element={<SideBar children={<Protected Cmp={OrderHistory}/>} />}/>
+          <Route path="ordersuccessful" element={<SideBar children = {<Protected Cmp={OrderSuccessful}/>} />}/>
+          <Route path="changepassword" element={<SideBar children={<Protected Cmp={ChangePassword}/>} />}/>
+          <Route path="requestfarmer" element={<SideBar children={<Protected Cmp={Request}/>} />} />
+          <Route path="updatemachine/:id" element={<SideBar children = {<Protected Cmp={EditMachine}/>} />}/> 
+          <Route path="editresidue/:id" element={<SideBar children = {<Protected Cmp={EditResidue}/>} />}/> 
+          <Route path="moredetails/:id"  element={<SideBar children={<Protected Cmp={MoreDetails}/>} />} />
       </Routes>
     </Router>
   );

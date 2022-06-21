@@ -4,7 +4,6 @@ import { AiFillDelete } from "react-icons/ai";
 
 
 const CartItem = ({ item, onSubmit, onDelete }) => {
-
   const [quantity, setQuantity] = useState(item.quantity);
 
   return (

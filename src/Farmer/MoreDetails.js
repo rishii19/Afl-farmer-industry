@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom'
+import { BiArrowBack } from "react-icons/bi"
 import Skeleton from 'react-loading-skeleton';
 import axios from '../api/axios';
 
@@ -10,7 +12,7 @@ const MoreDetailsIndustryList = () => {
 
     const getProduct = async () => {
         setLoading(true);
-        const {data} = await axios.get(`/machines/${id}`);
+        const { data } = await axios.get(`/machines/${id}`);
         console.log(data);
         setMachines(data);
         setLoading(false);
@@ -37,7 +39,7 @@ const MoreDetailsIndustryList = () => {
     //     })
     //     navigate(`/rentmachines`);
     // }
-    
+
     const Loading = () => {
         return (
             <>
@@ -62,10 +64,10 @@ const MoreDetailsIndustryList = () => {
             <>
                 <div className="container-fluid">
                     <div className="row justify-content-evenly">
-                        <div className="col-md-6 mt-3">
-                            <img src={machines.image} alt={machines.name} className="img-fluid" style={{height:400,width:400}} />
+                        <div className="col-md-5 mt-3">
+                            <img src={machines.image} alt={machines.name} className="img-fluid" style={{ height: 400, width: 400 }} />
                         </div>
-                        <div className="col-md-5">
+                        <div className="col-md-6">
                             <h1 className="display-5 font-bold mb-2">{machines.name}</h1>
                             <hr />
                             <p className="lead fw-bold">
@@ -83,10 +85,11 @@ const MoreDetailsIndustryList = () => {
                             <h3 className="display-10 fw-bold my-2 mb-0">
                                 Discount : {machines.discount}%
                             </h3>
-                            <h3 className="display-6 fw-bold my-2" style={{color:"#172578"}}>
+                            <h3 className="display-6 fw-bold my-2" style={{ color: "#172578" }}>
                                 Price : {machines.sell_price}₹
                             </h3>
-                            <div class="btn btn-primary" style={{width:170}} onClick={() => { handleAddToCart(machines.id) }}> Add to Cart</div>
+                            <p className="card-text" style={{color:"red"}}>hurry: only {machines.quantity} remaining </p>
+                            <div class="btn btn-primary" style={{ width: 170 }} onClick={() => { handleAddToCart(machines.id) }}> Add to Cart</div>
                         </div>
                     </div>
                 </div>
@@ -96,9 +99,14 @@ const MoreDetailsIndustryList = () => {
     }
     return (
         <div>
-            <div className="container py-5 ">
+            <div>
+                <Link to="/homepagefarmer" style={{ textDecoration: "none",  color: "black" }}>
+                    <p style={{fontSize:"20px"}}><BiArrowBack />Continue Shopping</p>
+                </Link>
+            </div>
+            <div className="container py-2 ">
                 <div className="row py-4 justify-content-evenly" >
-                        {loading ? <Loading /> : <ShowProduct />}
+                    {loading ? <Loading /> : <ShowProduct />}
                 </div>
             </div>
         </div>

@@ -42,11 +42,11 @@ function changePassword() {
           <p style={{ fontSize: 20 }}><BiArrowBack />Settings</p>
         </Link>
       </div> */}
-      <div className="container">
-        <div className="row py-4 justify-content-evenly" >
-          <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-5 bg-body roundeds' style={{ color: "#172578 " }}>Change Password
+      <div className="container-fluid">
+        <div className="row justify-content-evenly" >
+          <h1 className='text-center border-bottom shadow-sm mb-4 bg-body rounded' style={{ color: "#172578 " }}>Change Password
           </h1>
-          <div className="row justify-content-center ">{<ShowChangePassword />}</div>
+          <div className="row justify-content-center">{<ShowChangePassword />}</div>
         </div>
       </div>
     </>

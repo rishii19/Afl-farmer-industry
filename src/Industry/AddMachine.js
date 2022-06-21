@@ -56,13 +56,13 @@ function AddMachine() {
   return (
     <>
       <div>
-        <Link to="/machinelist" style={{ textDecoration: "none", color: "black" }}>
+        <Link to="/machinelist" style={{ textDecoration: "none", color: "black" ,fontSize:"20px"}}>
           <p><BiArrowBack />Machine List</p>
         </Link>
       </div>
       <div className="container">
-        <div className="row py-4 justify-content-evenly" >
-          <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-5 bg-body roundeds' style={{ marginTop: 100, color: "#172578 " }}>Add New Machine Details</h1>
+        <div className="row justify-content-evenly" >
+          <h1 className='text-center border-bottom shadow-sm mb-4 p-1 bg-body rounded' style={{color: "#172578 " }}>Add New Machine Details</h1>
           <div className="row justify-content-center"><form onSubmit={addmachine}>
             <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">Name:</label>
             <input type="text" className='form-control' value={name} placeholder='name' onChange={(e) => setName(e.target.value)} />

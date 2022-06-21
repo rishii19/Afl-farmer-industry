@@ -61,6 +61,8 @@ const BuyMachines = () => {
                                         <Link to={`/moredetails/${machines.id}`} style={{ textDecoration: "none", color: "black" }}>
                                             <h5 className="card-title mb-0">{machines.name.substring(0, 12)}</h5>
                                             <p className="card-text lead fw-bold mb-0">{machines.sell_price}₹</p>
+                                            <p className="card-text mb-0" style={{ color: "red" }}>hurry: only {machines.quantity} remaining </p>
+
                                             <p className="card-text ">{machines.description.substring(0, 20)}...</p>
                                         </Link>
                                         <div className="btn btn-primary" onClick={() => { handleAddToCart(machines.id) }} > Add to Cart</div>

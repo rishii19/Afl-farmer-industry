@@ -44,9 +44,10 @@ const ResidueDetails = () => {
                 <button className="btn btn-outline-dark px-4 py-2" onClick={() => deleteResidue(residue.id)}>
                   Delete
                 </button>
-                <Link to={'/editresidue/' + residues.id} className="btn btn-dark ms-2 px-3 py-2">
+                <Link to={'/editresidue/' + residue.id} className="btn btn-dark ms-2 px-3 py-2">
                   Update
                 </Link>
+
               </div>
             </div>
           </div>
@@ -57,17 +58,17 @@ const ResidueDetails = () => {
   return (
     <>
       <div className="container">
-        <div className="row py-4 justify-content-evenly" >
-          <h1 className='text-center border border-1 py-4  shadow p-4 mt-3 mb-3 bg-body roundeds' style={{ marginTop: 100, color: "#172578 " }}>Residues
+        <div className="row justify-content-evenly" >
+          <h1 className='text-center border-bottom shadow-sm mb-3 p-1 bg-body rounded' style={{  color: "#172578 " }}>Residues
           </h1>
           <div>
             <Link to="/sellresidue" style={{ textDecoration: 'none' }}>
-              <button className="btn btn-outline-dark px-4 py-2 d-flex ms-auto p-1">
+              <button className="btn btn-outline-dark px-3 py-1 d-flex ms-auto ">
                 Add Residue
               </button>
             </Link>
           </div>
-          <div className="row justify-content-center mt-2">{<ShowResidue />}</div>
+          <div className="row justify-content-center mt-1">{<ShowResidue />}</div>
         </div>
       </div>
     </>

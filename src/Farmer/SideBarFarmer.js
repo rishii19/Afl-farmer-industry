@@ -67,8 +67,8 @@ const useStyles = makeStyles((theme) => {
         },
         appBar: {
             width: `calc(100% - ${drawerWidth}px)`,
-            marginLeft: drawerWidth,
-            background: '#8792ae',
+            // marginLeft: drawerWidth,
+            background: '#d2e1e6',
             height: 60
         },
         logo: {
@@ -101,14 +101,14 @@ export default function SideBar({ children }) {
     const navigate = useNavigate()
     const location = useLocation()
     const history = useNavigate();
-    // const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState([]);
     const [user, setUser] = useState([]);
 
-    // const totalQuantity =cart.reduce((total,item)=> total + (item.quantity),0);
+    const totalQuantity =cart.reduce((total,item)=> total + (item.quantity),0);
 
     useEffect(() => {
         getuser();
-        // products();
+        products();
     }, []);
 
     const getuser = () => {
@@ -120,13 +120,13 @@ export default function SideBar({ children }) {
             }).catch(error => console.error(error))
     }
 
-    // const products = () => axios.get("cart")
-    //     .then(res => {
-    //         setCart(res.data);
-    //     }).then(
-    // ).catch(e => {
-    //     console.log(e);
-    // });
+    const products = () => axios.get("cart")
+        .then(res => {
+            setCart(res.data);
+        }).then(
+    ).catch(e => {
+        console.log(e);
+    });
 
     function logout() {
         localStorage.clear();
@@ -194,9 +194,8 @@ export default function SideBar({ children }) {
                         </Link>
                     </span>
                     <span >
-                        <h4 style={{ color: "#172578" }}>1</h4>
+                        <h4 style={{ color: "#172578" }}>{totalQuantity}</h4>
                     </span>
-
                     {localStorage.getItem('user') ?
                         <Nav >
                             <NavDropdown className={classes.user} style={{ color: "black" }} title={user.username}>

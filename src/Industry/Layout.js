@@ -68,7 +68,8 @@ const useStyles = makeStyles((theme) => {
         appBar: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
-            background: '#dcdcdc',
+            background: '#d2e1e6',
+            // #b8cfec
             height: 60
         },
         logo: {

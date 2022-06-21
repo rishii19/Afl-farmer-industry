@@ -17,6 +17,7 @@ const Cart = () => {
   const products = () => axios.get("cart")
     .then(res => {
       setCartlist(res.data);
+      console.log('set');
     }).then(
   ).catch(e => {
     console.log(e);
@@ -37,10 +38,9 @@ const Cart = () => {
     history('/ordersuccessful')
   }
 
-
-  const handleAddToCart = (e, id, quantity) => {
+  const handleAddToCart = async (e, id, quantity) => {
     e.preventDefault()
-    axios.put(`/cart-items/${id}`, {
+    await axios.put(`/cart-items/${id}`, {
       quantity
     })
     products();
@@ -57,11 +57,12 @@ const Cart = () => {
 
   }
 
-  const ShowCartItems = () => {
+  const ShowCartItems = ({items}) => {
+    console.log(items, typeof items);
     return (
       <>
         {
-          cartlist.map((data) => (
+          items.map((data) => (
             <CartItem item={data} onSubmit={handleAddToCart}
               onDelete={removeItem} />
           )
@@ -84,7 +85,7 @@ const Cart = () => {
       <div className="container">
         <div className="row py-4 justify-content-evenly" >
           <div className="row justify-content-center">
-            {<ShowCartItems />}
+            <ShowCartItems items={cartlist} />
           </div>
         </div>
         <div className="d-grid d-md-flex justify-content-md-end">

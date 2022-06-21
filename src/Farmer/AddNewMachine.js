@@ -42,7 +42,7 @@ function AddNewMachine() {
           </div>
           <div className="col-md-8 col-sm-12">
             {/* <div className="col-sm-8 offset-sm-2" style={{ margintop: 100 }}> */}
-            <h1 className="py-2 text-align-center">Upload Your Machine Details</h1>
+            <h1 className="py-2 text-center border-bottom shadow-sm mb-4 p-1 bg-body rounded" style={{color:"#172578"}}>Upload Your Machine Details</h1>
             <form onSubmit={addmachine}>
               <label htmlFor="colFormLabel" className="col-1 mt-1 fw-bolder">
                 Name:

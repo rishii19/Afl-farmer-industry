@@ -49,8 +49,7 @@ function EditResidue() {
       <div className="container-fluid mt-5" style={{ height: "100%" }}>
         <div className="row justify-content-evenly">
         <h1
-            className="text-center border border-3 py-4  shadow p-4 mt-3 mb-3 bg-body roundeds"
-            style={{ marginTop: 100, color: "#172578 " }}
+            className="text-center border-bottom shadow-sm mb-4 p-1 bg-body rounded" style={{ color: "#172578 " }}
           >
             Edit Residue
             

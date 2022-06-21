@@ -35,7 +35,7 @@ const MachineRequest = () => {
   const ShowOrders = () => {
     return (
       <>
-        <div className="buttons d-flex justify-content-center mb-1 mt-3 pb-5">
+        <div className="buttons d-flex justify-content-center mb-1 mt-1 pb-5">
           {/* <button type="button"  className="btn btn-outline-dark me-2" onClick={() => setFilter("All")}>All</button> */}
           <button type="button"  className="btn btn-outline-dark me-2" onClick={() => setFilter("pending")}>Pending</button>
           <button type="button"  className="btn btn-outline-dark me-2" onClick={() => setFilter("accepted")}>Accepted</button>
@@ -56,8 +56,8 @@ const MachineRequest = () => {
                   <h6  className="card-title"> Quantity:{data.quantity}</h6>
                   {data.status === "pending" &&
                     <>
-                      <div  className="btn  btn-outline-dark px-3 mt-1" onClick={() => { acceptOrReject(data.id, "accepted") }}>Accept</div>
-                      <div  className="btn  btn-outline-dark px-3 mt-1" style={{ marginLeft: 10 }} onClick={() => { acceptOrReject(data.id, "rejected") }}>Reject</div>
+                      <div  className="btn btn-outline-dark px-3 mt-1" onClick={() => { acceptOrReject(data.id, "accepted") }}>Accept</div>
+                      <div  className="btn btn-outline-dark px-3 mt-1" style={{ marginLeft: 10 }} onClick={() => { acceptOrReject(data.id, "rejected") }}>Reject</div>
                     </>
                   }
                 </div>
