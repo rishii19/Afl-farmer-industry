@@ -7,24 +7,46 @@ const ForSale = () => {
 
   const [filter, setFilter] = useState([]);
   const [loading, setLoadiing] = useState(false);
+  const [cartlist, setCartlist] = useState([]);
 
-  useEffect(async () => {
-    setLoadiing(true);
-    const { data } = await axios.get("machines/?for_sale=true");
-    setFilter(data);
-    setLoadiing(false);
-  }, []);
+    useEffect(async () => {
+        setLoadiing(true);
+        const { data } = await axios.get("machines/")
+        console.log(data)
+        setFilter(data)
+        setLoadiing(false)
+    }, []);
 
-  const handleAddToCart = (id) =>{
-    axios.post("cart/",{
-        items:[{
-            machine:id
-        }]
-    })
-    alert('Item Added To the Cart')
-    console.log(id);
-}
+    const products = () => axios.get("cart")
+        .then(res => {
+            setCartlist(res.data);
+            console.log('set');
+        }).then(
+    ).catch(e => {
+        console.log(e);
+    });
 
+    useEffect(() => {
+        products();
+    }, []);
+
+    const handleAddToCart = async (id, quantity = 1) => {
+        await products();
+
+        var item = cartlist.find(item => item.machine.id === id)
+        var machine = filter.find(machine => machine.id === id)
+
+        if (!item || (item.quantity < machine.quantity)) {
+            axios.post("cart/", {
+                items: [{
+                    machine: id,
+                    quantity
+                }]
+            })
+            alert('Item Added To the Cart')
+        }
+        else alert('Item cant be Added To the Cart')
+    }
   const Loading = () => {
     return (
       <>

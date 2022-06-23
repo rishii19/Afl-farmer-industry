@@ -33,7 +33,7 @@ function SellResidue() {
   async function residues(e) {
     e.preventDefault();
     let formdata = {
-      type_of_residue: items,
+      type_of_residue:type_of_residue,
       price: price,
       quantity: quantity,
     };
@@ -73,13 +73,12 @@ function SellResidue() {
                 <option selected disabled>Select Residue Type</option>
                 {
                   items.map((data) =>
-                  (
-                    <option
-                      key={data.id}
-                      value={type_of_residue}
-                    >{data}
+                      <option
+                      key={data}
+                      value={data}
+                      >{data}
                     </option>
-                  ))
+                  )
                 }
               </select>
               {/* <input

@@ -17,7 +17,6 @@ const Cart = () => {
   const products = () => axios.get("cart")
     .then(res => {
       setCartlist(res.data);
-      console.log('set');
     }).then(
   ).catch(e => {
     console.log(e);

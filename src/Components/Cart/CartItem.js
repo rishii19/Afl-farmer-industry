@@ -31,6 +31,8 @@ const CartItem = ({ item, onSubmit, onDelete }) => {
                     <label >
                       <input type="number" className="form-control" value={quantity}
                         placeholder="Quantity"
+                        min={1}
+                        max={item.quantity}
                         onChange={(e) => setQuantity(parseInt(e.target.value))}
                       />
                     </label>

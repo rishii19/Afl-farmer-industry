@@ -83,7 +83,7 @@ const SpecialOffers = () => {
                                         <div className="card-body">
                                             <Link to={"/login"} style={{ textDecoration: "none", color: "black" }}>
                                                 <h5 className="card-title mb-0">{item.name.substring(0, 12)}</h5>
-                                                <h6 className="card-title mb-0">{item.discount}%</h6>
+                                                <h6 className="card-title mb-0">{item.discount}%off</h6>
                                                 <h3 className="card-text lead fw-bold mb-0">{item.sell_price}₹</h3>
                                             </Link>
                                             <div className="btn btn-primary" onClick={() => { handleAddToCart() }} > Add to Cart</div>
